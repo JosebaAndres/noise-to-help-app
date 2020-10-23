@@ -1,9 +1,12 @@
+@import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+
 .app-view {
-  padding: 20px 10px;
+  padding: $vertica-margin $horizontal-margin;
 }
 
-@media (max-width: 599px) {
+@media (max-width: $angular-material-breaking-size) {
   .app-view {
-    padding: 5px 5px;
+    padding: $vertica-margin-s $horizontal-margin-s;
   }
 }

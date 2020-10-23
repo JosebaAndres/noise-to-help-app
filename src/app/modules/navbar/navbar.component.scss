@@ -1,3 +1,5 @@
+@import '../../../assets/scss/settings/breaking-sizes.scss';
+
 .app-navbar__title {
   display: flex;
   align-items: center;
@@ -6,11 +8,12 @@
 .app-navbar__title-img {
   height: 60px;
   width: 60px;
+  object-fit: contain;
   margin-right: 10px;
   display: block;
 }
 
-@media (max-width: 599px) {
+@media (max-width: $angular-material-breaking-size) {
   .app-navbar__title-img {
     height: 50px;
     width: 50px;

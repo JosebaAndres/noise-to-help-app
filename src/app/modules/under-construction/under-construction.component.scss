@@ -1,0 +1,10 @@
+.app-under-construction {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-under-construction__img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
