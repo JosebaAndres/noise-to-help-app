@@ -1,0 +1,18 @@
+.app-navbar__title {
+  display: flex;
+  align-items: center;
+}
+
+.app-navbar__title-img {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+  display: block;
+}
+
+@media (max-width: 599px) {
+  .app-navbar__title-img {
+    height: 50px;
+    width: 50px;
+  }
+}

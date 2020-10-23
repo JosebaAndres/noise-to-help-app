@@ -1,0 +1,9 @@
+.app-view {
+  padding: 20px 10px;
+}
+
+@media (max-width: 599px) {
+  .app-view {
+    padding: 5px 5px;
+  }
+}
