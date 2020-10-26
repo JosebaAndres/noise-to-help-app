@@ -1,11 +1,11 @@
 .app-under-construction {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+  height: 200px;
+  width: 200px;
 }
 
 .app-under-construction__img {
   object-fit: contain;
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 100%;
+  max-height: 100%;
 }
