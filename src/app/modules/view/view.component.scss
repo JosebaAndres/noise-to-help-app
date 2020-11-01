@@ -2,11 +2,11 @@
 @import '../../../assets/scss/settings/margins.scss';
 
 .app-view {
-  padding: $vertica-margin $horizontal-margin;
+  padding: $vertica-margin-l $horizontal-margin-l;
 }
 
 @media (max-width: $angular-material-breaking-size) {
   .app-view {
-    padding: $vertica-margin-s $horizontal-margin-s;
+    padding: $vertica-margin-m $horizontal-margin-m;
   }
 }

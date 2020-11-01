@@ -1,15 +1,18 @@
 @import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/colors.scss';
+@import '../../../assets/scss/settings/margins.scss';
 
 .app-navbar__title {
   display: flex;
   align-items: center;
+  color: $primary-color-contrast;
 }
 
 .app-navbar__title-img {
   height: 60px;
   width: 60px;
   object-fit: contain;
-  margin-right: 10px;
+  margin-right: $horizontal-margin-s;
   display: block;
 }
 
@@ -18,4 +21,18 @@
     height: 50px;
     width: 50px;
   }
+}
+
+.app-navbar__separator {
+  width: 100%;
+}
+
+.app-navbar__facebook {
+  padding-left: $horizontal-margin-s;
+  color: $primary-color-contrast;
+}
+
+.app-navbar__instagram {
+  padding-left: $horizontal-margin-s;
+  color: $primary-color-contrast;
 }
