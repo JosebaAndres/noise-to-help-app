@@ -12,9 +12,14 @@ export class CustomIconsModule {
   }
 
   private addSvgIcons(): void {
+    const svgsPath = '../assets/svgs/';
     this.matIconRegistry.addSvgIcon(
       'instagram',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/svgs/instagram.svg'),
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}instagram.svg`),
+    );
+    this.matIconRegistry.addSvgIcon(
+      'facebook',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}facebook.svg`),
     );
   }
 }

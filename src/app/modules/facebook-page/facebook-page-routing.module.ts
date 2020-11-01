@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './main.component';
+import { FacebookPageComponent } from './facebook-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    component: FacebookPageComponent,
   },
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainRoutingModule {}
+export class FacebookPageRoutingModule {}
