@@ -9,22 +9,23 @@
 @include mat-core();
 
 $app-primary-palette: (
-  main: $primary-color,
-  lighter: $primary-lighter-color,
-  darker: $primary-darker-color,
+  100: $primary-100-color,
+  300: $primary-300-color,
+  500: $primary-500-color,
+  700: $primary-700-color,
   // For slide toggle,
   contrast:
     (
-      main: $light-primary-text,
-      lighter: $dark-primary-text,
-      darker: $light-primary-text,
+      100: $dark-primary-text,
+      500: $light-primary-text,
+      700: $light-primary-text,
     ),
 );
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$app-primary: mat-palette($app-primary-palette, main, lighter, darker);
+$app-primary: mat-palette($app-primary-palette);
 $app-accent: mat-palette($mat-pink);
 
 // The warn palette is optional (defaults to red).

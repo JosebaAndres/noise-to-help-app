@@ -1,9 +1,18 @@
 <mat-toolbar color="primary">
-  <a class="app-navbar__title" routerLink="/main">
-    <img src="assets/images/navbar-logo.png" class="app-navbar__title-img" />
-    <div class="app-navbar__title-text">Noise to help</div>
+  <a class="app-navbar__link-item app-navbar__link-item--firs" routerLink="/main">
+    <div class="app-navbar__title">
+      <img src="assets/images/navbar-logo.png" class="app-navbar__title-img" />
+      <span>Noise to help</span>
+    </div>
   </a>
-  <div class="app-navbar__separator"></div>
-  <a class="app-navbar__facebook" routerLink="/facebook"><mat-icon svgIcon="facebook"></mat-icon></a>
-  <a class="app-navbar__instagram" routerLink="/instagram"><mat-icon svgIcon="instagram"></mat-icon></a>
+  <div class="app-navbar__menu-item">
+    <a class="app-navbar__link-item app-navbar__link-item--button" routerLink="/about-us"><span>Quienes somos</span></a>
+    <a class="app-navbar__link-item app-navbar__link-item--button" routerLink="/events"><span>Eventos</span></a>
+    <a class="app-navbar__link-item app-navbar__link-item--button" routerLink="/contact"><span>Contacto</span></a>
+  </div>
+  <div class="app-navbar__separator-item"></div>
+  <a class="app-navbar__link-item" routerLink="/facebook"><mat-icon svgIcon="facebook"></mat-icon></a>
+  <a class="app-navbar__link-item app-navbar__link-item--last" routerLink="/instagram"
+    ><mat-icon svgIcon="instagram"></mat-icon
+  ></a>
 </mat-toolbar>
