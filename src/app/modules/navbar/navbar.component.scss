@@ -34,7 +34,7 @@
   display: block;
 }
 
-@media (max-width: $angular-material-breaking-size) {
+@media (max-width: $xs-max-size) {
   .app-navbar__title-img {
     height: 50px;
     width: 50px;

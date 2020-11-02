@@ -5,7 +5,7 @@
   padding: $vertica-margin-l $horizontal-margin-l;
 }
 
-@media (max-width: $angular-material-breaking-size) {
+@media (max-width: $xs-max-size) {
   .app-view {
     padding: $vertica-margin-m $horizontal-margin-m;
   }
