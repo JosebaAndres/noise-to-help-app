@@ -1,5 +1,9 @@
-import { ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { UiStoreState } from './stores/ui/ui-store-state';
+import { uiStoreSelectMenuOpened } from './stores/ui/ui-store-selectors';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +11,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  menuOpened$: Observable<boolean>;
+
+  constructor(private uiStore$: Store<UiStoreState>) {}
+
+  ngOnInit(): void {
+    this.menuOpened$ = this.uiStore$.select(uiStoreSelectMenuOpened);
+  }
 }
