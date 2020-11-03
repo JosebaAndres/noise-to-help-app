@@ -1,4 +1,9 @@
+html {
+  height: 100%;
+}
+
 body {
-  background: $background-color;
+  height: 100%;
+  background: $background-500-color;
   color: $background-color-contrast;
 }

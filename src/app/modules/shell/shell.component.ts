@@ -1,7 +1,9 @@
-import { ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { UiStoreActionCloseMenu, UiStoreActionOpenMenu } from '../../stores/ui/ui-store-actions';
 import { uiStoreSelectMenuOpened } from '../../stores/ui/ui-store-selectors';
 import { UiStoreState } from '../../stores/ui/ui-store-state';
 
@@ -11,12 +13,38 @@ import { UiStoreState } from '../../stores/ui/ui-store-state';
   styleUrls: ['./shell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ShellComponent implements OnInit {
-  menuOpened$: Observable<boolean>;
+export class ShellComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<any>();
 
-  constructor(private uiStore$: Store<UiStoreState>) {}
+  sidenavOpened = false;
+
+  constructor(private uiStore$: Store<UiStoreState>, private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.menuOpened$ = this.uiStore$.select(uiStoreSelectMenuOpened);
+    this.uiStore$
+      .select(uiStoreSelectMenuOpened)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((value) => {
+        if (this.sidenavOpened !== value) {
+          this.sidenavOpened = value;
+          this.changeDetectorRef.markForCheck();
+        }
+      });
+  }
+
+  onSidenavOpenedChange(value): void {
+    if (value) {
+      this.uiStore$.dispatch(new UiStoreActionOpenMenu());
+    } else {
+      this.uiStore$.dispatch(new UiStoreActionCloseMenu());
+    }
+  }
+
+  linkClicked(): void {
+    this.uiStore$.dispatch(new UiStoreActionCloseMenu());
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next({});
   }
 }

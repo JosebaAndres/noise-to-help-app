@@ -4,7 +4,6 @@
 
 .app-navbar__link-item,
 .app-navbar__title-item {
-  color: $primary-color-contrast;
   padding-left: $horizontal-margin-s;
   padding-right: $horizontal-margin-s;
   &--firs {
@@ -12,12 +11,6 @@
   }
   &--last {
     padding-right: 0;
-  }
-  &--button:hover {
-    padding-top: $vertica-margin-s;
-    padding-bottom: $vertica-margin-s;
-    border-radius: $border-radius-m;
-    background-color: $primary-300-color;
   }
 }
 

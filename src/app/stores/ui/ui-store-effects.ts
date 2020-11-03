@@ -21,13 +21,17 @@ export class UiStoreEffects {
   @Effect()
   openMenuEffect$: Observable<Action> = this.actions$.pipe(
     ofType<UiStoreActionOpenMenu>(UiStoreActionTypes.OpenMenu),
-    map(() => new UiStoreActionOpenMenuSuccess({ menuOpened: true })),
+    map(() => {
+      return new UiStoreActionOpenMenuSuccess({ menuOpened: true });
+    }),
   );
 
   @Effect()
   closeMenuEffect$: Observable<Action> = this.actions$.pipe(
     ofType<UiStoreActionCloseMenu>(UiStoreActionTypes.CloseMenu),
-    map(() => new UiStoreActionCloseMenuSuccess({ menuOpened: true })),
+    map(() => {
+      return new UiStoreActionOpenMenuSuccess({ menuOpened: false });
+    }),
   );
 
   @Effect()

@@ -1,5 +1,10 @@
 @import '../../../assets/scss/settings/breaking-sizes.scss';
 @import '../../../assets/scss/settings/margins.scss';
+@import '../../../assets/scss/settings/colors.scss';
+
+.app-shell {
+  height: 100%;
+}
 
 .app-shell__navbar {
   height: 64px;
@@ -17,6 +22,7 @@
 }
 
 .app-shell__content {
+  height: 100%;
   padding-top: 64px;
 }
 
@@ -24,4 +30,21 @@
   .app-shell__content {
     padding-top: 56px;
   }
+}
+
+.app-shell__sidenav-container {
+  height: 100%;
+  background: $background-500-color;
+  color: $background-color-contrast;
+}
+
+.app-shell__sidenav {
+  background: $background-300-color;
+  color: $background-color-contrast;
+  min-width: 260px;
+}
+
+.app-shell__sidenav-content-item {
+  display: block;
+  text-align: left;
 }

@@ -3,7 +3,28 @@
     <app-navbar></app-navbar>
   </div>
   <div class="app-shell__content">
-    <ng-content></ng-content>
+    <mat-sidenav-container class="app-shell__sidenav-container">
+      <mat-sidenav
+        class="app-shell__sidenav"
+        [opened]="sidenavOpened"
+        (openedChange)="onSidenavOpenedChange($event)"
+        [autoFocus]="false"
+      >
+        <div class="app-shell__sidenav-content">
+          <a class="app-shell__sidenav-content-item" mat-button routerLink="/about-us" (click)="linkClicked()">
+            <span>Quienes somos</span>
+          </a>
+          <a class="app-shell__sidenav-content-item" mat-button routerLink="/events" (click)="linkClicked()">
+            <span>Eventos</span>
+          </a>
+          <a class="app-shell__sidenav-content-item" mat-button routerLink="/contact" (click)="linkClicked()">
+            <span>Contacto</span>
+          </a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <ng-content></ng-content>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
-  {{ menuOpened$ | async }}
 </div>
