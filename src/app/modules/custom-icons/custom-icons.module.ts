@@ -21,5 +21,9 @@ export class CustomIconsModule {
       'facebook',
       this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}facebook.svg`),
     );
+    this.matIconRegistry.addSvgIcon(
+      'hamburger',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}hamburger.svg`),
+    );
   }
 }
