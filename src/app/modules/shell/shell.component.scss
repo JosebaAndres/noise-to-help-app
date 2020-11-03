@@ -1,0 +1,27 @@
+@import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+
+.app-shell__navbar {
+  height: 64px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
+
+@media (max-width: $xs-max-size) {
+  .app-shell__navbar {
+    height: 56px;
+  }
+}
+
+.app-shell__content {
+  padding-top: 64px;
+}
+
+@media (max-width: $xs-max-size) {
+  .app-shell__content {
+    padding-top: 56px;
+  }
+}

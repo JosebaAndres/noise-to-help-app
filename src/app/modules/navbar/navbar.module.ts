@@ -7,6 +7,7 @@ import { CustomIconsModule } from '../custom-icons/custom-icons.module';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { UiStoreModule } from '../../stores/ui/ui-store.module';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     RouterModule,
     FlexLayoutModule,
     MatButtonModule,
+    UiStoreModule,
   ],
   exports: [NavbarComponent],
 })
