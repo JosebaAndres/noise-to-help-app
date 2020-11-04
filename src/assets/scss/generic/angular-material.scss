@@ -8,9 +8,10 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
 $app-primary-palette: (
   100: $primary-100-color,
-  300: $primary-300-color,
+  200: $primary-200-color,
   500: $primary-500-color,
   700: $primary-700-color,
   // For slide toggle,
@@ -21,19 +22,37 @@ $app-primary-palette: (
       700: $light-primary-text,
     ),
 );
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
 $app-primary: mat-palette($app-primary-palette);
-$app-accent: mat-palette($mat-pink);
 
-// The warn palette is optional (defaults to red).
-$app-warn: mat-palette($mat-pink);
+$app-accent-palette: (
+  100: $accent-100-color,
+  200: $accent-200-color,
+  500: $accent-500-color,
+  700: $accent-700-color,
+  contrast: (
+    100: $dark-primary-text,
+    500: $light-primary-text,
+    700: $light-primary-text,
+  ),
+);
+$app-accent: mat-palette($app-accent-palette);
+
+$app-warn-palette: (
+  100: $warn-100-color,
+  200: $warn-200-color,
+  500: $warn-500-color,
+  700: $warn-700-color,
+  contrast: (
+    100: $dark-primary-text,
+    500: $light-primary-text,
+    700: $light-primary-text,
+  ),
+);
+$app-warn: mat-palette($app-warn-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$app-theme: mat-light-theme(
+$app-theme: mat-dark-theme(
   (
     color: (
       primary: $app-primary,
