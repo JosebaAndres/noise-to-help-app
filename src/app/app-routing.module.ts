@@ -20,6 +20,15 @@ const routes: Routes = [
     loadChildren: () => import('./modules/contact-page/contact-page.module').then((m) => m.ContactPageModule),
   },
   {
+    path: 'collaborate',
+    loadChildren: () =>
+      import('./modules/collaborate-page/collaborate-page.module').then((m) => m.CollaboratePageModule),
+  },
+  {
+    path: 'take-part',
+    loadChildren: () => import('./modules/take-part-page/take-part-page.module').then((m) => m.TakePartUsPageModule),
+  },
+  {
     path: 'facebook',
     loadChildren: () => import('./modules/facebook-page/facebook-page.module').then((m) => m.FacebookPageModule),
   },

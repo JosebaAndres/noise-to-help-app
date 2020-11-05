@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map, switchMap, take, withLatestFrom } from 'rxjs/operators';
+import { map, switchMap, take } from 'rxjs/operators';
 import {
   UiStoreActionCloseMenu,
-  UiStoreActionCloseMenuSuccess,
   UiStoreActionOpenMenu,
-  UiStoreActionOpenMenuSuccess,
   UiStoreActionToggleMenu,
   UiStoreActionTypes,
 } from './ui-store-actions';
@@ -19,27 +17,15 @@ export class UiStoreEffects {
   constructor(private actions$: Actions, private uiStore$: Store<UiStoreState>) {}
 
   @Effect()
-  openMenuEffect$: Observable<Action> = this.actions$.pipe(
-    ofType<UiStoreActionOpenMenu>(UiStoreActionTypes.OpenMenu),
-    map(() => {
-      return new UiStoreActionOpenMenuSuccess({ menuOpened: true });
-    }),
-  );
-
-  @Effect()
-  closeMenuEffect$: Observable<Action> = this.actions$.pipe(
-    ofType<UiStoreActionCloseMenu>(UiStoreActionTypes.CloseMenu),
-    map(() => {
-      return new UiStoreActionOpenMenuSuccess({ menuOpened: false });
-    }),
-  );
-
-  @Effect()
   toggleMenuEffect$: Observable<Action> = this.actions$.pipe(
     ofType<UiStoreActionToggleMenu>(UiStoreActionTypes.ToggleMenu),
     switchMap(() => this.uiStore$.select(uiStoreSelectMenuOpened).pipe(take(1))),
     map((currentValue) => {
-      return new UiStoreActionOpenMenuSuccess({ menuOpened: !currentValue });
+      if (currentValue) {
+        return new UiStoreActionCloseMenu();
+      } else {
+        return new UiStoreActionOpenMenu();
+      }
     }),
   );
 }

@@ -6,25 +6,14 @@ export function uiReducer(state = initialUiStoreState, action: UiStoreActions): 
     case UiStoreActionTypes.OpenMenu: {
       return {
         ...state,
-      };
-    }
-    case UiStoreActionTypes.OpenMenuSuccess: {
-      return {
-        ...state,
-        menuOpened: action.payload.menuOpened,
+        menuOpened: true,
       };
     }
 
     case UiStoreActionTypes.CloseMenu: {
       return {
         ...state,
-      };
-    }
-
-    case UiStoreActionTypes.CloseMenuSuccess: {
-      return {
-        ...state,
-        menuOpened: action.payload.menuOpened,
+        menuOpened: false,
       };
     }
 

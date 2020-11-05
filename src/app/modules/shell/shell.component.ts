@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { MenuItemModel } from '../../models/menu-item-model';
 import { UiStoreActionCloseMenu, UiStoreActionOpenMenu } from '../../stores/ui/ui-store-actions';
-import { uiStoreSelectMenuOpened } from '../../stores/ui/ui-store-selectors';
+import { uiStoreSelectMenuOpened, uiStoreSelectSubMenuItems } from '../../stores/ui/ui-store-selectors';
 import { UiStoreState } from '../../stores/ui/ui-store-state';
 
 @Component({
@@ -17,10 +18,13 @@ export class ShellComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<any>();
 
   sidenavOpened = false;
+  subMenuItems$: Observable<Array<MenuItemModel>>;
 
   constructor(private uiStore$: Store<UiStoreState>, private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    this.subMenuItems$ = this.uiStore$.select(uiStoreSelectSubMenuItems);
+
     this.uiStore$
       .select(uiStoreSelectMenuOpened)
       .pipe(takeUntil(this.destroy$))

@@ -5,3 +5,5 @@ import { UiStoreState } from './ui-store-state';
 const getUiStoreState = createFeatureSelector<UiStoreState>(uiStoreKey);
 
 export const uiStoreSelectMenuOpened = createSelector(getUiStoreState, (state) => state.menuOpened);
+
+export const uiStoreSelectSubMenuItems = createSelector(getUiStoreState, (state) => state.subMenuItems);

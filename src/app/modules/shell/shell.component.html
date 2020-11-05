@@ -11,14 +11,14 @@
         [autoFocus]="false"
       >
         <div class="app-shell__sidenav-content">
-          <a class="app-shell__sidenav-content-item" mat-button routerLink="/about-us" (click)="linkClicked()">
-            <span>Quienes somos</span>
-          </a>
-          <a class="app-shell__sidenav-content-item" mat-button routerLink="/events" (click)="linkClicked()">
-            <span>Eventos</span>
-          </a>
-          <a class="app-shell__sidenav-content-item" mat-button routerLink="/contact" (click)="linkClicked()">
-            <span>Contacto</span>
+          <a
+            class="app-shell__sidenav-content-item"
+            mat-button
+            *ngFor="let subMenuItem of subMenuItems$ | async"
+            [routerLink]="subMenuItem.routerLink"
+            (click)="linkClicked()"
+          >
+            <span>{{ subMenuItem.description }}</span>
           </a>
         </div>
       </mat-sidenav>
