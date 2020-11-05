@@ -2,7 +2,7 @@
   <button mat-icon-button fxHide fxShow.lt-md (click)="toggleMenu()">
     <mat-icon svgIcon="hamburger"></mat-icon>
   </button>
-  <a class="app-navbar__link-item app-navbar__link-item--firs" routerLink="/main">
+  <a class="app-navbar__link-item" routerLink="/main">
     <div class="app-navbar__title">
       <img src="assets/images/navbar-logo.png" class="app-navbar__title-img" />
       <span>Noise to help</span>
@@ -20,7 +20,5 @@
   </div>
   <div class="app-navbar__separator-item"></div>
   <a class="app-navbar__link-item" routerLink="/facebook"><mat-icon svgIcon="facebook"></mat-icon></a>
-  <a class="app-navbar__link-item app-navbar__link-item--last" routerLink="/instagram"
-    ><mat-icon svgIcon="instagram"></mat-icon
-  ></a>
+  <a class="app-navbar__link-item" routerLink="/instagram"><mat-icon svgIcon="instagram"></mat-icon></a>
 </mat-toolbar>
