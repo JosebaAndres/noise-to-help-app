@@ -17,6 +17,13 @@ export function uiReducer(state = initialUiStoreState, action: UiStoreActions): 
       };
     }
 
+    case UiStoreActionTypes.SetMediaQuery: {
+      return {
+        ...state,
+        mediaQuery: action.payload,
+      };
+    }
+
     default: {
       return state;
     }

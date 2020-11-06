@@ -1,9 +1,12 @@
 import { Action } from '@ngrx/store';
+import { MediaQueryAlias } from '../../models/media-query-alias';
 
 export enum UiStoreActionTypes {
   OpenMenu = '[UI] Open menu',
   CloseMenu = '[UI] Close menu',
   ToggleMenu = '[UI] Toggle menu',
+  SetDeviceWidth = '[UI] set device width',
+  SetMediaQuery = '[UI] set media query',
 }
 
 export class UiStoreActionOpenMenu implements Action {
@@ -18,4 +21,19 @@ export class UiStoreActionToggleMenu implements Action {
   readonly type = UiStoreActionTypes.ToggleMenu;
 }
 
-export type UiStoreActions = UiStoreActionOpenMenu | UiStoreActionCloseMenu | UiStoreActionToggleMenu;
+export class UiStoreActionSetDeviceWidth implements Action {
+  readonly type = UiStoreActionTypes.SetDeviceWidth;
+  constructor(public payload: number) {}
+}
+
+export class UiStoreActionSetMediaQuery implements Action {
+  readonly type = UiStoreActionTypes.SetMediaQuery;
+  constructor(public payload: MediaQueryAlias) {}
+}
+
+export type UiStoreActions =
+  | UiStoreActionOpenMenu
+  | UiStoreActionCloseMenu
+  | UiStoreActionToggleMenu
+  | UiStoreActionSetDeviceWidth
+  | UiStoreActionSetMediaQuery;

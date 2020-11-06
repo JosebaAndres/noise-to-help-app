@@ -7,3 +7,5 @@ const getUiStoreState = createFeatureSelector<UiStoreState>(uiStoreKey);
 export const uiStoreSelectMenuOpened = createSelector(getUiStoreState, (state) => state.menuOpened);
 
 export const uiStoreSelectSubMenuItems = createSelector(getUiStoreState, (state) => state.subMenuItems);
+
+export const uiStoreSelectMediaQuery = createSelector(getUiStoreState, (state) => state.mediaQuery);

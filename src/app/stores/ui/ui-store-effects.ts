@@ -3,9 +3,13 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
+import { LG_MAX_SIZE, MD_MAX_SIZE, MediaQueryAlias, SM_MAX_SIZE, XS_MAX_SIZE } from '../../models/media-query-alias';
+import { NumberFuctions } from '../../models/number';
 import {
   UiStoreActionCloseMenu,
   UiStoreActionOpenMenu,
+  UiStoreActionSetDeviceWidth,
+  UiStoreActionSetMediaQuery,
   UiStoreActionToggleMenu,
   UiStoreActionTypes,
 } from './ui-store-actions';
@@ -26,6 +30,31 @@ export class UiStoreEffects {
       } else {
         return new UiStoreActionOpenMenu();
       }
+    }),
+  );
+
+  @Effect()
+  setDeviceWidthEffect$: Observable<Action> = this.actions$.pipe(
+    ofType<UiStoreActionSetDeviceWidth>(UiStoreActionTypes.SetDeviceWidth),
+    map((action: UiStoreActionSetDeviceWidth) => action.payload),
+    map((value) => {
+      let mediaQuery: MediaQueryAlias;
+      if (NumberFuctions.isNumber(value)) {
+        if (value <= XS_MAX_SIZE) {
+          mediaQuery = MediaQueryAlias.xs;
+        } else if (value <= SM_MAX_SIZE) {
+          mediaQuery = MediaQueryAlias.sm;
+        } else if (value <= MD_MAX_SIZE) {
+          mediaQuery = MediaQueryAlias.md;
+        } else if (value <= LG_MAX_SIZE) {
+          mediaQuery = MediaQueryAlias.lg;
+        } else {
+          mediaQuery = MediaQueryAlias.xl;
+        }
+      } else {
+        mediaQuery = MediaQueryAlias.xs;
+      }
+      return new UiStoreActionSetMediaQuery(mediaQuery);
     }),
   );
 }

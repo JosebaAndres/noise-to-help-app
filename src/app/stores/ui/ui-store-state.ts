@@ -1,8 +1,10 @@
+import { MediaQueryAlias } from '../../models/media-query-alias';
 import { MenuItemModel } from '../../models/menu-item-model';
 
 export interface UiStoreState {
   menuOpened: boolean;
   subMenuItems: Array<MenuItemModel>;
+  mediaQuery: MediaQueryAlias;
 }
 
 export const initialUiStoreState: UiStoreState = {
@@ -29,4 +31,5 @@ export const initialUiStoreState: UiStoreState = {
       routerLink: '/contact',
     },
   ],
+  mediaQuery: MediaQueryAlias.xs,
 };
