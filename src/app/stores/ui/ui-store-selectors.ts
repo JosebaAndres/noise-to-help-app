@@ -9,3 +9,5 @@ export const uiStoreSelectMenuOpened = createSelector(getUiStoreState, (state) =
 export const uiStoreSelectSubMenuItems = createSelector(getUiStoreState, (state) => state.subMenuItems);
 
 export const uiStoreSelectMediaQuery = createSelector(getUiStoreState, (state) => state.mediaQuery);
+
+export const uiStoreSelectDeviceType = createSelector(getUiStoreState, (state) => state.deviceType);

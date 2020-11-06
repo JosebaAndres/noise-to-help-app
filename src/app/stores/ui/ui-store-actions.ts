@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { DeviceType } from 'src/app/models/device-type';
 import { MediaQueryAlias } from '../../models/media-query-alias';
 
 export enum UiStoreActionTypes {
@@ -7,6 +8,7 @@ export enum UiStoreActionTypes {
   ToggleMenu = '[UI] Toggle menu',
   SetDeviceWidth = '[UI] set device width',
   SetMediaQuery = '[UI] set media query',
+  SetDeviceType = '[UI] set device type',
 }
 
 export class UiStoreActionOpenMenu implements Action {
@@ -31,9 +33,15 @@ export class UiStoreActionSetMediaQuery implements Action {
   constructor(public payload: MediaQueryAlias) {}
 }
 
+export class UiStoreActionSetDeviceType implements Action {
+  readonly type = UiStoreActionTypes.SetDeviceType;
+  constructor(public payload: DeviceType) {}
+}
+
 export type UiStoreActions =
   | UiStoreActionOpenMenu
   | UiStoreActionCloseMenu
   | UiStoreActionToggleMenu
   | UiStoreActionSetDeviceWidth
-  | UiStoreActionSetMediaQuery;
+  | UiStoreActionSetMediaQuery
+  | UiStoreActionSetDeviceType;

@@ -3,11 +3,13 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
+import { DeviceType, PHONE_MAX_MEDIA_QUERY_ALIAS, TABLET_MAX_MEDIA_QUERY_ALIAS } from '../../models/device-type';
 import { LG_MAX_SIZE, MD_MAX_SIZE, MediaQueryAlias, SM_MAX_SIZE, XS_MAX_SIZE } from '../../models/media-query-alias';
 import { NumberFuctions } from '../../models/number';
 import {
   UiStoreActionCloseMenu,
   UiStoreActionOpenMenu,
+  UiStoreActionSetDeviceType,
   UiStoreActionSetDeviceWidth,
   UiStoreActionSetMediaQuery,
   UiStoreActionToggleMenu,
@@ -55,6 +57,21 @@ export class UiStoreEffects {
         mediaQuery = MediaQueryAlias.xs;
       }
       return new UiStoreActionSetMediaQuery(mediaQuery);
+    }),
+  );
+
+  @Effect()
+  setMediaQueryEffect$: Observable<Action> = this.actions$.pipe(
+    ofType<UiStoreActionSetMediaQuery>(UiStoreActionTypes.SetMediaQuery),
+    map((action: UiStoreActionSetMediaQuery) => action.payload),
+    map((value) => {
+      if (value <= PHONE_MAX_MEDIA_QUERY_ALIAS) {
+        return new UiStoreActionSetDeviceType(DeviceType.phone);
+      } else if (value <= TABLET_MAX_MEDIA_QUERY_ALIAS) {
+        return new UiStoreActionSetDeviceType(DeviceType.tablet);
+      } else {
+        return new UiStoreActionSetDeviceType(DeviceType.desktop);
+      }
     }),
   );
 }

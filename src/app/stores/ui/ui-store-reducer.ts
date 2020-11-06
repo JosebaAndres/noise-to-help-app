@@ -24,6 +24,13 @@ export function uiReducer(state = initialUiStoreState, action: UiStoreActions): 
       };
     }
 
+    case UiStoreActionTypes.SetDeviceType: {
+      return {
+        ...state,
+        deviceType: action.payload,
+      };
+    }
+
     default: {
       return state;
     }

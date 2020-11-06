@@ -1,3 +1,4 @@
+import { DeviceType } from 'src/app/models/device-type';
 import { MediaQueryAlias } from '../../models/media-query-alias';
 import { MenuItemModel } from '../../models/menu-item-model';
 
@@ -5,6 +6,7 @@ export interface UiStoreState {
   menuOpened: boolean;
   subMenuItems: Array<MenuItemModel>;
   mediaQuery: MediaQueryAlias;
+  deviceType: DeviceType;
 }
 
 export const initialUiStoreState: UiStoreState = {
@@ -32,4 +34,5 @@ export const initialUiStoreState: UiStoreState = {
     },
   ],
   mediaQuery: MediaQueryAlias.xs,
+  deviceType: DeviceType.phone,
 };
