@@ -1,0 +1,32 @@
+@import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+@import '../../../assets/scss/settings/colors.scss';
+
+.app-responsive-banner-container {
+  position: relative;
+}
+
+.app-responsive-banner-container__background {
+  background-color: $primary-500-color;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  opacity: 0.5;
+  background-image: url('../../../assets/images/logo-banner-2560-1809.jpg');
+}
+
+@media (max-width: $sm-max-size) {
+  .app-responsive-banner-container__background {
+    background-image: url('../../../assets/images/logo-banner-1415-1000.jpg');
+  }
+}
+
+@media (max-width: $xs-max-size) {
+  .app-responsive-banner-container__background {
+    background-image: url('../../../assets/images/logo-banner-960-679.jpg');
+  }
+}

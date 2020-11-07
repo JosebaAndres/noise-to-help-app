@@ -1,24 +1,29 @@
 <app-view>
-  <div
-    class="app-main-page__main-content"
-    [class.mat-subheading-2]="(deviceType$ | async) == 1"
-    [class.mat-title]="(deviceType$ | async) == 2"
-    [class.mat-display-1]="(deviceType$ | async) == 3"
-  >
-    <p>
-      <b>Noise To Help</b> es una asociación sin ánimo de lucro cuyo principal objetivo es el de intentar conseguir
-      diferentes recursos económicos y materiales con la única finalidad de <b>ayudar</b> lo máximo posible a las
-      familias más necesitadas.
-    </p>
-    <p>
-      Todo ello lo realizamos mediante la creación de diferentes eventos enfocados y centrados, en su gran mayoría, en
-      el ámbito de la <b>música rock</b> en sus diferentes variantes (metal, hardcore, alternativo…) y cuyos beneficios
-      irán donados íntegramente a fundaciones y organizaciones que harán llegar dichos recursos a su destinatario final.
-    </p>
-    <p>
-      Cabe destacar que en la asociación habrá hueco para otro tipo de actividades y ejercicios solidarios que no tengan
-      especificidad musical, aunque serán las realizadas con carácter complementario al fundamento original de la
-      asociación.
-    </p>
+  <div class="app-main-page__view-content">
+    <app-responsive-banner-container>
+      <div
+        class="app-main-page__main-content"
+        [class.mat-subheading-2]="(deviceType$ | async) == 1"
+        [class.mat-title]="(deviceType$ | async) == 2"
+        [class.mat-display-1]="(deviceType$ | async) == 3"
+      >
+        <p>
+          <b>Noise To Help</b> es una asociación sin ánimo de lucro cuyo principal objetivo es el de intentar conseguir
+          diferentes recursos económicos y materiales con la única finalidad de <b>ayudar</b> lo máximo posible a las
+          familias más necesitadas.
+        </p>
+        <p>
+          Todo ello lo realizamos mediante la creación de diferentes eventos enfocados y centrados, en su gran mayoría,
+          en el ámbito de la <b>música rock</b> en sus diferentes variantes (metal, hardcore, alternativo…) y cuyos
+          beneficios irán donados íntegramente a fundaciones y organizaciones que harán llegar dichos recursos a su
+          destinatario final.
+        </p>
+        <p>
+          Cabe destacar que en la asociación habrá hueco para otro tipo de actividades y ejercicios solidarios que no
+          tengan especificidad musical, aunque serán las realizadas con carácter complementario al fundamento original
+          de la asociación.
+        </p>
+      </div>
+    </app-responsive-banner-container>
   </div>
 </app-view>

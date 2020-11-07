@@ -1,0 +1,22 @@
+@import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+
+.app-main-page__view-content {
+  margin: (-$vertica-margin-l) (-$horizontal-margin-l);
+}
+
+@media (max-width: $xs-max-size) {
+  .app-main-page__view-content {
+    margin: (-$vertica-margin-m) (-$horizontal-margin-m);
+  }
+}
+
+.app-main-page__main-content {
+  padding: $vertica-margin-l $horizontal-margin-l;
+}
+
+@media (max-width: $xs-max-size) {
+  .app-main-page__main-content {
+    padding: $vertica-margin-m $horizontal-margin-m;
+  }
+}
