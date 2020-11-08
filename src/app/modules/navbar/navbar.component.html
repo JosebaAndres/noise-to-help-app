@@ -1,6 +1,16 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="app-navbar__toolbar app-navbar__toolbar--small">
+  <span class="app-navbar__link-item app-navbar__link-item--small mat-small">Let´s make some noise to help people</span>
+  <div class="app-navbar__separator-item app-navbar__link-item--small"></div>
+  <a class="app-navbar__link-item" routerLink="/facebook"
+    ><mat-icon class="app-navbar__icon app-navbar__icon--small" svgIcon="facebook"></mat-icon
+  ></a>
+  <a class="app-navbar__link-item app-navbar__link-item--small" routerLink="/instagram"
+    ><mat-icon class="app-navbar__icon app-navbar__icon--small" svgIcon="instagram"></mat-icon
+  ></a>
+</mat-toolbar>
+<mat-toolbar color="primary" class="app-navbar__toolbar">
   <button mat-icon-button fxHide fxShow.lt-md (click)="toggleMenu()">
-    <mat-icon svgIcon="hamburger"></mat-icon>
+    <mat-icon class="app-navbar__icon" svgIcon="hamburger"></mat-icon>
   </button>
   <a class="app-navbar__link-item" routerLink="/main">
     <div class="app-navbar__title">
@@ -19,6 +29,4 @@
     </a>
   </div>
   <div class="app-navbar__separator-item"></div>
-  <a class="app-navbar__link-item" routerLink="/facebook"><mat-icon svgIcon="facebook"></mat-icon></a>
-  <a class="app-navbar__link-item" routerLink="/instagram"><mat-icon svgIcon="instagram"></mat-icon></a>
 </mat-toolbar>

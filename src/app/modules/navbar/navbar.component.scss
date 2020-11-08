@@ -8,6 +8,11 @@
   padding-right: $horizontal-margin-s;
 }
 
+.app-navbar__link-item--small {
+  padding-left: $horizontal-margin-xs;
+  padding-right: $horizontal-margin-xs;
+}
+
 .app-navbar__title {
   display: flex;
   align-items: center;
@@ -30,4 +35,15 @@
 
 .app-navbar__separator-item {
   width: 100%;
+}
+
+.app-navbar__toolbar--small {
+  height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.app-navbar__icon--small {
+  height: 12px;
+  width: 12px;
 }
