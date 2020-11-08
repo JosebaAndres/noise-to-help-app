@@ -16,17 +16,17 @@
   top: 0;
   z-index: -1;
   opacity: 0.5;
-  background-image: url('../../../assets/images/logo-banner-2560-1809.jpg');
+  background-image: url('../../../assets/images/banner-2-2560-1922.jpg');
 }
 
 @media (max-width: $sm-max-size) {
   .app-responsive-banner-container__background {
-    background-image: url('../../../assets/images/logo-banner-1415-1000.jpg');
+    background-image: url('../../../assets/images/banner-2-1332-1000.jpg');
   }
 }
 
 @media (max-width: $xs-max-size) {
   .app-responsive-banner-container__background {
-    background-image: url('../../../assets/images/logo-banner-960-679.jpg');
+    background-image: url('../../../assets/images/banner-2-960-721.jpg');
   }
 }
