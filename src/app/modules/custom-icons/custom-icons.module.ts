@@ -12,7 +12,7 @@ export class CustomIconsModule {
   }
 
   private addSvgIcons(): void {
-    const svgsPath = '../assets/svgs/';
+    const svgsPath = './assets/svgs/';
     this.matIconRegistry.addSvgIcon(
       'instagram',
       this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}instagram.svg`),
