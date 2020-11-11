@@ -1,1 +1,19 @@
+@import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/colors.scss';
+@import '../../../assets/scss/settings/margins.scss';
 
+.app-events-page__card {
+  padding-left: $vertica-margin-m;
+  padding-right: $vertica-margin-m;
+  padding-top: $horizontal-margin-m;
+  padding-bottom: $horizontal-margin-m;
+}
+
+@media (max-width: $xs-max-size) {
+  .app-events-page__card {
+    padding-left: $vertica-margin-s;
+    padding-right: $vertica-margin-s;
+    padding-top: $horizontal-margin-s;
+    padding-bottom: $horizontal-margin-s;
+  }
+}
