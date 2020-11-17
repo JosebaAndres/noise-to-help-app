@@ -3,66 +3,26 @@
     <h1 class="mat-headline">Eventos</h1>
     <div *ngIf="(deviceType$ | async) === 1">
       <app-card
-        [title]="'Subasta camiseta X'"
-        [subtitle]="'Subasta camiseta mitika X usada en X'"
-        [imagePath]="'./assets/events/001/content.jpg'"
-        [avatarPath]="'./assets/events/001/avatar.jpg'"
+        *ngFor="let event of events$ | async"
         class="app-events-page__card"
+        [title]="event.title"
+        [subtitle]="event.subtitle"
+        [imagePath]="event.imagePath"
+        [avatarPath]="event.avatarPath"
       >
-        <p>Subasta de una camiseta mitika de la banda X usada por el cantante en el concierto X.</p>
-        <p>Boletos en venta en X.</p>
-      </app-card>
-      <app-card
-        [title]="'Concierto X'"
-        [subtitle]="'Concierto benéfico el día xx/xx del grupo X'"
-        [imagePath]="'./assets/events/002/content.jpg'"
-        [avatarPath]="'./assets/events/002/avatar.jpeg'"
-        class="app-events-page__card"
-      >
-        <p>Concierto benéfico el día xx/xx del grupo X en la sala X.</p>
-        <p>Entradas en venta en X.</p>
-      </app-card>
-      <app-card
-        [title]="'Concierto X'"
-        [subtitle]="'Concierto benéfico el día xx/xx del grupo X'"
-        [imagePath]="'./assets/events/002/content.jpg'"
-        [avatarPath]="'./assets/events/002/avatar.jpeg'"
-        class="app-events-page__card"
-      >
-        <p>Concierto benéfico el día xx/xx del grupo X en la sala X.</p>
-        <p>Entradas en venta en X.</p>
+        <p *ngFor="let descriptionItem of event.description">{{ descriptionItem }}</p>
       </app-card>
     </div>
     <div *ngIf="(deviceType$ | async) !== 1">
       <app-big-card
-        [title]="'Subasta camiseta X'"
-        [subtitle]="'Subasta camiseta mitika X usada en X'"
-        [imagePath]="'./assets/events/001/content.jpg'"
-        [avatarPath]="'./assets/events/001/avatar.jpg'"
+        *ngFor="let event of events$ | async"
         class="app-events-page__card"
+        [title]="event.title"
+        [subtitle]="event.subtitle"
+        [imagePath]="event.imagePath"
+        [avatarPath]="event.avatarPath"
       >
-        <p>Subasta de una camiseta mitika de la banda X usada por el cantante en el concierto X.</p>
-        <p>Boletos en venta en X.</p>
-      </app-big-card>
-      <app-big-card
-        [title]="'Concierto X'"
-        [subtitle]="'Concierto benéfico el día xx/xx del grupo X'"
-        [imagePath]="'./assets/events/002/content.jpg'"
-        [avatarPath]="'./assets/events/002/avatar.jpeg'"
-        class="app-events-page__card"
-      >
-        <p>Concierto benéfico el día xx/xx del grupo X en la sala X.</p>
-        <p>Entradas en venta en X.</p>
-      </app-big-card>
-      <app-big-card
-        [title]="'Concierto X'"
-        [subtitle]="'Concierto benéfico el día xx/xx del grupo X'"
-        [imagePath]="'./assets/events/002/content.jpg'"
-        [avatarPath]="'./assets/events/002/avatar.jpeg'"
-        class="app-events-page__card"
-      >
-        <p>Concierto benéfico el día xx/xx del grupo X en la sala X.</p>
-        <p>Entradas en venta en X.</p>
+        <p *ngFor="let descriptionItem of event.description">{{ descriptionItem }}</p>
       </app-big-card>
     </div>
   </div>
