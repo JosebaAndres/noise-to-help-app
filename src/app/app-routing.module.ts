@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PlaygroundGuard } from './modules/playground-page/playground-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -35,6 +36,11 @@ const routes: Routes = [
   {
     path: 'instagram',
     loadChildren: () => import('./modules/instagram-page/instagram-page.module').then((m) => m.InstagramPageModule),
+  },
+  {
+    path: 'playground',
+    loadChildren: () => import('./modules/playground-page/playground-page.module').then((m) => m.PlaygroundPageModule),
+    canActivate: [PlaygroundGuard],
   },
 ];
 
