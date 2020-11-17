@@ -37,7 +37,7 @@ export class EventsStoreEffects {
             title: 'Concierto X',
             subtitle: 'Concierto benéfico el día xx/xx del grupo X',
             imagePath: './assets/events/002/content.jpg',
-            avatarPath: './assets/events/002/avatar.jpeg',
+            avatarPath: './assets/events/002/avatar.jpg',
             description: ['Concierto benéfico el día xx/xx del grupo X en la sala X.', 'Entradas en venta en X.'],
           },
         ],
