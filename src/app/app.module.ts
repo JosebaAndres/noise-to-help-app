@@ -9,6 +9,8 @@ import { StoreModule } from '@ngrx/store';
 import { ShellModule } from './modules/shell/shell.module';
 import { UiStoreModule } from './stores/ui/ui-store.module';
 import { DeviceService } from './services/device.service';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,9 +19,9 @@ import { DeviceService } from './services/device.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    EffectsModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     ShellModule,
     UiStoreModule,
   ],

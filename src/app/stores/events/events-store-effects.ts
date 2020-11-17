@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map, switchMap, take } from 'rxjs/operators';
-import { DeviceType, PHONE_MAX_MEDIA_QUERY_ALIAS, TABLET_MAX_MEDIA_QUERY_ALIAS } from '../../models/device-type';
-import { LG_MAX_SIZE, MD_MAX_SIZE, MediaQueryAlias, SM_MAX_SIZE, XS_MAX_SIZE } from '../../models/media-query-alias';
-import { NumberFuctions } from '../../models/number';
+import { map } from 'rxjs/operators';
 import {
   EventsStoreActionLoadEvents,
   EventsStoreActionLoadEventsSuccess,
