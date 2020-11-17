@@ -9,7 +9,7 @@
   padding-bottom: $horizontal-margin-m;
 }
 
-@media (max-width: $xs-max-size) {
+@media (max-width: $sm-max-size) {
   .app-events-page__card {
     padding-left: $vertica-margin-s;
     padding-right: $vertica-margin-s;

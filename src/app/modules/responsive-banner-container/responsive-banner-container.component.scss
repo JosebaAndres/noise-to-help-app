@@ -19,13 +19,13 @@
   background-image: url('../../../assets/images/banner-2-2560-1922.jpg');
 }
 
-@media (max-width: $sm-max-size) {
+@media (max-width: $md-max-size) {
   .app-responsive-banner-container__background {
     background-image: url('../../../assets/images/banner-2-1332-1000.jpg');
   }
 }
 
-@media (max-width: $xs-max-size) {
+@media (max-width: $sm-max-size) {
   .app-responsive-banner-container__background {
     background-image: url('../../../assets/images/banner-2-960-721.jpg');
   }

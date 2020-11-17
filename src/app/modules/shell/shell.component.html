@@ -11,6 +11,9 @@
         [autoFocus]="false"
       >
         <div class="app-shell__sidenav-content">
+          <a class="app-shell__sidenav-content-item" mat-button [routerLink]="'/main'" (click)="linkClicked()">
+            <span>Inicio</span>
+          </a>
           <a
             class="app-shell__sidenav-content-item"
             mat-button

@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "noise-to-help-app"
+    }
+  },
+  "defaultProject": "noise-to-help-app",
+  "cli": {
+    "analytics": "c55e6a88-5ee7-433e-8bef-20d356e0a441"
+  }
 }

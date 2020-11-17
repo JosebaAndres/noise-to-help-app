@@ -5,7 +5,7 @@
   margin: (-$vertica-margin-l) (-$horizontal-margin-l);
 }
 
-@media (max-width: $xs-max-size) {
+@media (max-width: $sm-max-size) {
   .app-main-page__view-content {
     margin: (-$vertica-margin-m) (-$horizontal-margin-m);
   }
@@ -15,7 +15,7 @@
   padding: $vertica-margin-l $horizontal-margin-l;
 }
 
-@media (max-width: $xs-max-size) {
+@media (max-width: $sm-max-size) {
   .app-main-page__main-content {
     padding: $vertica-margin-m $horizontal-margin-m;
   }
