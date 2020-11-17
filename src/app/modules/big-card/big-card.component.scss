@@ -1,0 +1,14 @@
+@import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+
+.app-big-card__avatar {
+  background-size: cover;
+}
+
+.app-big-card__content {
+  display: flex;
+}
+
+.app-big-card__description {
+  padding-left: $horizontal-margin-m;
+}

@@ -3,9 +3,9 @@
     <app-responsive-banner-container>
       <div
         class="app-main-page__main-content"
-        [class.mat-subheading-2]="(deviceType$ | async) == 1"
-        [class.mat-title]="(deviceType$ | async) == 2"
-        [class.mat-display-1]="(deviceType$ | async) == 3"
+        [class.mat-subheading-2]="(deviceType$ | async) === 1"
+        [class.mat-title]="(deviceType$ | async) === 2"
+        [class.mat-display-1]="(deviceType$ | async) === 3"
       >
         <p>
           <b>Noise To Help</b> es una asociación sin ánimo de lucro cuyo principal objetivo es el de intentar conseguir

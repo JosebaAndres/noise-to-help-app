@@ -1,9 +1,8 @@
 <app-view>
   <div class="app-events-page">
     <h1 class="mat-headline">Eventos</h1>
-    <div fxLayout="row wrap" fxLayout.xs="column">
+    <div *ngIf="(deviceType$ | async) === 1">
       <app-card
-        fxFlex="50"
         [title]="'Subasta camiseta X'"
         [subtitle]="'Subasta camiseta mitika X usada en X'"
         [imagePath]="'./assets/events/001/content.jpg'"
@@ -14,7 +13,6 @@
         <p>Boletos en venta en X.</p>
       </app-card>
       <app-card
-        fxFlex="50"
         [title]="'Concierto X'"
         [subtitle]="'Concierto benéfico el día xx/xx del grupo X'"
         [imagePath]="'./assets/events/002/content.jpg'"
@@ -25,7 +23,6 @@
         <p>Entradas en venta en X.</p>
       </app-card>
       <app-card
-        fxFlex="50"
         [title]="'Concierto X'"
         [subtitle]="'Concierto benéfico el día xx/xx del grupo X'"
         [imagePath]="'./assets/events/002/content.jpg'"
@@ -35,6 +32,38 @@
         <p>Concierto benéfico el día xx/xx del grupo X en la sala X.</p>
         <p>Entradas en venta en X.</p>
       </app-card>
+    </div>
+    <div *ngIf="(deviceType$ | async) !== 1">
+      <app-big-card
+        [title]="'Subasta camiseta X'"
+        [subtitle]="'Subasta camiseta mitika X usada en X'"
+        [imagePath]="'./assets/events/001/content.jpg'"
+        [avatarPath]="'./assets/events/001/avatar.jpg'"
+        class="app-events-page__card"
+      >
+        <p>Subasta de una camiseta mitika de la banda X usada por el cantante en el concierto X.</p>
+        <p>Boletos en venta en X.</p>
+      </app-big-card>
+      <app-big-card
+        [title]="'Concierto X'"
+        [subtitle]="'Concierto benéfico el día xx/xx del grupo X'"
+        [imagePath]="'./assets/events/002/content.jpg'"
+        [avatarPath]="'./assets/events/002/avatar.jpeg'"
+        class="app-events-page__card"
+      >
+        <p>Concierto benéfico el día xx/xx del grupo X en la sala X.</p>
+        <p>Entradas en venta en X.</p>
+      </app-big-card>
+      <app-big-card
+        [title]="'Concierto X'"
+        [subtitle]="'Concierto benéfico el día xx/xx del grupo X'"
+        [imagePath]="'./assets/events/002/content.jpg'"
+        [avatarPath]="'./assets/events/002/avatar.jpeg'"
+        class="app-events-page__card"
+      >
+        <p>Concierto benéfico el día xx/xx del grupo X en la sala X.</p>
+        <p>Entradas en venta en X.</p>
+      </app-big-card>
     </div>
   </div>
 </app-view>
