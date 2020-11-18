@@ -24,6 +24,7 @@ import { environment } from '../environments/environment';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     ShellModule,
     UiStoreModule,
+    HttpClientModule,
   ],
   bootstrap: [AppComponent],
   providers: [DeviceService],
