@@ -16,17 +16,29 @@
   top: 0;
   z-index: -1;
   opacity: 0.5;
-  background-image: url('../../../assets/images/banner-2-2560-1922.jpg');
+  background-image: url('../../../assets/images/banner-2.jpg');
+}
+
+@media (max-width: $lg-max-size) {
+  .app-responsive-banner-container__background {
+    background-image: url('../../../assets/images/banner-2-lg.jpg');
+  }
 }
 
 @media (max-width: $md-max-size) {
   .app-responsive-banner-container__background {
-    background-image: url('../../../assets/images/banner-2-1332-1000.jpg');
+    background-image: url('../../../assets/images/banner-2-md.jpg');
   }
 }
 
 @media (max-width: $sm-max-size) {
   .app-responsive-banner-container__background {
-    background-image: url('../../../assets/images/banner-2-960-721.jpg');
+    background-image: url('../../../assets/images/banner-2-sm.jpg');
+  }
+}
+
+@media (max-width: $xs-max-size) {
+  .app-responsive-banner-container__background {
+    background-image: url('../../../assets/images/banner-2-xs.jpg');
   }
 }
