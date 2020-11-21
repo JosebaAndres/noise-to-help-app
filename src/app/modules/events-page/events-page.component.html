@@ -1,7 +1,7 @@
 <app-view>
   <div class="app-events-page">
     <h1 class="mat-headline">Eventos</h1>
-    <div *ngIf="(deviceType$ | async) === 1">
+    <div *ngIf="(mediaQuery$ | async) === 1">
       <app-card
         *ngFor="let event of events$ | async"
         class="app-events-page__card"
@@ -13,7 +13,7 @@
         <p *ngFor="let descriptionItem of event.description">{{ descriptionItem }}</p>
       </app-card>
     </div>
-    <div *ngIf="(deviceType$ | async) !== 1">
+    <div *ngIf="(mediaQuery$ | async) !== 1">
       <app-big-card
         *ngFor="let event of events$ | async"
         class="app-events-page__card"

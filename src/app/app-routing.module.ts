@@ -30,14 +30,6 @@ const routes: Routes = [
     loadChildren: () => import('./modules/take-part-page/take-part-page.module').then((m) => m.TakePartUsPageModule),
   },
   {
-    path: 'facebook',
-    loadChildren: () => import('./modules/facebook-page/facebook-page.module').then((m) => m.FacebookPageModule),
-  },
-  {
-    path: 'instagram',
-    loadChildren: () => import('./modules/instagram-page/instagram-page.module').then((m) => m.InstagramPageModule),
-  },
-  {
     path: 'playground',
     loadChildren: () => import('./modules/playground-page/playground-page.module').then((m) => m.PlaygroundPageModule),
     canActivate: [PlaygroundGuard],

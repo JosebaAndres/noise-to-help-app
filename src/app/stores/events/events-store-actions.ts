@@ -1,7 +1,5 @@
 import { Action } from '@ngrx/store';
-import { DeviceType } from 'src/app/models/device-type';
 import { EventModel } from 'src/app/models/event-model';
-import { MediaQueryAlias } from '../../models/media-query-alias';
 
 export enum EventsStoreActionTypes {
   LoadEvents = '[Events] Load events',
