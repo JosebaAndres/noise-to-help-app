@@ -19,6 +19,10 @@ export const initialUiStoreState: UiStoreState = {
           routerLink: '/about-us',
         },
         {
+          description: 'Hazte socio',
+          routerLink: '/partners',
+        },
+        {
           description: 'Eventos',
           routerLink: '/events',
         },
@@ -39,6 +43,10 @@ export const initialUiStoreState: UiStoreState = {
         {
           description: 'Quienes somos',
           routerLink: '/about-us',
+        },
+        {
+          description: 'Hazte socio',
+          routerLink: '/partners',
         },
         {
           description: 'Eventos',
