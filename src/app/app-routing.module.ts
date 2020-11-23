@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlaygroundGuard } from './modules/playground-page/playground-guard';
+import { ProductionGuard } from './services/production-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   {
     path: 'events',
     loadChildren: () => import('./modules/events-page/events-page.module').then((m) => m.EventsPageModule),
+    canActivate: [ProductionGuard],
   },
   {
     path: 'contact',
@@ -30,8 +32,13 @@ const routes: Routes = [
       import('./modules/collaborate-page/collaborate-page.module').then((m) => m.CollaboratePageModule),
   },
   {
-    path: 'take-part',
-    loadChildren: () => import('./modules/take-part-page/take-part-page.module').then((m) => m.TakePartUsPageModule),
+    path: 'merchandising',
+    loadChildren: () =>
+      import('./modules/merchandIsing-page/merchandising-page.module').then((m) => m.MerchandisingUsPageModule),
+  },
+  {
+    path: 'questions',
+    loadChildren: () => import('./modules/questions-page/questions-page.module').then((m) => m.QuestionsUsPageModule),
   },
   {
     path: 'playground',

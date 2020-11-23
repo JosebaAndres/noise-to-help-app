@@ -10,65 +10,47 @@ export interface UiStoreState {
   deviceType: DeviceType;
 }
 
+export const SUB_MENU_ITEMS = [
+  {
+    description: 'Quienes somos',
+    routerLink: '/about-us',
+  },
+  {
+    description: 'Hazte socio',
+    routerLink: '/partners',
+  },
+  {
+    description: 'Colabora',
+    routerLink: '/collaborate',
+  },
+  {
+    description: 'Merchandising',
+    routerLink: '/merchandising',
+  },
+  {
+    description: 'FAQ',
+    routerLink: '/questions',
+  },
+  {
+    description: 'Contacto',
+    routerLink: '/contact',
+  },
+];
+
+export const SUB_MENU_ITEMS_DEV = SUB_MENU_ITEMS.concat([
+  {
+    description: 'Eventos',
+    routerLink: '/events',
+  },
+  {
+    description: 'Playground',
+    routerLink: '/playground',
+  },
+]);
+
 export const initialUiStoreState: UiStoreState = {
   menuOpened: false,
-  subMenuItems: !environment.playground
-    ? [
-        {
-          description: 'Quienes somos',
-          routerLink: '/about-us',
-        },
-        {
-          description: 'Hazte socio',
-          routerLink: '/partners',
-        },
-        {
-          description: 'Eventos',
-          routerLink: '/events',
-        },
-        {
-          description: 'Participa',
-          routerLink: '/take-part',
-        },
-        {
-          description: 'Colabora',
-          routerLink: '/collaborate',
-        },
-        {
-          description: 'Contacto',
-          routerLink: '/contact',
-        },
-      ]
-    : [
-        {
-          description: 'Quienes somos',
-          routerLink: '/about-us',
-        },
-        {
-          description: 'Hazte socio',
-          routerLink: '/partners',
-        },
-        {
-          description: 'Eventos',
-          routerLink: '/events',
-        },
-        {
-          description: 'Participa',
-          routerLink: '/take-part',
-        },
-        {
-          description: 'Colabora',
-          routerLink: '/collaborate',
-        },
-        {
-          description: 'Contacto',
-          routerLink: '/contact',
-        },
-        {
-          description: 'Playground',
-          routerLink: '/playground',
-        },
-      ],
+  subMenuItems: !environment.playground ? SUB_MENU_ITEMS : SUB_MENU_ITEMS_DEV,
   mediaQuery: MediaQueryAlias.xs,
   deviceType: DeviceType.phone,
 };
