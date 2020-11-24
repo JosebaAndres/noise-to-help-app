@@ -44,3 +44,13 @@
   display: block;
   text-align: left;
 }
+
+.app-shell__footer {
+  padding: 0 $horizontal-margin-xl;
+}
+
+@media (max-width: $sm-max-size) {
+  .app-shell__footer {
+    padding: 0 $horizontal-margin-l;
+  }
+}

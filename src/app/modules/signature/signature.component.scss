@@ -1,0 +1,13 @@
+@import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+
+.app-signature {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.app-signature__img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}

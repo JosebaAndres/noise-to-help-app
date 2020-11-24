@@ -6,10 +6,19 @@ import { UiStoreModule } from '../../stores/ui/ui-store.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { SignatureModule } from '../signature/signature.module';
 
 @NgModule({
   declarations: [ShellComponent],
-  imports: [CommonModule, NavbarModule, UiStoreModule, MatSidenavModule, MatButtonModule, RouterModule],
+  imports: [
+    CommonModule,
+    NavbarModule,
+    UiStoreModule,
+    MatSidenavModule,
+    MatButtonModule,
+    RouterModule,
+    SignatureModule,
+  ],
   exports: [ShellComponent],
 })
 export class ShellModule {}
