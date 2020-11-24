@@ -6,10 +6,9 @@
   <button mat-icon-button fxHide fxShow.lt-md (click)="toggleMenu()">
     <mat-icon class="app-navbar__icon" svgIcon="hamburger"></mat-icon>
   </button>
-  <a class="app-navbar__link-item" routerLink="/main">
+  <a mat-button class="app-navbar__link-item app-navbar__link-item--title-hack" routerLink="/main">
     <div class="app-navbar__title">
-      <img src="assets/images/logo-3-50-50.png" class="app-navbar__title-img" />
-      <span>Noise to help</span>
+      <img src="assets/images/logo-5-50.png" class="app-navbar__title-img" />
     </div>
   </a>
   <div class="app-navbar__menu-item" fxHide.lt-md>
