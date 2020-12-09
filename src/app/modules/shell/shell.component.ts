@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 import { MenuItemModel } from '../../models/menu-item-model';
 import { UiStoreActionCloseMenu, UiStoreActionOpenMenu } from '../../stores/ui/ui-store-actions';
 import { uiStoreSelectMenuOpened, uiStoreSelectSubMenuItems } from '../../stores/ui/ui-store-selectors';
@@ -20,7 +22,13 @@ export class ShellComponent implements OnInit, OnDestroy {
   sidenavOpened = false;
   subMenuItems$: Observable<Array<MenuItemModel>>;
 
-  constructor(private uiStore$: Store<UiStoreState>, private changeDetectorRef: ChangeDetectorRef) {}
+  @ViewChild('mainContent', { static: true, read: ElementRef }) mainContent: ElementRef<Element>;
+
+  constructor(
+    private uiStore$: Store<UiStoreState>,
+    private changeDetectorRef: ChangeDetectorRef,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.subMenuItems$ = this.uiStore$.select(uiStoreSelectSubMenuItems);
@@ -33,6 +41,15 @@ export class ShellComponent implements OnInit, OnDestroy {
           this.sidenavOpened = value;
           this.changeDetectorRef.markForCheck();
         }
+      });
+
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntil(this.destroy$),
+      )
+      .subscribe(() => {
+        this.mainContent.nativeElement.scroll({ top: 0 });
       });
   }
 
