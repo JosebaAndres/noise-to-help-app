@@ -3,12 +3,12 @@ import { Component } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-big-card',
-  templateUrl: './big-card.component.html',
-  styleUrls: ['./big-card.component.scss'],
+  selector: 'app-card-l',
+  templateUrl: './card-l.component.html',
+  styleUrls: ['./card-l.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BigCardComponent {
+export class CardLComponent {
   @Input() title: string;
   @Input() subtitle: string;
   @Input() imagePath: string;

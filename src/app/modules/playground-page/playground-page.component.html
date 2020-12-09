@@ -1,24 +1,26 @@
 <app-view>
+  <app-paragraph>
+    <app-title-text>Playground</app-title-text>
+  </app-paragraph>
   <div class="app-playground-page">
-    <h1 class="mat-headline">Playground</h1>
     <div class="app-playground-page__item">
       <div class="app-playground-page__item-title">
         <h1 class="mat-title">Typography</h1>
       </div>
       <div class="app-playground-page__item-content">
-        <p class="mat-display-4">.mat-display-4</p>
-        <p class="mat-display-3">.mat-display-3</p>
-        <p class="mat-display-2">.mat-display-2</p>
-        <p class="mat-display-1">.mat-display-1</p>
-        <p class="mat-p mat-headline">.mat-p, .mat-headline</p>
-        <p class="mat-h2 mat-title">.mat-h2, .mat-title</p>
-        <p class="mat-h3 mat-subheading-2">.mat-h3, .mat-subheading-2</p>
-        <p class="mat-h4 mat-subheading-1">.mat-h4, .mat-subheading-1</p>
-        <p class="mat-body mat-body-1">.mat-body, .mat-body-1</p>
-        <p class="mat-body-strong mat-body-2">.mat-body-strong, .mat-body-2</p>
-        <p class="mat-small mat-caption">.mat-small, .mat-caption</p>
-        <p>Empty</p>
-        <p class="typography--tabulated">typography--tabulated</p>
+        <app-paragraph class="mat-display-4">.mat-display-4</app-paragraph>
+        <app-paragraph class="mat-display-3">.mat-display-3</app-paragraph>
+        <app-paragraph class="mat-display-2">.mat-display-2</app-paragraph>
+        <app-paragraph class="mat-display-1">.mat-display-1</app-paragraph>
+        <app-paragraph class="mat-p mat-headline">.mat-p, .mat-headline</app-paragraph>
+        <app-paragraph class="mat-h2 mat-title">.mat-h2, .mat-title</app-paragraph>
+        <app-paragraph class="mat-h3 mat-subheading-2">.mat-h3, .mat-subheading-2</app-paragraph>
+        <app-paragraph class="mat-h4 mat-subheading-1">.mat-h4, .mat-subheading-1</app-paragraph>
+        <app-paragraph class="mat-body mat-body-1">.mat-body, .mat-body-1</app-paragraph>
+        <app-paragraph class="mat-body-strong mat-body-2">.mat-body-strong, .mat-body-2</app-paragraph>
+        <app-paragraph class="mat-small mat-caption">.mat-small, .mat-caption</app-paragraph>
+        <app-paragraph>Empty</app-paragraph>
+        <app-paragraph class="typography--tabulated">typography--tabulated</app-paragraph>
       </div>
     </div>
     <div class="app-playground-page__item">
@@ -32,16 +34,18 @@
           [imagePath]="'https://homepages.cae.wisc.edu/~ece533/images/airplane.png'"
           [avatarPath]="'https://homepages.cae.wisc.edu/~ece533/images/arctichare.png'"
         >
-          <p>
+          <app-paragraph>
             El ornitorrinco (Ornithorhynchus anatinus) es una especie de mamífero semiacuático endémico del este de
             Australia y de la isla de Tasmania.
-          </p>
-          <p>
+          </app-paragraph>
+          <app-paragraph>
             Es una de las cinco especies —junto con las cuatro de equidna— que perviven en la actualidad del orden de
             los monotremas, grupo que reúne a los únicos mamíferos actuales que ponen huevos en lugar de dar a luz crías
             vivas.
-          </p>
-          <p>Es el único representante vivo de la familia Ornithorhynchidae y del género Ornithorhynchus.</p>
+          </app-paragraph>
+          <app-paragraph
+            >Es el único representante vivo de la familia Ornithorhynchidae y del género Ornithorhynchus.</app-paragraph
+          >
         </app-card>
       </div>
     </div>
@@ -50,23 +54,25 @@
         <h1 class="mat-title">Big card</h1>
       </div>
       <div class="app-playground-page__item-content">
-        <app-big-card
+        <app-card-l
           [title]="'title'"
           [subtitle]="'subtitle'"
           [imagePath]="'https://homepages.cae.wisc.edu/~ece533/images/airplane.png'"
           [avatarPath]="'https://homepages.cae.wisc.edu/~ece533/images/arctichare.png'"
         >
-          <p>
+          <app-paragraph>
             El ornitorrinco (Ornithorhynchus anatinus) es una especie de mamífero semiacuático endémico del este de
             Australia y de la isla de Tasmania.
-          </p>
-          <p>
+          </app-paragraph>
+          <app-paragraph>
             Es una de las cinco especies —junto con las cuatro de equidna— que perviven en la actualidad del orden de
             los monotremas, grupo que reúne a los únicos mamíferos actuales que ponen huevos en lugar de dar a luz crías
             vivas.
-          </p>
-          <p>Es el único representante vivo de la familia Ornithorhynchidae y del género Ornithorhynchus.</p>
-        </app-big-card>
+          </app-paragraph>
+          <app-paragraph
+            >Es el único representante vivo de la familia Ornithorhynchidae y del género Ornithorhynchus.</app-paragraph
+          >
+        </app-card-l>
       </div>
     </div>
   </div>

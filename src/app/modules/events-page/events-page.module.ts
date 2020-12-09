@@ -5,9 +5,10 @@ import { UnderConstructionModule } from '../under-construction/under-constructio
 import { EventsPageComponent } from './events-page.component';
 import { EventsPageRoutingModule } from './events-page-routing.module';
 import { CardModule } from '../card/card.module';
-import { BigCardModule } from '../big-card/big-card.module';
+import { CardLModule } from '../card-l/card-l.module';
 import { UiStoreModule } from 'src/app/stores/ui/ui-store.module';
 import { EventsStoreModule } from 'src/app/stores/events/events-store.module';
+import { TypographyModule } from '../typography/typography.module';
 
 @NgModule({
   declarations: [EventsPageComponent],
@@ -17,9 +18,10 @@ import { EventsStoreModule } from 'src/app/stores/events/events-store.module';
     ViewModule,
     UnderConstructionModule,
     CardModule,
-    BigCardModule,
+    CardLModule,
     UiStoreModule,
     EventsStoreModule,
+    TypographyModule,
   ],
   exports: [EventsPageComponent],
 })

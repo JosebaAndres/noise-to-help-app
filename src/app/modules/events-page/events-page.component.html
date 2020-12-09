@@ -1,6 +1,8 @@
 <app-view>
+  <app-paragraph>
+    <app-title-text>Eventos</app-title-text>
+  </app-paragraph>
   <div class="app-events-page">
-    <h1 class="mat-headline">Eventos</h1>
     <div *ngIf="(mediaQuery$ | async) === 1">
       <app-card
         *ngFor="let event of events$ | async"
@@ -10,11 +12,11 @@
         [imagePath]="event.imagePath"
         [avatarPath]="event.avatarPath"
       >
-        <p *ngFor="let descriptionItem of event.description">{{ descriptionItem }}</p>
+        <app-paragraph *ngFor="let descriptionItem of event.description">{{ descriptionItem }}</app-paragraph>
       </app-card>
     </div>
     <div *ngIf="(mediaQuery$ | async) !== 1">
-      <app-big-card
+      <app-card-l
         *ngFor="let event of events$ | async"
         class="app-events-page__card"
         [title]="event.title"
@@ -22,8 +24,8 @@
         [imagePath]="event.imagePath"
         [avatarPath]="event.avatarPath"
       >
-        <p *ngFor="let descriptionItem of event.description">{{ descriptionItem }}</p>
-      </app-big-card>
+        <app-paragraph *ngFor="let descriptionItem of event.description">{{ descriptionItem }}</app-paragraph>
+      </app-card-l>
     </div>
   </div>
 </app-view>

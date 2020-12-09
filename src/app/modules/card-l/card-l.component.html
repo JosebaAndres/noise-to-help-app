@@ -1,14 +1,14 @@
-<div class="app-big-card">
+<div class="app-card-l">
   <mat-card role="'group'">
     <mat-card-header>
-      <div mat-card-avatar class="app-big-card__avatar" [style.background-image]="getAvatarPath()"></div>
+      <div mat-card-avatar class="app-card-l__avatar" [style.background-image]="getAvatarPath()"></div>
       <mat-card-title *ngIf="title">{{ title }}</mat-card-title>
       <mat-card-subtitle *ngIf="subtitle">{{ subtitle }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <div class="app-big-card__content">
-        <img class="app-big-card__image" mat-card-lg-image [src]="getImagePath()" />
-        <div class="app-big-card__description">
+      <div class="app-card-l__content">
+        <img class="app-card-l__image" mat-card-lg-image [src]="getImagePath()" />
+        <div class="app-card-l__description">
           <ng-content></ng-content>
         </div>
       </div>

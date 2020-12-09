@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BigCardComponent } from './big-card.component';
+import { CardLComponent } from './card-l.component';
 import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [BigCardComponent],
+  declarations: [CardLComponent],
   imports: [CommonModule, MatCardModule],
-  exports: [BigCardComponent],
+  exports: [CardLComponent],
 })
-export class BigCardModule {}
+export class CardLModule {}
