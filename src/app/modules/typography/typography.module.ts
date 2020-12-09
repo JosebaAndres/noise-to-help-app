@@ -13,6 +13,7 @@ import { DownloadLinkTextComponent } from './download-link-text.component';
 import { EmailLinkTextComponent } from './email-link-text.component';
 import { ListItemParagraphComponent } from './list-item-paragraph-text.component';
 import { SubTitleTextComponent } from './subtitle-text.component';
+import { ParagraphGroupComponent } from './paragraph-group.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SubTitleTextComponent } from './subtitle-text.component';
     EmailLinkTextComponent,
     ListItemParagraphComponent,
     SubTitleTextComponent,
+    ParagraphGroupComponent,
   ],
   imports: [CommonModule, UiStoreModule, RouterModule],
   exports: [
@@ -41,6 +43,7 @@ import { SubTitleTextComponent } from './subtitle-text.component';
     EmailLinkTextComponent,
     ListItemParagraphComponent,
     SubTitleTextComponent,
+    ParagraphGroupComponent,
   ],
 })
 export class TypographyModule {}

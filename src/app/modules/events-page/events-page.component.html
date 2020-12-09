@@ -1,7 +1,9 @@
 <app-view>
-  <app-paragraph>
-    <app-title-text>Eventos</app-title-text>
-  </app-paragraph>
+  <app-paragraph-group>
+    <app-paragraph>
+      <app-title-text>Eventos</app-title-text>
+    </app-paragraph>
+  </app-paragraph-group>
   <div class="app-events-page">
     <div *ngIf="(mediaQuery$ | async) === 1">
       <app-card
