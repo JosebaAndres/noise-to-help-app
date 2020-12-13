@@ -26,7 +26,12 @@
         </div>
       </mat-sidenav>
       <mat-sidenav-content class="app-shell__main-content" #mainContent>
-        <ng-content></ng-content>
+        <div class="app-shell__main-content-content">
+          <ng-content></ng-content>
+        </div>
+        <div class="app-shell__main-content-footer">
+          <app-signature></app-signature>
+        </div>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
