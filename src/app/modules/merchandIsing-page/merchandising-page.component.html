@@ -14,15 +14,31 @@
   </app-paragraph-group>
   <app-paragraph-group>
     <app-paragraph><app-subtitle-text>CAMISETA NEGRA NOISE TO HELP</app-subtitle-text></app-paragraph>
+    <app-paragraph>
+      <div class="app-merchandising-page__t-shirt-container">
+        <app-img [src]="'./assets/images/t-shirt-noise-to-help-a.jpg'"></app-img>
+        <app-img [src]="'./assets/images/t-shirt-noise-to-help-b.jpg'"></app-img>
+      </div>
+    </app-paragraph>
     <app-paragraph>Precio: 15 €</app-paragraph>
     <app-paragraph>Gastos de envío (península y baleares): 3€ ordinario / 5€ certificada</app-paragraph>
+    <app-paragraph
+      >Tallas:
+      <app-download-link-text
+        link="/assets/documents/t-shirt-noise-to-help-sizes.pdf"
+        fileName="Catalogo tallas camiseta Noise to Help.pdf"
+        >Catálogo de tallas</app-download-link-text
+      >
+      (En caso de dudas recomendamos pedir la más grande que la justita).</app-paragraph
+    >
     <app-paragraph>
       Con la cami original de la asociación los principales beneficios irán destinados íntegramente nuestra cuenta
-      específica –añadir enlace– en la plataforma Teaming desde la cual se donará mensualmente una cantidad fija hacia
-      diferentes causas sociales centradas en familias y personas particulares que necesiten recaudar fondos debido a
-      situaciones de imperiosa necesidad. El resto de los beneficios serán invertidos en el coste del propio
-      merchandising y, en caso de existir excedentes, estos serán incorporados directamente al funcionamiento interno de
-      la asociación.
+      específica en la plataforma
+      <app-external-link-text link="https://www.teaming.net/">Teaming</app-external-link-text> desde la cual se donará
+      mensualmente una cantidad fija hacia diferentes causas sociales centradas en familias y personas particulares que
+      necesiten recaudar fondos debido a situaciones de imperiosa necesidad. El resto de los beneficios serán invertidos
+      en el coste del propio merchandising y, en caso de existir excedentes, estos serán incorporados directamente al
+      funcionamiento interno de la asociación.
     </app-paragraph>
     <app-paragraph>
       Todo ello lo tienes disponible en la tienda física de
