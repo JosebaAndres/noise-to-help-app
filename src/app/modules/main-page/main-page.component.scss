@@ -1,22 +1,22 @@
 @import '../../../assets/scss/settings/breaking-sizes.scss';
 @import '../../../assets/scss/settings/margins.scss';
 
-.app-main-page__view-content {
-  margin: (-$vertica-margin-l) (-$horizontal-margin-l);
+.app-main-page__about-us {
+  margin: (-$vertica-margin-l) (-$horizontal-margin-l) 0 (-$horizontal-margin-l);
 }
 
 @media (max-width: $sm-max-size) {
-  .app-main-page__view-content {
-    margin: (-$vertica-margin-m) (-$horizontal-margin-m);
+  .app-main-page__about-us {
+    margin: (-$vertica-margin-m) (-$horizontal-margin-m) 0 (-$horizontal-margin-m);
   }
 }
 
-.app-main-page__main-content {
+.app-main-page__about-us-content {
   padding: $vertica-margin-l $horizontal-margin-l;
 }
 
 @media (max-width: $sm-max-size) {
-  .app-main-page__main-content {
+  .app-main-page__about-us-content {
     padding: $vertica-margin-m $horizontal-margin-m;
   }
 }

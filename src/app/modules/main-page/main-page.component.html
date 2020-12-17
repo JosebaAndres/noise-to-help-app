@@ -1,25 +1,75 @@
 <app-view>
-  <div class="app-main-page__view-content">
-    <app-responsive-banner-container>
-      <div class="app-main-page__main-content">
-        <app-paragraph-group>
-          <app-paragraph-l>
-            <app-important-text>Noise To Help</app-important-text> somos una asociación sin ánimo de lucro cuyo
-            principal objetivo es el de intentar conseguir diferentes recursos económicos y materiales con la única
-            finalidad de <app-important-text>ayudar</app-important-text> lo máximo posible a las familias más
-            necesitadas.
-          </app-paragraph-l>
-          <app-paragraph-l>
-            Todo ello lo realizamos mediante la creación de diferentes eventos enfocados y centrados, en su gran
-            mayoría, en el ámbito de la <app-important-text>música rock</app-important-text> en todas sus diferentes
-            variantes (metal, hardcore, alternativo…) y cuyos beneficios irán donados íntegramente a fundaciones y
-            organizaciones que harán llegar dichos recursos a su destinatario final.
-          </app-paragraph-l>
-          <app-paragraph-l>
-            <app-internal-link-text link="/about-us">+ Info</app-internal-link-text>
-          </app-paragraph-l>
-        </app-paragraph-group>
-      </div>
-    </app-responsive-banner-container>
+  <div class="app-main-page__about-us">
+    <app-paragraph-group>
+      <app-responsive-banner-container>
+        <div class="app-main-page__about-us-content">
+          <app-paragraph-group>
+            <app-paragraph-l>
+              <app-important-text>Noise To Help</app-important-text> somos una asociación sin ánimo de lucro cuyo
+              principal objetivo es el de intentar conseguir diferentes recursos económicos y materiales con la única
+              finalidad de <app-important-text>ayudar</app-important-text> lo máximo posible a las familias más
+              necesitadas.
+            </app-paragraph-l>
+            <app-paragraph-l>
+              Todo ello lo realizamos mediante la creación de diferentes eventos enfocados y centrados, en su gran
+              mayoría, en el ámbito de la <app-important-text>música rock</app-important-text> en todas sus diferentes
+              variantes (metal, hardcore, alternativo…) y cuyos beneficios irán donados íntegramente a fundaciones y
+              organizaciones que harán llegar dichos recursos a su destinatario final.
+            </app-paragraph-l>
+            <app-paragraph-l>
+              <app-internal-link-text link="/about-us">+ Info</app-internal-link-text>
+            </app-paragraph-l>
+          </app-paragraph-group>
+        </div>
+      </app-responsive-banner-container>
+    </app-paragraph-group>
   </div>
+  <app-paragraph-group>
+    <div>
+      <div *ngIf="(mediaQuery$ | async) === 1">
+        <app-card
+          [title]="'Merchandising'"
+          [subtitle]="'Camiseta negra Noise to help'"
+          [imagePath]="'./assets/images/t-shirt-noise-to-help-a.jpg'"
+          [avatarPath]="'./assets/images/t-shirt-noise-to-help-a.jpg'"
+        >
+          <app-paragraph-group>
+            <app-paragraph>
+              Una importante vía para colaborar con nosotros es mediante el
+              <app-important-text>merchandising solidario</app-important-text> de la asociación. Este merchandising será
+              realizado en su totalidad por la gente de
+              <app-external-link-text link="https://camisetas-ahora.com/">Camisetas Ahora</app-external-link-text>
+              desde Logroño (La Rioja) los cuales, aparte de hacer un trabajo increíble, colaboran con nosotros y nos
+              echan un cable con la realización y venta final del merchan.
+            </app-paragraph>
+            <app-paragraph>
+              <app-internal-link-text link="/merchandising">+ Info</app-internal-link-text>
+            </app-paragraph>
+          </app-paragraph-group>
+        </app-card>
+      </div>
+      <div *ngIf="(mediaQuery$ | async) !== 1">
+        <app-card-l
+          [title]="'Merchandising'"
+          [subtitle]="'Camiseta negra Noise to help'"
+          [imagePath]="'./assets/images/t-shirt-noise-to-help-a.jpg'"
+          [avatarPath]="'./assets/images/t-shirt-noise-to-help-a.jpg'"
+        >
+          <app-paragraph-group>
+            <app-paragraph>
+              Una importante vía para colaborar con nosotros es mediante el
+              <app-important-text>merchandising solidario</app-important-text> de la asociación. Este merchandising será
+              realizado en su totalidad por la gente de
+              <app-external-link-text link="https://camisetas-ahora.com/">Camisetas Ahora</app-external-link-text>
+              desde Logroño (La Rioja) los cuales, aparte de hacer un trabajo increíble, colaboran con nosotros y nos
+              echan un cable con la realización y venta final del merchan.
+            </app-paragraph>
+            <app-paragraph>
+              <app-internal-link-text link="/merchandising">+ Info</app-internal-link-text>
+            </app-paragraph>
+          </app-paragraph-group>
+        </app-card-l>
+      </div>
+    </div>
+  </app-paragraph-group>
 </app-view>

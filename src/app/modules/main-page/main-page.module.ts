@@ -5,10 +5,22 @@ import { MainPageRoutingModule } from './main-page-routing.module';
 import { ViewModule } from '../view/view.module';
 import { ResponsiveBannerContainerModule } from '../responsive-banner-container/responsive-banner-container.module';
 import { TypographyModule } from '../typography/typography.module';
+import { UiStoreModule } from 'src/app/stores/ui/ui-store.module';
+import { CardModule } from '../card/card.module';
+import { CardLModule } from '../card-l/card-l.module';
 
 @NgModule({
   declarations: [MainPageComponent],
-  imports: [CommonModule, MainPageRoutingModule, ViewModule, ResponsiveBannerContainerModule, TypographyModule],
+  imports: [
+    CommonModule,
+    MainPageRoutingModule,
+    ViewModule,
+    ResponsiveBannerContainerModule,
+    TypographyModule,
+    UiStoreModule,
+    CardModule,
+    CardLModule,
+  ],
   exports: [MainPageComponent],
 })
 export class MainPageModule {}
