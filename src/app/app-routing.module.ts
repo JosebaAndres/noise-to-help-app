@@ -20,7 +20,6 @@ const routes: Routes = [
   {
     path: 'events',
     loadChildren: () => import('./modules/events-page/events-page.module').then((m) => m.EventsPageModule),
-    canActivate: [ProductionGuard],
   },
   {
     path: 'contact',
