@@ -1,7 +1,12 @@
 <div class="app-card">
   <mat-card>
     <mat-card-header>
-      <div mat-card-avatar class="app-card__avatar" [style.background-image]="getAvatarPath()"></div>
+      <div
+        mat-card-avatar
+        class="app-card__avatar"
+        *ngIf="getAvatarPath()"
+        [style.background-image]="getAvatarPath()"
+      ></div>
       <mat-card-title *ngIf="title">{{ title }}</mat-card-title>
       <mat-card-subtitle *ngIf="subtitle">{{ subtitle }}</mat-card-subtitle>
     </mat-card-header>

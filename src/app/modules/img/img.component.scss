@@ -3,30 +3,5 @@
 
 .app-image__image {
   object-fit: contain;
-  max-height: 400px;
   max-width: 100%;
-}
-
-@media (max-width: $lg-max-size) {
-  .app-image__image {
-    max-height: 375px;
-  }
-}
-
-@media (max-width: $md-max-size) {
-  .app-image__image {
-    max-height: 350px;
-  }
-}
-
-@media (max-width: $sm-max-size) {
-  .app-image__image {
-    max-height: 325px;
-  }
-}
-
-@media (max-width: $xs-max-size) {
-  .app-image__image {
-    max-height: 300px;
-  }
 }

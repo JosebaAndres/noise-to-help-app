@@ -28,6 +28,10 @@ export const SUB_MENU_ITEMS = [
     routerLink: '/merchandising',
   },
   {
+    description: 'Eventos',
+    routerLink: '/events',
+  },
+  {
     description: 'FAQ',
     routerLink: '/questions',
   },
@@ -38,10 +42,6 @@ export const SUB_MENU_ITEMS = [
 ];
 
 export const SUB_MENU_ITEMS_DEV = SUB_MENU_ITEMS.concat([
-  {
-    description: 'Eventos',
-    routerLink: '/events',
-  },
   {
     description: 'Playground',
     routerLink: '/playground',

@@ -8,6 +8,7 @@ import { TypographyModule } from '../typography/typography.module';
 import { UiStoreModule } from 'src/app/stores/ui/ui-store.module';
 import { CardModule } from '../card/card.module';
 import { CardLModule } from '../card-l/card-l.module';
+import { ImgModule } from '../img/img.module';
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -20,6 +21,7 @@ import { CardLModule } from '../card-l/card-l.module';
     UiStoreModule,
     CardModule,
     CardLModule,
+    ImgModule,
   ],
   exports: [MainPageComponent],
 })

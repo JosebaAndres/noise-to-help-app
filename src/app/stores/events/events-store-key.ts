@@ -1,1 +1,0 @@
-export const eventsStoreKey = 'events';

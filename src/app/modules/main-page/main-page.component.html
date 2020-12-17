@@ -72,4 +72,37 @@
       </div>
     </div>
   </app-paragraph-group>
+  <div class="app-main-page__events">
+    <app-paragraph-group>
+      <div class="app-main-page__events-items-container">
+        <div class="app-main-page__events-item">
+          <app-card
+            [title]="'Donación y recogida solidaria'"
+            [subtitle]="'Del 26 al 27 de Diciembre en la casa de cultura de Briones (La Rioja)'"
+          >
+            <app-paragraph-group>
+              <app-paragraph>
+                <app-img [src]="'./assets/images/donate-toys-2020.jpg'"></app-img>
+              </app-paragraph>
+            </app-paragraph-group>
+            <app-paragraph-group>
+              <app-paragraph
+                >Nos encontramos en plena campaña de donación y recogida solidaria de juguetes y material
+                escolar.</app-paragraph
+              >
+              <app-paragraph
+                >Puedes encontrar mas información tanto de como participar como de los destinatarios
+                <app-download-link-text
+                  link="/assets/documents/donate-toys-2020.pdf"
+                  fileName="Donación y recogida solidario NTH 2020.pdf"
+                  >aquí</app-download-link-text
+                >.</app-paragraph
+              >
+              <app-paragraph><app-encourage-text>¡Os animamos a todos a participar!</app-encourage-text></app-paragraph>
+            </app-paragraph-group>
+          </app-card>
+        </div>
+      </div>
+    </app-paragraph-group>
+  </div>
 </app-view>
