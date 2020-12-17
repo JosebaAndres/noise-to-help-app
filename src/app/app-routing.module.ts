@@ -45,6 +45,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/playground-page/playground-page.module').then((m) => m.PlaygroundPageModule),
     canActivate: [PlaygroundGuard],
   },
+  {
+    path: 'teaming',
+    loadChildren: () => import('./modules/teaming-page/teaming-page.module').then((m) => m.TeamingPageModule),
+  },
 ];
 
 @NgModule({
