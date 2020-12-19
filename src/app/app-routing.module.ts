@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlaygroundGuard } from './modules/playground-page/playground-guard';
-import { ProductionGuard } from './services/production-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -43,10 +42,6 @@ const routes: Routes = [
     path: 'playground',
     loadChildren: () => import('./modules/playground-page/playground-page.module').then((m) => m.PlaygroundPageModule),
     canActivate: [PlaygroundGuard],
-  },
-  {
-    path: 'teaming',
-    loadChildren: () => import('./modules/teaming-page/teaming-page.module').then((m) => m.TeamingPageModule),
   },
 ];
 
