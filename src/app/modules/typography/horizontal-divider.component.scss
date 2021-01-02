@@ -1,0 +1,8 @@
+@import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+
+.app-horizontal-divider {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+}

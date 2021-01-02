@@ -14,6 +14,7 @@ import { EmailLinkTextComponent } from './email-link-text.component';
 import { ListItemParagraphComponent } from './list-item-paragraph-text.component';
 import { SubTitleTextComponent } from './subtitle-text.component';
 import { ParagraphGroupComponent } from './paragraph-group.component';
+import { HorizontalDividerComponent } from './horizontal-divider.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ParagraphGroupComponent } from './paragraph-group.component';
     ListItemParagraphComponent,
     SubTitleTextComponent,
     ParagraphGroupComponent,
+    HorizontalDividerComponent,
   ],
   imports: [CommonModule, UiStoreModule, RouterModule],
   exports: [
@@ -44,6 +46,7 @@ import { ParagraphGroupComponent } from './paragraph-group.component';
     ListItemParagraphComponent,
     SubTitleTextComponent,
     ParagraphGroupComponent,
+    HorizontalDividerComponent,
   ],
 })
 export class TypographyModule {}
