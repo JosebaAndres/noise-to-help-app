@@ -7,6 +7,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { SignatureModule } from '../signature/signature.module';
+import { MatIconModule } from '@angular/material/icon';
+import { CustomIconsModule } from '../custom-icons/custom-icons.module';
 
 @NgModule({
   declarations: [ShellComponent],
@@ -18,6 +20,8 @@ import { SignatureModule } from '../signature/signature.module';
     MatButtonModule,
     RouterModule,
     SignatureModule,
+    MatIconModule,
+    CustomIconsModule,
   ],
   exports: [ShellComponent],
 })

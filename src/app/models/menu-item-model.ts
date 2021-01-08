@@ -1,6 +1,6 @@
 export enum MenuItemModelType {
-  default,
-  primary,
+  default = 'default',
+  primary = 'primary',
 }
 
 export interface MenuItemModel {

@@ -14,15 +14,29 @@
           <a class="app-shell__sidenav-content-item" mat-button [routerLink]="'/main'" (click)="linkClicked()">
             <span>Inicio</span>
           </a>
-          <a
-            class="app-shell__sidenav-content-item"
-            mat-button
-            *ngFor="let subMenuItem of subMenuItems$ | async"
-            [routerLink]="subMenuItem.routerLink"
-            (click)="linkClicked()"
-          >
-            <span>{{ subMenuItem.description }}</span>
-          </a>
+          <ng-container *ngFor="let subMenuItem of subMenuItems$ | async">
+            <a
+              *ngIf="subMenuItem.type === 'default'"
+              class="app-shell__sidenav-content-item"
+              mat-button
+              [routerLink]="subMenuItem.routerLink"
+              (click)="linkClicked()"
+            >
+              <span>{{ subMenuItem.description }}</span>
+            </a>
+            <a
+              *ngIf="subMenuItem.type === 'primary'"
+              class="app-shell__sidenav-content-item"
+              mat-button
+              [routerLink]="subMenuItem.routerLink"
+              (click)="linkClicked()"
+            >
+              <div class="app-shell__primary-button-content">
+                <span class="app-shell__primary-button-text">{{ subMenuItem.description }}</span>
+                <mat-icon class="app-shell__primary-button-icon" svgIcon="heart" [inline]="true"></mat-icon>
+              </div>
+            </a>
+          </ng-container>
         </div>
       </mat-sidenav>
       <mat-sidenav-content class="app-shell__main-content" #mainContent>

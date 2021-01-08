@@ -63,3 +63,12 @@
     padding: 0 $horizontal-margin-l $vertica-margin-m $horizontal-margin-l;
   }
 }
+
+.app-shell__primary-button-text {
+  padding-right: 8px;
+}
+
+.app-shell__primary-button-icon {
+  height: 1rem !important;
+  width: 1rem !important;
+}
