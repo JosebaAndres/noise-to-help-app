@@ -25,6 +25,7 @@ export class CustomIconsModule {
       'hamburger',
       this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}hamburger.svg`),
     );
+    this.matIconRegistry.addSvgIcon('heart', this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}heart.svg`));
     this.matIconRegistry.addSvgIcon('mail', this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}mail.svg`));
   }
 }

@@ -9,10 +9,6 @@
 }
 
 .app-navbar__link-item {
-  &--small {
-    padding-left: $horizontal-margin-xs;
-    padding-right: $horizontal-margin-xs;
-  }
   &--title-hack {
     min-width: auto;
   }
@@ -41,7 +37,28 @@
 }
 
 .app-navbar__toolbar--small {
-  height: 24px;
+  height: 30px;
   padding-left: 8px;
   padding-right: 8px;
+}
+
+.app-navbar__slogan {
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.app-navbar__primary-button-text {
+  padding-right: 8px;
+}
+
+.app-navbar__primary-button-icon {
+  height: 1rem !important;
+  width: 1rem !important;
+}
+
+.app-navbar__icon--small {
+  height: 1.2rem !important;
+  width: 1.2rem !important;
 }

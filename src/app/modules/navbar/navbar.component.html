@@ -1,6 +1,13 @@
 <mat-toolbar class="app-navbar__toolbar app-navbar__toolbar--small">
-  <span class="app-navbar__link-item app-navbar__link-item--small mat-small">Let´s make some noise to help people</span>
-  <div class="app-navbar__separator-item app-navbar__link-item--small"></div>
+  <div class="app-navbar__separator-item"></div>
+  <span class="app-navbar__link-item mat-small app-navbar__slogan">Let´s make some noise to help people</span>
+  <div class="app-navbar__separator-item"></div>
+  <a class="app-navbar__link-item" href="https://www.facebook.com/noisetohelp" target="_blank">
+    <mat-icon class="app-navbar__icon app-navbar__icon--small" svgIcon="facebook" [inline]="true"></mat-icon>
+  </a>
+  <a class="app-navbar__link-item" href="https://www.instagram.com/noisetohelp" target="_blank">
+    <mat-icon class="app-navbar__icon app-navbar__icon--small" svgIcon="instagram" [inline]="true"></mat-icon>
+  </a>
 </mat-toolbar>
 <mat-toolbar color="primary" class="app-navbar__toolbar">
   <button mat-icon-button fxHide fxShow.lt-md (click)="toggleMenu()">
@@ -15,20 +22,24 @@
     <a
       mat-button
       class="app-navbar__link-item"
-      *ngFor="let subMenuItem of subMenuItems$ | async"
+      *ngFor="let subMenuItem of subMenuDefaultItems$ | async"
       [routerLink]="subMenuItem.routerLink"
     >
       <span>{{ subMenuItem.description }}</span>
     </a>
   </div>
   <div class="app-navbar__separator-item"></div>
-  <a class="app-navbar__link-item" href="mailto:info@noisetohelp.org">
-    <mat-icon class="app-navbar__icon" svgIcon="mail"></mat-icon>
-  </a>
-  <a class="app-navbar__link-item" href="https://www.facebook.com/noisetohelp" target="_blank">
-    <mat-icon class="app-navbar__icon" svgIcon="facebook"></mat-icon>
-  </a>
-  <a class="app-navbar__link-item" href="https://www.instagram.com/noisetohelp" target="_blank">
-    <mat-icon class="app-navbar__icon" svgIcon="instagram"></mat-icon>
-  </a>
+  <div class="app-navbar__menu-item" fxHide.lt-md>
+    <a
+      mat-stroked-button
+      class="app-navbar__link-item"
+      *ngFor="let subMenuItem of subMenuPrimaryItems$ | async"
+      [routerLink]="subMenuItem.routerLink"
+    >
+      <div class="app-navbar__primary-button-content">
+        <span class="app-navbar__primary-button-text">{{ subMenuItem.description }}</span>
+        <mat-icon class="app-navbar__primary-button-icon" svgIcon="heart" [inline]="true"></mat-icon>
+      </div>
+    </a>
+  </div>
 </mat-toolbar>
