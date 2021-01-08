@@ -2,22 +2,32 @@
 @import '../../../assets/scss/settings/margins.scss';
 
 .app-main-page__about-us {
-  margin: (-$vertica-margin-l) (-$horizontal-margin-l) 0 (-$horizontal-margin-l);
+  margin-top: -$vertica-margin-l;
+  margin-right: -$horizontal-margin-l;
+  margin-left: -$horizontal-margin-l;
 }
 
 @media (max-width: $sm-max-size) {
   .app-main-page__about-us {
-    margin: (-$vertica-margin-m) (-$horizontal-margin-m) 0 (-$horizontal-margin-m);
+    margin-top: -$vertica-margin-m;
+    margin-right: -$horizontal-margin-m;
+    margin-left: -$horizontal-margin-m;
   }
 }
 
 .app-main-page__about-us-content {
-  padding: $vertica-margin-l $horizontal-margin-l;
+  padding-top: $vertica-margin-m;
+  padding-bottom: 1px;
+  padding-right: $horizontal-margin-l;
+  padding-left: $horizontal-margin-l;
 }
 
 @media (max-width: $sm-max-size) {
   .app-main-page__about-us-content {
-    padding: $vertica-margin-m $horizontal-margin-m;
+    padding-top: $vertica-margin-s;
+    padding-bottom: 1px;
+    padding-right: $horizontal-margin-m;
+    padding-left: $horizontal-margin-m;
   }
 }
 
