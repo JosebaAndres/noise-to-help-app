@@ -1,4 +1,5 @@
 import { DeviceType } from 'src/app/models/device-type';
+import { SignatureModel } from 'src/app/models/signature-model';
 import { environment } from 'src/environments/environment';
 import { MediaQueryAlias } from '../../models/media-query-alias';
 import { MenuItemModel, MenuItemModelType } from '../../models/menu-item-model';
@@ -8,6 +9,7 @@ export interface UiStoreState {
   subMenuItems: Array<MenuItemModel>;
   mediaQuery: MediaQueryAlias;
   deviceType: DeviceType;
+  signatures: Array<SignatureModel>;
 }
 
 export const SUB_MENU_ITEMS: Array<MenuItemModel> = [
@@ -56,9 +58,17 @@ export const SUB_MENU_ITEMS_DEV: Array<MenuItemModel> = SUB_MENU_ITEMS.concat([
   },
 ]);
 
+export const SIGNATURES: Array<SignatureModel> = [
+  {
+    id: 'logo-noise-to-help',
+    imagePath: 'assets/images/logo-2-200.png',
+  },
+];
+
 export const initialUiStoreState: UiStoreState = {
   menuOpened: false,
   subMenuItems: !environment.playground ? SUB_MENU_ITEMS : SUB_MENU_ITEMS_DEV,
   mediaQuery: MediaQueryAlias.xs,
   deviceType: DeviceType.phone,
+  signatures: SIGNATURES,
 };

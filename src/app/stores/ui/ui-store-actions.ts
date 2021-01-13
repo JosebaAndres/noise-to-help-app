@@ -1,5 +1,7 @@
 import { Action } from '@ngrx/store';
 import { DeviceType } from 'src/app/models/device-type';
+import { SignatureModel } from 'src/app/models/signature-model';
+import { SignatureModule } from 'src/app/modules/signature/signature.module';
 import { MediaQueryAlias } from '../../models/media-query-alias';
 
 export enum UiStoreActionTypes {
@@ -9,6 +11,9 @@ export enum UiStoreActionTypes {
   SetDeviceWidth = '[UI] set device width',
   SetMediaQuery = '[UI] set media query',
   SetDeviceType = '[UI] set device type',
+  AddSignature = '[UI] add a signature',
+  RemoveSignature = '[UI] remove a signature',
+  SetSignatures = '[UI] set signature list',
 }
 
 export class UiStoreActionOpenMenu implements Action {
@@ -38,10 +43,28 @@ export class UiStoreActionSetDeviceType implements Action {
   constructor(public payload: DeviceType) {}
 }
 
+export class UiStoreActionAddSignature implements Action {
+  readonly type = UiStoreActionTypes.AddSignature;
+  constructor(public payload: SignatureModel) {}
+}
+
+export class UiStoreActionRemoveSignature implements Action {
+  readonly type = UiStoreActionTypes.RemoveSignature;
+  constructor(public payload: SignatureModel) {}
+}
+
+export class UiStoreActionSetSignatures implements Action {
+  readonly type = UiStoreActionTypes.SetSignatures;
+  constructor(public payload: Array<SignatureModel>) {}
+}
+
 export type UiStoreActions =
   | UiStoreActionOpenMenu
   | UiStoreActionCloseMenu
   | UiStoreActionToggleMenu
   | UiStoreActionSetDeviceWidth
   | UiStoreActionSetMediaQuery
-  | UiStoreActionSetDeviceType;
+  | UiStoreActionSetDeviceType
+  | UiStoreActionAddSignature
+  | UiStoreActionRemoveSignature
+  | UiStoreActionSetSignatures;

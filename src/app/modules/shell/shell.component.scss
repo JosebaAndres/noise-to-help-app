@@ -56,11 +56,23 @@
 
 .app-shell__main-content-footer {
   padding: 0 $horizontal-margin-xl $vertica-margin-l $horizontal-margin-xl;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 @media (max-width: $sm-max-size) {
   .app-shell__main-content-footer {
     padding: 0 $horizontal-margin-l $vertica-margin-m $horizontal-margin-l;
+  }
+}
+
+.app-shell__main-content-footer-item {
+  padding-left: $horizontal-margin-l;
+}
+
+@media (max-width: $sm-max-size) {
+  .app-shell__main-content-footer-item {
+    padding-left: $horizontal-margin-m;
   }
 }
 

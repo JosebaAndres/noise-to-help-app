@@ -7,15 +7,18 @@ import { DeviceType, PHONE_MAX_MEDIA_QUERY_ALIAS, TABLET_MAX_MEDIA_QUERY_ALIAS }
 import { LG_MAX_SIZE, MD_MAX_SIZE, MediaQueryAlias, SM_MAX_SIZE, XS_MAX_SIZE } from '../../models/media-query-alias';
 import { NumberFuctions } from '../../models/number';
 import {
+  UiStoreActionAddSignature,
   UiStoreActionCloseMenu,
   UiStoreActionOpenMenu,
+  UiStoreActionRemoveSignature,
   UiStoreActionSetDeviceType,
   UiStoreActionSetDeviceWidth,
   UiStoreActionSetMediaQuery,
+  UiStoreActionSetSignatures,
   UiStoreActionToggleMenu,
   UiStoreActionTypes,
 } from './ui-store-actions';
-import { uiStoreSelectMenuOpened } from './ui-store-selectors';
+import { uiStoreSelectMenuOpened, uiStoreSelectSignatures } from './ui-store-selectors';
 import { UiStoreState } from './ui-store-state';
 
 @Injectable()
@@ -73,5 +76,38 @@ export class UiStoreEffects {
         return new UiStoreActionSetDeviceType(DeviceType.desktop);
       }
     }),
+  );
+
+  @Effect()
+  addSignatureEffect$: Observable<Action> = this.actions$.pipe(
+    ofType<UiStoreActionAddSignature>(UiStoreActionTypes.AddSignature),
+    map((action: UiStoreActionAddSignature) => action.payload),
+    switchMap((newSignature) =>
+      this.uiStore$.select(uiStoreSelectSignatures).pipe(
+        take(1),
+        map((signatures) => {
+          return new UiStoreActionSetSignatures([...signatures, ...[newSignature]]);
+        }),
+      ),
+    ),
+  );
+
+  @Effect()
+  removeSignatureEffect$: Observable<Action> = this.actions$.pipe(
+    ofType<UiStoreActionRemoveSignature>(UiStoreActionTypes.RemoveSignature),
+    map((action: UiStoreActionRemoveSignature) => action.payload),
+    switchMap((removeSignature) =>
+      this.uiStore$.select(uiStoreSelectSignatures).pipe(
+        take(1),
+        map((signatures) => {
+          const newSignatures = [...signatures];
+          const removeSignatureIndex = newSignatures.indexOf(removeSignature);
+          if (removeSignatureIndex !== -1) {
+            newSignatures.splice(removeSignatureIndex, 1);
+          }
+          return new UiStoreActionSetSignatures(newSignatures);
+        }),
+      ),
+    ),
   );
 }

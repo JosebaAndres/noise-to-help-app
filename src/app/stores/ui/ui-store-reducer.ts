@@ -31,6 +31,13 @@ export function uiReducer(state = initialUiStoreState, action: UiStoreActions): 
       };
     }
 
+    case UiStoreActionTypes.SetSignatures: {
+      return {
+        ...state,
+        signatures: action.payload,
+      };
+    }
+
     default: {
       return state;
     }

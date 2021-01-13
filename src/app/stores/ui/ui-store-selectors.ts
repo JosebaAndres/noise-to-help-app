@@ -20,3 +20,5 @@ export const uiStoreSelectSubMenuPrimaryItems = createSelector(getUiStoreState, 
 export const uiStoreSelectMediaQuery = createSelector(getUiStoreState, (state) => state.mediaQuery);
 
 export const uiStoreSelectDeviceType = createSelector(getUiStoreState, (state) => state.deviceType);
+
+export const uiStoreSelectSignatures = createSelector(getUiStoreState, (state) => state.signatures);

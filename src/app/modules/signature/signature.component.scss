@@ -1,41 +1,31 @@
 @import '../../../assets/scss/settings/breaking-sizes.scss';
 @import '../../../assets/scss/settings/margins.scss';
 
-.app-signature {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
 .app-signature__img {
   object-fit: contain;
-  max-width: 200px;
   max-height: 200px;
 }
 
 @media (max-width: $lg-max-size) {
   .app-signature__img {
-    max-width: 175px;
     max-height: 175px;
   }
 }
 
 @media (max-width: $md-max-size) {
   .app-signature__img {
-    max-width: 150px;
     max-height: 150px;
   }
 }
 
 @media (max-width: $sm-max-size) {
   .app-signature__img {
-    max-width: 125px;
     max-height: 125px;
   }
 }
 
 @media (max-width: $xs-max-size) {
   .app-signature__img {
-    max-width: 100px;
     max-height: 100px;
   }
 }

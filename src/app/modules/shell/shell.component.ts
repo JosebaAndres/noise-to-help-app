@@ -5,9 +5,14 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+import { SignatureModel } from 'src/app/models/signature-model';
 import { MenuItemModel } from '../../models/menu-item-model';
 import { UiStoreActionCloseMenu, UiStoreActionOpenMenu } from '../../stores/ui/ui-store-actions';
-import { uiStoreSelectMenuOpened, uiStoreSelectSubMenuItems } from '../../stores/ui/ui-store-selectors';
+import {
+  uiStoreSelectMenuOpened,
+  uiStoreSelectSignatures,
+  uiStoreSelectSubMenuItems,
+} from '../../stores/ui/ui-store-selectors';
 import { UiStoreState } from '../../stores/ui/ui-store-state';
 
 @Component({
@@ -21,6 +26,7 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   sidenavOpened = false;
   subMenuItems$: Observable<Array<MenuItemModel>>;
+  signatures$: Observable<Array<SignatureModel>>;
 
   @ViewChild('mainContent', { static: true, read: ElementRef }) mainContent: ElementRef<Element>;
 
@@ -32,6 +38,7 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subMenuItems$ = this.uiStore$.select(uiStoreSelectSubMenuItems);
+    this.signatures$ = this.uiStore$.select(uiStoreSelectSignatures);
 
     this.uiStore$
       .select(uiStoreSelectMenuOpened)
