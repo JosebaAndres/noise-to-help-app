@@ -30,9 +30,18 @@
       <app-email-link-text email="noisetohelp@protonmail.com">noisetohelp@protonmail.com</app-email-link-text>.
     </app-paragraph>
     <app-paragraph>
-      <app-external-link-text link="https://www.paypal.com/"
-        ><img src="assets/images/paypal-logo.png"
-      /></app-external-link-text>
+      <form action="https://www.paypal.com/donate" method="post" target="_blank">
+        <input type="hidden" name="hosted_button_id" value="243VPD3XC6B2C" />
+        <input
+          type="image"
+          src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donateCC_LG.gif"
+          border="0"
+          name="submit"
+          title="PayPal - The safer, easier way to pay online!"
+          alt="Donate with PayPal button"
+        />
+        <img alt="" border="0" src="https://www.paypal.com/es_ES/i/scr/pixel.gif" width="1" height="1" />
+      </form>
     </app-paragraph>
     <app-paragraph>
       No obstante, cabe destacar que vía PayPal tu donativo nos llega íntegro pero que la plataforma nos aplica una
