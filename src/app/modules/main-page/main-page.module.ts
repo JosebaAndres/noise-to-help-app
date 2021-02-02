@@ -9,6 +9,7 @@ import { UiStoreModule } from 'src/app/stores/ui/ui-store.module';
 import { CardModule } from '../card/card.module';
 import { CardLModule } from '../card-l/card-l.module';
 import { ImgModule } from '../img/img.module';
+import { UnderConstructionModule } from '../under-construction/under-construction.module';
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -22,6 +23,7 @@ import { ImgModule } from '../img/img.module';
     CardModule,
     CardLModule,
     ImgModule,
+    UnderConstructionModule,
   ],
   exports: [MainPageComponent],
 })

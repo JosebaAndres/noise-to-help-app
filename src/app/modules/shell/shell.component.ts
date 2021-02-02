@@ -28,7 +28,7 @@ export class ShellComponent implements OnInit, OnDestroy {
   subMenuItems$: Observable<Array<MenuItemModel>>;
   signatures$: Observable<Array<SignatureModel>>;
 
-  // @ViewChild('mainContent', { static: true, read: ElementRef }) mainContent: ElementRef<Element>;
+  @ViewChild('mainContent', { static: true, read: ElementRef }) mainContent: ElementRef<Element>;
 
   constructor(
     private uiStore$: Store<UiStoreState>,
@@ -56,7 +56,7 @@ export class ShellComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(() => {
-        // this.mainContent.nativeElement.scroll({ top: 0 });
+        this.mainContent.nativeElement.scroll({ top: 0 });
       });
   }
 
