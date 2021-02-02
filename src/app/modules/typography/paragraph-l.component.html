@@ -1,7 +1,3 @@
-<p
-  [class.mat-body-1]="(deviceType$ | async) === 1"
-  [class.mat-subheading-1]="(deviceType$ | async) === 2"
-  [class.mat-subheading-2]="(deviceType$ | async) === 3"
->
+<p [class.mat-body-1]="(deviceType$ | async) === 1" [class.mat-subheading-1]="(deviceType$ | async) !== 1">
   <ng-content></ng-content>
 </p>
