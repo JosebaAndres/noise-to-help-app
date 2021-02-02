@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { UiStoreModule } from '../../stores/ui/ui-store.module';
+import { CenteredLayoutModule } from '../centered-layout/centered-layout.module';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -20,6 +21,7 @@ import { UiStoreModule } from '../../stores/ui/ui-store.module';
     FlexLayoutModule,
     MatButtonModule,
     UiStoreModule,
+    CenteredLayoutModule,
   ],
   exports: [NavbarComponent],
 })

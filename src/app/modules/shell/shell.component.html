@@ -41,15 +41,19 @@
       </mat-sidenav>
       <mat-sidenav-content class="app-shell__main-content" #mainContent>
         <div class="app-shell__main-content-content">
-          <ng-content></ng-content>
+          <app-centered-layout>
+            <ng-content></ng-content>
+          </app-centered-layout>
         </div>
-        <div class="app-shell__main-content-footer">
-          <app-signature
-            *ngFor="let signature of signatures$ | async"
-            class="app-shell__main-content-footer-item"
-            [imagePath]="signature.imagePath"
-          ></app-signature>
-        </div>
+        <app-centered-layout>
+          <div class="app-shell__main-content-footer">
+            <app-signature
+              *ngFor="let signature of signatures$ | async"
+              class="app-shell__main-content-footer-item"
+              [imagePath]="signature.imagePath"
+            ></app-signature>
+          </div>
+        </app-centered-layout>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

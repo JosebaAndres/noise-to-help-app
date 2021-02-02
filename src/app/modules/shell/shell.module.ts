@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { SignatureModule } from '../signature/signature.module';
 import { MatIconModule } from '@angular/material/icon';
 import { CustomIconsModule } from '../custom-icons/custom-icons.module';
+import { CenteredLayoutModule } from '../centered-layout/centered-layout.module';
 
 @NgModule({
   declarations: [ShellComponent],
@@ -22,6 +23,7 @@ import { CustomIconsModule } from '../custom-icons/custom-icons.module';
     SignatureModule,
     MatIconModule,
     CustomIconsModule,
+    CenteredLayoutModule,
   ],
   exports: [ShellComponent],
 })

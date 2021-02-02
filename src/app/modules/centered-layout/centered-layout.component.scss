@@ -1,0 +1,19 @@
+@import '../../../assets/scss/settings/sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+
+.app-centered-layout {
+  display: flex;
+}
+
+.app-centered-layout-left {
+  flex: 1 1 auto;
+}
+
+.app-centered-layout-center {
+  width: 100%;
+  max-width: $content-max-size;
+}
+
+.app-centered-layout-right {
+  flex: 1 1 auto;
+}

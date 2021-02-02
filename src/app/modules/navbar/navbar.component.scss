@@ -1,6 +1,16 @@
-@import '../../../assets/scss/settings/breaking-sizes.scss';
+@import '../../../assets/scss/settings/sizes.scss';
 @import '../../../assets/scss/settings/colors.scss';
 @import '../../../assets/scss/settings/margins.scss';
+
+.app-navbar__toolbar-container {
+  width: 100%;
+}
+
+.app-navbar__toolbar-content {
+  display: flex;
+  width: 100%;
+  padding-right: 16px;
+}
 
 .app-navbar__link-item,
 .app-navbar__title-item {
