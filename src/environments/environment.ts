@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  playground: true,
+  showFeaturesInDevelopment: true,
+  showPlayground: true,
 };
 
 /*

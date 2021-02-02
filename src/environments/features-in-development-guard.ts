@@ -3,8 +3,8 @@ import { CanActivate } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
-export class PlaygroundGuard implements CanActivate {
+export class FeaturesInDevelopmentGuard implements CanActivate {
   canActivate(): boolean {
-    return environment.playground;
+    return environment.showFeaturesInDevelopment;
   }
 }

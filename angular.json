@@ -28,11 +28,39 @@
             "scripts": []
           },
           "configurations": {
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.production.ts"
                 }
               ],
               "optimization": true,
@@ -64,6 +92,9 @@
             "browserTarget": "noise-to-help-app:build"
           },
           "configurations": {
+            "qa": {
+              "browserTarget": "noise-to-help-app:build:qa"
+            },
             "production": {
               "browserTarget": "noise-to-help-app:build:production"
             }
@@ -101,6 +132,9 @@
             "devServerTarget": "noise-to-help-app:serve"
           },
           "configurations": {
+            "qa": {
+              "devServerTarget": "noise-to-help-app:serve:qa"
+            },
             "production": {
               "devServerTarget": "noise-to-help-app:serve:production"
             }

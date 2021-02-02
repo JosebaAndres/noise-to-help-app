@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PlaygroundGuard } from './modules/playground-page/playground-guard';
+import { FeaturesInDevelopmentGuard } from 'src/environments/features-in-development-guard';
+import { PlaygroundGuard } from 'src/environments/playground-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   {
     path: 'about-us',
     loadChildren: () => import('./modules/about-us-page/about-us-page.module').then((m) => m.AboutUsPageModule),
+    canActivate: [FeaturesInDevelopmentGuard],
   },
   {
     path: 'partners',
@@ -33,6 +35,7 @@ const routes: Routes = [
     path: 'merchandising',
     loadChildren: () =>
       import('./modules/merchandIsing-page/merchandising-page.module').then((m) => m.MerchandisingUsPageModule),
+    canActivate: [FeaturesInDevelopmentGuard],
   },
   {
     path: 'questions',

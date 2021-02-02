@@ -14,11 +14,6 @@ export interface UiStoreState {
 
 export const SUB_MENU_ITEMS: Array<MenuItemModel> = [
   {
-    description: 'Quienes somos',
-    routerLink: '/about-us',
-    type: MenuItemModelType.default,
-  },
-  {
     description: 'Hazte socio',
     routerLink: '/partners',
     type: MenuItemModelType.default,
@@ -27,11 +22,6 @@ export const SUB_MENU_ITEMS: Array<MenuItemModel> = [
     description: 'Colabora',
     routerLink: '/collaborate',
     type: MenuItemModelType.primary,
-  },
-  {
-    description: 'Merchandising',
-    routerLink: '/merchandising',
-    type: MenuItemModelType.default,
   },
   {
     description: 'Eventos',
@@ -50,13 +40,37 @@ export const SUB_MENU_ITEMS: Array<MenuItemModel> = [
   },
 ];
 
-export const SUB_MENU_ITEMS_DEV: Array<MenuItemModel> = SUB_MENU_ITEMS.concat([
+export const SUB_MENU_ITEMS_IN_DEVELOPMENT: Array<MenuItemModel> = [
+  {
+    description: 'Quienes somos',
+    routerLink: '/about-us',
+    type: MenuItemModelType.default,
+  },
+  {
+    description: 'Merchandising',
+    routerLink: '/merchandising',
+    type: MenuItemModelType.default,
+  },
+];
+
+export const SUB_MENU_ITEMS_PLAYGROUND: Array<MenuItemModel> = [
   {
     description: 'Playground',
     routerLink: '/playground',
     type: MenuItemModelType.default,
   },
-]);
+];
+
+function getMenuItems(): Array<MenuItemModel> {
+  let result = [...SUB_MENU_ITEMS];
+  if (environment.showFeaturesInDevelopment) {
+    result = result.concat(SUB_MENU_ITEMS_IN_DEVELOPMENT);
+  }
+  if (environment.showPlayground) {
+    result = result.concat(SUB_MENU_ITEMS_PLAYGROUND);
+  }
+  return result;
+}
 
 export const SIGNATURES: Array<SignatureModel> = [
   {
@@ -67,7 +81,7 @@ export const SIGNATURES: Array<SignatureModel> = [
 
 export const initialUiStoreState: UiStoreState = {
   menuOpened: false,
-  subMenuItems: !environment.playground ? SUB_MENU_ITEMS : SUB_MENU_ITEMS_DEV,
+  subMenuItems: getMenuItems(),
   mediaQuery: MediaQueryAlias.xs,
   deviceType: DeviceType.phone,
   signatures: SIGNATURES,
