@@ -7,7 +7,7 @@
 }
 
 .app-shell__navbar {
-  height: 64px;
+  height: 99px;
   position: absolute;
   top: 0;
   right: 0;
@@ -17,7 +17,7 @@
 
 @media (max-width: $xs-max-size) {
   .app-shell__navbar {
-    height: 56px;
+    height: 91px;
   }
 }
 
