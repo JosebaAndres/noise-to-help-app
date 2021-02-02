@@ -3,19 +3,7 @@
 
 .app-signature__img {
   object-fit: contain;
-  max-height: 200px;
-}
-
-@media (max-width: $lg-max-size) {
-  .app-signature__img {
-    max-height: 175px;
-  }
-}
-
-@media (max-width: $md-max-size) {
-  .app-signature__img {
-    max-height: 150px;
-  }
+  max-height: 150px;
 }
 
 @media (max-width: $sm-max-size) {
