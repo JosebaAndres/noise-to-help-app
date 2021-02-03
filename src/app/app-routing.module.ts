@@ -35,7 +35,6 @@ const routes: Routes = [
     path: 'merchandising',
     loadChildren: () =>
       import('./modules/merchandIsing-page/merchandising-page.module').then((m) => m.MerchandisingUsPageModule),
-    canActivate: [FeaturesInDevelopmentGuard],
   },
   {
     path: 'questions',

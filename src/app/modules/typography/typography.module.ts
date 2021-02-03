@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EncourageTextComponent } from './encourage-text.component';
 import { ParagraphComponent } from './paragraph.component';
-import { ParagraphLComponent } from './paragraph-l.component';
 import { ImportantTextComponent } from './important-text.component';
 import { UiStoreModule } from 'src/app/stores/ui/ui-store.module';
 import { InternalLinkTextComponent } from './internal-link-text.component';
@@ -20,7 +19,6 @@ import { HorizontalDividerComponent } from './horizontal-divider.component';
   declarations: [
     EncourageTextComponent,
     ParagraphComponent,
-    ParagraphLComponent,
     ImportantTextComponent,
     InternalLinkTextComponent,
     ExternalLinkTextComponent,
@@ -36,7 +34,6 @@ import { HorizontalDividerComponent } from './horizontal-divider.component';
   exports: [
     EncourageTextComponent,
     ParagraphComponent,
-    ParagraphLComponent,
     ImportantTextComponent,
     InternalLinkTextComponent,
     ExternalLinkTextComponent,

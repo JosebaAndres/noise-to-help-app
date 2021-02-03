@@ -7,9 +7,7 @@ import { ResponsiveBannerContainerModule } from '../responsive-banner-container/
 import { TypographyModule } from '../typography/typography.module';
 import { UiStoreModule } from 'src/app/stores/ui/ui-store.module';
 import { CardModule } from '../card/card.module';
-import { CardLModule } from '../card-l/card-l.module';
 import { ImgModule } from '../img/img.module';
-import { UnderConstructionModule } from '../under-construction/under-construction.module';
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -21,9 +19,7 @@ import { UnderConstructionModule } from '../under-construction/under-constructio
     TypographyModule,
     UiStoreModule,
     CardModule,
-    CardLModule,
     ImgModule,
-    UnderConstructionModule,
   ],
   exports: [MainPageComponent],
 })

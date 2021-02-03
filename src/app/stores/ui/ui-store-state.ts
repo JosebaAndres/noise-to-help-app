@@ -29,6 +29,11 @@ export const SUB_MENU_ITEMS: Array<MenuItemModel> = [
     type: MenuItemModelType.default,
   },
   {
+    description: 'Merchandising',
+    routerLink: '/merchandising',
+    type: MenuItemModelType.default,
+  },
+  {
     description: 'FAQ',
     routerLink: '/questions',
     type: MenuItemModelType.default,
@@ -44,11 +49,6 @@ export const SUB_MENU_ITEMS_IN_DEVELOPMENT: Array<MenuItemModel> = [
   {
     description: 'Quienes somos',
     routerLink: '/about-us',
-    type: MenuItemModelType.default,
-  },
-  {
-    description: 'Merchandising',
-    routerLink: '/merchandising',
     type: MenuItemModelType.default,
   },
 ];
