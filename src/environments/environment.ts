@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  showFeaturesInDevelopment: false,
-  showPlayground: false,
+  showFeaturesInDevelopment: true,
+  showPlayground: true,
 };
 
 /*
