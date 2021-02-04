@@ -47,12 +47,6 @@
   flex: 1 1 auto;
 }
 
-.app-navbar__toolbar--small {
-  height: 32px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
 .app-navbar__slogan {
   opacity: 0.5;
   &:hover {
@@ -74,7 +68,33 @@
   width: 1.2rem !important;
 }
 
-.app-navbar__fixed-item {
-  position: fixed;
+.app-navbar__secondary-icons {
   right: 24px;
+  z-index: 11;
+}
+
+.app-navbar__secondary-hidden-icons {
+  width: 70.375px;
+  height: 32px;
+}
+
+.app-navbar {
+  height: 96px;
+}
+
+@media (max-width: $xs-max-size) {
+  .app-shell__content {
+    height: 88px;
+  }
+}
+
+.app-navbar__primary-navbar {
+  position: absolute;
+}
+
+.app-navbar__secondary-navbar {
+  position: absolute;
+  height: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
 }

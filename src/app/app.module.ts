@@ -8,7 +8,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ShellModule } from './modules/shell/shell.module';
 import { UiStoreModule } from './stores/ui/ui-store.module';
-import { DeviceService } from './services/device.service';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
@@ -27,6 +26,5 @@ import { environment } from '../environments/environment';
     HttpClientModule,
   ],
   bootstrap: [AppComponent],
-  providers: [DeviceService],
 })
 export class AppModule {}

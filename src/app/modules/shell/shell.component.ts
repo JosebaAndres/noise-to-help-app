@@ -10,7 +10,6 @@ import { MenuItemModel } from '../../models/menu-item-model';
 import {
   UiStoreActionCloseMenu,
   UiStoreActionOpenMenu,
-  UiStoreActionSetDocumentWidth,
   UiStoreActionSetScrollTop,
 } from '../../stores/ui/ui-store-actions';
 import {
@@ -34,13 +33,6 @@ export class ShellComponent implements OnInit, OnDestroy {
   signatures$: Observable<Array<SignatureModel>>;
 
   @ViewChild('mainContent', { static: true, read: ElementRef }) mainContent: ElementRef<HTMLElement>;
-
-  @HostListener('window:resize', ['$event'])
-  onResize(): void {
-    if (this.mainContent) {
-      this.uiStore$.dispatch(new UiStoreActionSetScrollTop(this.mainContent.nativeElement.offsetWidth));
-    }
-  }
 
   constructor(
     private uiStore$: Store<UiStoreState>,
@@ -73,7 +65,6 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.mainContent.nativeElement.addEventListener('scroll', () => {
       this.uiStore$.dispatch(new UiStoreActionSetScrollTop(this.mainContent.nativeElement.scrollTop));
     });
-    this.uiStore$.dispatch(new UiStoreActionSetDocumentWidth(window.innerWidth));
   }
 
   onSidenavOpenedChange(value): void {
