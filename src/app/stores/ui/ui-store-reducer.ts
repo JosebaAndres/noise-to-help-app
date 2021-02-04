@@ -38,6 +38,13 @@ export function uiReducer(state = initialUiStoreState, action: UiStoreActions): 
       };
     }
 
+    case UiStoreActionTypes.SetDocumentWidth: {
+      return {
+        ...state,
+        documentWidth: action.payload,
+      };
+    }
+
     case UiStoreActionTypes.SetSignatures: {
       return {
         ...state,

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { MenuItemModel } from '../../models/menu-item-model';
 import {
   UiStoreActionCloseMenu,
   UiStoreActionOpenMenu,
+  UiStoreActionSetDocumentWidth,
   UiStoreActionSetScrollTop,
 } from '../../stores/ui/ui-store-actions';
 import {
@@ -32,7 +33,14 @@ export class ShellComponent implements OnInit, OnDestroy {
   subMenuItems$: Observable<Array<MenuItemModel>>;
   signatures$: Observable<Array<SignatureModel>>;
 
-  @ViewChild('mainContent', { static: true, read: ElementRef }) mainContent: ElementRef<Element>;
+  @ViewChild('mainContent', { static: true, read: ElementRef }) mainContent: ElementRef<HTMLElement>;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    if (this.mainContent) {
+      this.uiStore$.dispatch(new UiStoreActionSetScrollTop(this.mainContent.nativeElement.offsetWidth));
+    }
+  }
 
   constructor(
     private uiStore$: Store<UiStoreState>,
@@ -63,9 +71,9 @@ export class ShellComponent implements OnInit, OnDestroy {
         this.mainContent.nativeElement.scroll({ top: 0 });
       });
     this.mainContent.nativeElement.addEventListener('scroll', () => {
-      console.log(this.mainContent.nativeElement.scrollTop);
       this.uiStore$.dispatch(new UiStoreActionSetScrollTop(this.mainContent.nativeElement.scrollTop));
     });
+    this.uiStore$.dispatch(new UiStoreActionSetDocumentWidth(window.innerWidth));
   }
 
   onSidenavOpenedChange(value): void {

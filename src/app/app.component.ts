@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { DeviceService } from './services/device.service';
+import { UiStoreActionSetDocumentWidth } from './stores/ui/ui-store-actions';
+import { UiStoreState } from './stores/ui/ui-store-state';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +17,5 @@ export class AppComponent {
     this.deviceService.refresh();
   }
 
-  constructor(private deviceService: DeviceService) {
-    deviceService.initialize();
-  }
+  constructor(private deviceService: DeviceService) {}
 }

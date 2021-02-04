@@ -10,6 +10,7 @@ export interface UiStoreState {
   mediaQuery: MediaQueryAlias;
   deviceType: DeviceType;
   scrollTop: number;
+  documentWidth: number;
   signatures: Array<SignatureModel>;
 }
 
@@ -86,5 +87,6 @@ export const initialUiStoreState: UiStoreState = {
   mediaQuery: MediaQueryAlias.xs,
   deviceType: DeviceType.phone,
   scrollTop: 0,
+  documentWidth: 0,
   signatures: SIGNATURES,
 };

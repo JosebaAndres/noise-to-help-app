@@ -23,4 +23,6 @@ export const uiStoreSelectDeviceType = createSelector(getUiStoreState, (state) =
 
 export const uiStoreSelectScrollTop = createSelector(getUiStoreState, (state) => state.scrollTop);
 
+export const uiStoreSelectDocumentWidth = createSelector(getUiStoreState, (state) => state.documentWidth);
+
 export const uiStoreSelectSignatures = createSelector(getUiStoreState, (state) => state.signatures);

@@ -12,6 +12,7 @@ export enum UiStoreActionTypes {
   SetMediaQuery = '[UI] set media query',
   SetDeviceType = '[UI] set device type',
   SetScrollTop = '[UI] set scroll top',
+  SetDocumentWidth = '[UI] set document width',
   AddSignature = '[UI] add a signature',
   RemoveSignature = '[UI] remove a signature',
   SetSignatures = '[UI] set signature list',
@@ -49,6 +50,11 @@ export class UiStoreActionSetScrollTop implements Action {
   constructor(public payload: number) {}
 }
 
+export class UiStoreActionSetDocumentWidth implements Action {
+  readonly type = UiStoreActionTypes.SetDocumentWidth;
+  constructor(public payload: number) {}
+}
+
 export class UiStoreActionAddSignature implements Action {
   readonly type = UiStoreActionTypes.AddSignature;
   constructor(public payload: SignatureModel) {}
@@ -72,6 +78,7 @@ export type UiStoreActions =
   | UiStoreActionSetMediaQuery
   | UiStoreActionSetDeviceType
   | UiStoreActionSetScrollTop
+  | UiStoreActionSetDocumentWidth
   | UiStoreActionAddSignature
   | UiStoreActionRemoveSignature
   | UiStoreActionSetSignatures;

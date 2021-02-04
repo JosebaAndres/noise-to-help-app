@@ -7,16 +7,9 @@
 }
 
 .app-shell__navbar {
-  height: 99px;
   position: sticky;
   top: 0;
   z-index: 10;
-}
-
-@media (max-width: $xs-max-size) {
-  .app-shell__navbar {
-    height: 91px;
-  }
 }
 
 .app-shell__content {

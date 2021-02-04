@@ -48,7 +48,7 @@
 }
 
 .app-navbar__toolbar--small {
-  height: 35px;
+  height: 32px;
   padding-left: 8px;
   padding-right: 8px;
 }
@@ -72,4 +72,9 @@
 .app-navbar__icon--small {
   height: 1.2rem !important;
   width: 1.2rem !important;
+}
+
+.app-navbar__fixed-item {
+  position: fixed;
+  right: 24px;
 }
