@@ -8,10 +8,8 @@
 
 .app-shell__navbar {
   height: 99px;
-  position: absolute;
+  position: sticky;
   top: 0;
-  right: 0;
-  left: 0;
   z-index: 10;
 }
 
@@ -23,13 +21,6 @@
 
 .app-shell__content {
   height: 100%;
-  padding-top: 99px;
-}
-
-@media (max-width: $xs-max-size) {
-  .app-shell__content {
-    padding-top: 91px;
-  }
 }
 
 .app-shell__sidenav-container {

@@ -1,7 +1,4 @@
 <div class="app-shell">
-  <div class="app-shell__navbar">
-    <app-navbar></app-navbar>
-  </div>
   <div class="app-shell__content">
     <mat-sidenav-container class="app-shell__sidenav-container">
       <mat-sidenav
@@ -40,6 +37,9 @@
         </div>
       </mat-sidenav>
       <mat-sidenav-content class="app-shell__main-content" #mainContent>
+        <div class="app-shell__navbar">
+          <app-navbar></app-navbar>
+        </div>
         <div class="app-shell__main-content-content">
           <app-centered-layout>
             <ng-content></ng-content>
