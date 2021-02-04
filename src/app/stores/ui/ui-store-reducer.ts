@@ -31,6 +31,13 @@ export function uiReducer(state = initialUiStoreState, action: UiStoreActions): 
       };
     }
 
+    case UiStoreActionTypes.SetScrollTop: {
+      return {
+        ...state,
+        scrollTop: action.payload,
+      };
+    }
+
     case UiStoreActionTypes.SetSignatures: {
       return {
         ...state,

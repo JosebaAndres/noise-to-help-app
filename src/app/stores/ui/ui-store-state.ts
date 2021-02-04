@@ -9,6 +9,7 @@ export interface UiStoreState {
   subMenuItems: Array<MenuItemModel>;
   mediaQuery: MediaQueryAlias;
   deviceType: DeviceType;
+  scrollTop: number;
   signatures: Array<SignatureModel>;
 }
 
@@ -84,5 +85,6 @@ export const initialUiStoreState: UiStoreState = {
   subMenuItems: getMenuItems(),
   mediaQuery: MediaQueryAlias.xs,
   deviceType: DeviceType.phone,
+  scrollTop: 0,
   signatures: SIGNATURES,
 };

@@ -21,4 +21,6 @@ export const uiStoreSelectMediaQuery = createSelector(getUiStoreState, (state) =
 
 export const uiStoreSelectDeviceType = createSelector(getUiStoreState, (state) => state.deviceType);
 
+export const uiStoreSelectScrollTop = createSelector(getUiStoreState, (state) => state.scrollTop);
+
 export const uiStoreSelectSignatures = createSelector(getUiStoreState, (state) => state.signatures);

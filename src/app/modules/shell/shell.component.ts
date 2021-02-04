@@ -7,7 +7,11 @@ import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { SignatureModel } from 'src/app/models/signature-model';
 import { MenuItemModel } from '../../models/menu-item-model';
-import { UiStoreActionCloseMenu, UiStoreActionOpenMenu } from '../../stores/ui/ui-store-actions';
+import {
+  UiStoreActionCloseMenu,
+  UiStoreActionOpenMenu,
+  UiStoreActionSetScrollTop,
+} from '../../stores/ui/ui-store-actions';
 import {
   uiStoreSelectMenuOpened,
   uiStoreSelectSignatures,
@@ -58,6 +62,10 @@ export class ShellComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.mainContent.nativeElement.scroll({ top: 0 });
       });
+    this.mainContent.nativeElement.addEventListener('scroll', () => {
+      console.log(this.mainContent.nativeElement.scrollTop);
+      this.uiStore$.dispatch(new UiStoreActionSetScrollTop(this.mainContent.nativeElement.scrollTop));
+    });
   }
 
   onSidenavOpenedChange(value): void {
