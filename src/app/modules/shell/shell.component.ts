@@ -5,6 +5,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+import { DeviceType } from 'src/app/models/device-type';
 import { SignatureModel } from 'src/app/models/signature-model';
 import { MenuItemModel } from '../../models/menu-item-model';
 import {
@@ -13,6 +14,7 @@ import {
   UiStoreActionSetScrollTop,
 } from '../../stores/ui/ui-store-actions';
 import {
+  uiStoreSelectDeviceType,
   uiStoreSelectMenuOpened,
   uiStoreSelectSignatures,
   uiStoreSelectSubMenuItems,
@@ -27,6 +29,7 @@ import { UiStoreState } from '../../stores/ui/ui-store-state';
 })
 export class ShellComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<any>();
+  private deviceType: DeviceType;
 
   sidenavOpened = false;
   subMenuItems$: Observable<Array<MenuItemModel>>;
@@ -54,14 +57,27 @@ export class ShellComponent implements OnInit, OnDestroy {
         }
       });
 
+    this.uiStore$
+      .select(uiStoreSelectDeviceType)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((value) => {
+        this.deviceType = value;
+      });
+
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
         takeUntil(this.destroy$),
       )
       .subscribe(() => {
-        this.mainContent.nativeElement.scroll({ top: 0 });
+        if (!this.deviceType || this.deviceType !== DeviceType.phone) {
+          this.mainContent.nativeElement.scroll({ top: 0 });
+        }
+        if (this.mainContent.nativeElement.scrollTop > 32) {
+          this.mainContent.nativeElement.scroll({ top: 32 });
+        }
       });
+
     this.mainContent.nativeElement.addEventListener('scroll', () => {
       this.uiStore$.dispatch(new UiStoreActionSetScrollTop(this.mainContent.nativeElement.scrollTop));
     });
