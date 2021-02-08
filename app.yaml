@@ -5,7 +5,7 @@ steps:
 
   # Build productive files
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'build-qa']
+    args: ['run', 'build-prod']
 
   # Deploy to google cloud app egnine
   - name: 'gcr.io/cloud-builders/gcloud'
