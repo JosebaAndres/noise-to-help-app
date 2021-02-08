@@ -1,20 +1,12 @@
-runtime: python27
-api_version: 1
-threadsafe: yes
+steps:
+  # Install node packages
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
 
-handlers:
-  - url: /
-    static_files: dist/noise-to-help-app/index.html
-    upload: dist/noise-to-help-app/index.html
-  - url: /
-    static_dir: dist/noise-to-help-app
+  # Build productive files
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build-prod']
 
-skip_files:
-  - e2e/
-  - node_modules/
-  - src/
-  - ^(.*/)?\..*$
-  - ^(.*/)?.*\.json$
-  - ^(.*/)?.*\.md$
-  - ^(.*/)?.*\.yaml$
-  - ^LICENSE
+  # Deploy to google cloud app egnine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', '--version=prod']
