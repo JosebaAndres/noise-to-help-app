@@ -10,11 +10,4 @@ handlers:
     static_dir: dist/noise-to-help-app
 
 skip_files:
-  - e2e/
-  - node_modules/
-  - src/
-  - ^(.*/)?\..*$
-  - ^(.*/)?.*\.json$
-  - ^(.*/)?.*\.md$
-  - ^(.*/)?.*\.yaml$
-  - ^LICENSE
+  - ^(?!dist/noise-to-help-app)
