@@ -10,4 +10,4 @@ handlers:
     static_dir: dist/noise-to-help-app
 
 skip_files:
-  - ^(?!dist/noise-to-help-app)
+  - ^(?!dist)
