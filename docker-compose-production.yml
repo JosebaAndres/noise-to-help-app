@@ -1,0 +1,9 @@
+version: '2'
+services:
+  noise-to-help-app-production:
+    container_name: noise-to-help-app-production
+    build:
+      context: .
+      dockerfile: dockerfile-production
+    ports:
+      - 3202:3202
