@@ -1,0 +1,11 @@
+version: '2'
+services:
+  noise-to-help-app-dev:
+    container_name: noise-to-help-app-dev
+    build:
+      context: .
+      dockerfile: dockerfile-dev
+    ports:
+      - 3201:3201
+    volumes:
+      - "./src:/app/src"
