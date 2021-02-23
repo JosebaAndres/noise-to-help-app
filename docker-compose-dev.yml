@@ -8,4 +8,4 @@ services:
     ports:
       - 3201:3201
     volumes:
-      - "./src:/app/src"
+      - './src:/app/src'

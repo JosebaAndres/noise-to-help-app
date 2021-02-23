@@ -8,9 +8,9 @@
     "start-docker-production": "docker-compose --file docker-compose-production.yml up",
     "build": "ng build",
     "build-production": "ng build --c=production",
+    "build-qa": "ng build --c=qa",
     "build-docker-dev": "docker-compose --file docker-compose-dev.yml build",
     "build-docker-production": "docker-compose --file docker-compose-production.yml build",
-    "build-qa": "ng build --c=qa",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
