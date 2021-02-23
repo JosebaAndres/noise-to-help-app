@@ -3,10 +3,14 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port=3201 --host=0.0.0.0",
+    "start-docker-dev": "docker-compose --file docker-compose-dev.yml up",
+    "start-docker-production": "docker-compose --file docker-compose-production.yml up",
     "build": "ng build",
     "build-production": "ng build --c=production",
     "build-qa": "ng build --c=qa",
+    "build-docker-dev": "docker-compose --file docker-compose-dev.yml build",
+    "build-docker-production": "docker-compose --file docker-compose-production.yml build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
