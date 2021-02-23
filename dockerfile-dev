@@ -1,0 +1,6 @@
+FROM node:10.16.0
+WORKDIR /app
+COPY . .
+RUN npm i
+EXPOSE 3201
+CMD ["npm", "run", "start"]

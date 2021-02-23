@@ -51,7 +51,7 @@
         <div class="app-navbar__menu-item" fxHide.lt-md>
           <a
             mat-stroked-button
-            class="app-navbar__link-item"
+            class="app-navbar__link-item app-navbar__link-item--primary-button"
             *ngFor="let subMenuItem of subMenuPrimaryItems$ | async"
             [routerLink]="subMenuItem.routerLink"
           >

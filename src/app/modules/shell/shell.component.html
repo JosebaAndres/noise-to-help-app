@@ -23,8 +23,8 @@
             </a>
             <a
               *ngIf="subMenuItem.type === 'primary'"
-              class="app-shell__sidenav-content-item"
-              mat-button
+              class="app-shell__sidenav-content-item app-shell__sidenav-content-item--primary"
+              mat-stroked-button
               [routerLink]="subMenuItem.routerLink"
               (click)="linkClicked()"
             >
