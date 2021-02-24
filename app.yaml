@@ -13,6 +13,7 @@ handlers:
     upload: dist/noise-to-help-app/.*
   # Hanlders to load angular router
   - url: .*
+    secure: always
     static_files: dist/noise-to-help-app/index.html
     upload: dist/noise-to-help-app/index.html
 
