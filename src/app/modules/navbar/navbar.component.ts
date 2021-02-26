@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
   primaryNavbarTop$: Observable<number>;
   secondaryIconsPosition$: Observable<string>;
   secondaryIconsTop$: Observable<number>;
-  secondaryIconsHiddenVisible$: Observable<boolean>;
+  isPhone$: Observable<boolean>;
 
   @ViewChild('secondaryHiddenIcons', { static: true }) secondaryHiddenIcons: ElementRef<HTMLDivElement>;
 
@@ -85,7 +85,7 @@ export class NavbarComponent implements OnInit {
         }
       }),
     );
-    this.secondaryIconsHiddenVisible$ = this.uiStore$
+    this.isPhone$ = this.uiStore$
       .select(uiStoreSelectDeviceType)
       .pipe(map((value) => (value === DeviceType.phone ? true : false)));
   }

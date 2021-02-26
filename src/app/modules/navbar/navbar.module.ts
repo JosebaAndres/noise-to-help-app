@@ -5,7 +5,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { CustomIconsModule } from '../custom-icons/custom-icons.module';
 import { RouterModule } from '@angular/router';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { UiStoreModule } from '../../stores/ui/ui-store.module';
 import { CenteredLayoutModule } from '../centered-layout/centered-layout.module';
@@ -18,7 +17,6 @@ import { CenteredLayoutModule } from '../centered-layout/centered-layout.module'
     MatIconModule,
     CustomIconsModule,
     RouterModule,
-    FlexLayoutModule,
     MatButtonModule,
     UiStoreModule,
     CenteredLayoutModule,
