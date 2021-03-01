@@ -1,59 +1,22 @@
-import { UiStoreActions, UiStoreActionTypes } from './ui-store-actions';
+import { createReducer, on } from '@ngrx/store';
+import {
+  uiStoreActionCloseMenu,
+  uiStoreActionOpenMenu,
+  uiStoreActionSetDeviceType,
+  uiStoreActionSetDocumentWidth,
+  uiStoreActionSetMediaQuery,
+  uiStoreActionSetScrollTop,
+  uiStoreActionSetSignatures,
+} from './ui-store-actions';
 import { initialUiStoreState, UiStoreState } from './ui-store-state';
 
-export function uiReducer(state = initialUiStoreState, action: UiStoreActions): UiStoreState {
-  switch (action.type) {
-    case UiStoreActionTypes.OpenMenu: {
-      return {
-        ...state,
-        menuOpened: true,
-      };
-    }
-
-    case UiStoreActionTypes.CloseMenu: {
-      return {
-        ...state,
-        menuOpened: false,
-      };
-    }
-
-    case UiStoreActionTypes.SetMediaQuery: {
-      return {
-        ...state,
-        mediaQuery: action.payload,
-      };
-    }
-
-    case UiStoreActionTypes.SetDeviceType: {
-      return {
-        ...state,
-        deviceType: action.payload,
-      };
-    }
-
-    case UiStoreActionTypes.SetScrollTop: {
-      return {
-        ...state,
-        scrollTop: action.payload,
-      };
-    }
-
-    case UiStoreActionTypes.SetDocumentWidth: {
-      return {
-        ...state,
-        documentWidth: action.payload,
-      };
-    }
-
-    case UiStoreActionTypes.SetSignatures: {
-      return {
-        ...state,
-        signatures: action.payload,
-      };
-    }
-
-    default: {
-      return state;
-    }
-  }
-}
+export const uiReducer = createReducer(
+  initialUiStoreState,
+  on(uiStoreActionOpenMenu, (state) => ({ ...state, menuOpened: true })),
+  on(uiStoreActionCloseMenu, (state) => ({ ...state, menuOpened: false })),
+  on(uiStoreActionSetMediaQuery, (state, { mediaQuery }) => ({ ...state, mediaQuery })),
+  on(uiStoreActionSetDeviceType, (state, { deviceType }) => ({ ...state, deviceType })),
+  on(uiStoreActionSetScrollTop, (state, { scrollTop }) => ({ ...state, scrollTop })),
+  on(uiStoreActionSetDocumentWidth, (state, { documentWidth }) => ({ ...state, documentWidth })),
+  on(uiStoreActionSetSignatures, (state, { signatureModels }) => ({ ...state, signatures: signatureModels })),
+);

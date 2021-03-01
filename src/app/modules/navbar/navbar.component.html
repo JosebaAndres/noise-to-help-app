@@ -6,7 +6,7 @@
         <div class="app-navbar__separator-item"></div>
         <span class="app-navbar__link-item mat-small app-navbar__slogan">Let´s make some noise to help people</span>
         <div class="app-navbar__separator-item"></div>
-        <div class="app-navbar__secondary-hidden-icons" *ngIf="secondaryIconsHiddenVisible$ | async"></div>
+        <div class="app-navbar__secondary-hidden-icons" *ngIf="isPhone$ | async"></div>
         <div
           class="app-navbar__secondary-icons"
           [style.position]="secondaryIconsPosition$ | async"
@@ -29,7 +29,7 @@
   >
     <app-centered-layout class="app-navbar__toolbar-container">
       <div class="app-navbar__toolbar-content">
-        <button mat-icon-button fxHide fxShow.lt-md (click)="toggleMenu()">
+        <button mat-icon-button *ngIf="isPhone$ | async" (click)="toggleMenu()">
           <mat-icon class="app-navbar__icon" svgIcon="hamburger"></mat-icon>
         </button>
         <a mat-button class="app-navbar__link-item app-navbar__link-item--title-hack" routerLink="/main">
@@ -37,7 +37,7 @@
             <img src="assets/images/logo-1-50.png" class="app-navbar__title-img" />
           </div>
         </a>
-        <div class="app-navbar__menu-item" fxHide.lt-md>
+        <div class="app-navbar__menu-item" *ngIf="!(isPhone$ | async)">
           <a
             mat-button
             class="app-navbar__link-item"
@@ -48,7 +48,7 @@
           </a>
         </div>
         <div class="app-navbar__separator-item"></div>
-        <div class="app-navbar__menu-item" fxHide.lt-md>
+        <div class="app-navbar__menu-item" *ngIf="!(isPhone$ | async)">
           <a
             mat-stroked-button
             class="app-navbar__link-item app-navbar__link-item--primary-button"
