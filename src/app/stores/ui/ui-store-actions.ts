@@ -1,84 +1,48 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { DeviceType } from 'src/app/models/device-type';
 import { SignatureModel } from 'src/app/models/signature-model';
-import { SignatureModule } from 'src/app/modules/signature/signature.module';
 import { MediaQueryAlias } from '../../models/media-query-alias';
 
-export enum UiStoreActionTypes {
-  OpenMenu = '[UI] Open menu',
-  CloseMenu = '[UI] Close menu',
-  ToggleMenu = '[UI] Toggle menu',
-  SetDeviceWidth = '[UI] set device width',
-  SetMediaQuery = '[UI] set media query',
-  SetDeviceType = '[UI] set device type',
-  SetScrollTop = '[UI] set scroll top',
-  SetDocumentWidth = '[UI] set document width',
-  AddSignature = '[UI] add a signature',
-  RemoveSignature = '[UI] remove a signature',
-  SetSignatures = '[UI] set signature list',
-}
+export const uiStoreActionOpenMenu = createAction('[UI] Open menu');
 
-export class UiStoreActionOpenMenu implements Action {
-  readonly type = UiStoreActionTypes.OpenMenu;
-}
+export const uiStoreActionCloseMenu = createAction('[UI] Close menu');
 
-export class UiStoreActionCloseMenu implements Action {
-  readonly type = UiStoreActionTypes.CloseMenu;
-}
+export const uiStoreActionToggleMenu = createAction('[UI] Toggle menu');
 
-export class UiStoreActionToggleMenu implements Action {
-  readonly type = UiStoreActionTypes.ToggleMenu;
-}
+export const uiStoreActionSetDeviceWidth = createAction('[UI] set device width', (deviceWidth: number) => ({
+  deviceWidth,
+}));
 
-export class UiStoreActionSetDeviceWidth implements Action {
-  readonly type = UiStoreActionTypes.SetDeviceWidth;
-  constructor(public payload: number) {}
-}
+export const uiStoreActionSetMediaQuery = createAction('[UI] set media query', (mediaQuery: MediaQueryAlias) => ({
+  mediaQuery,
+}));
 
-export class UiStoreActionSetMediaQuery implements Action {
-  readonly type = UiStoreActionTypes.SetMediaQuery;
-  constructor(public payload: MediaQueryAlias) {}
-}
+export const uiStoreActionSetDeviceType = createAction('[UI] set device type', (deviceType: DeviceType) => ({
+  deviceType,
+}));
 
-export class UiStoreActionSetDeviceType implements Action {
-  readonly type = UiStoreActionTypes.SetDeviceType;
-  constructor(public payload: DeviceType) {}
-}
+export const uiStoreActionSetScrollTop = createAction('[UI] set scroll top', (scrollTop: number) => ({
+  scrollTop,
+}));
 
-export class UiStoreActionSetScrollTop implements Action {
-  readonly type = UiStoreActionTypes.SetScrollTop;
-  constructor(public payload: number) {}
-}
+export const uiStoreActionSetDocumentWidth = createAction('[UI] set document width', (documentWidth: number) => ({
+  documentWidth,
+}));
 
-export class UiStoreActionSetDocumentWidth implements Action {
-  readonly type = UiStoreActionTypes.SetDocumentWidth;
-  constructor(public payload: number) {}
-}
+export const uiStoreActionAddSignature = createAction('[UI] add a signature', (signatureModel: SignatureModel) => ({
+  signatureModel,
+}));
 
-export class UiStoreActionAddSignature implements Action {
-  readonly type = UiStoreActionTypes.AddSignature;
-  constructor(public payload: SignatureModel) {}
-}
+export const uiStoreActionRemoveSignature = createAction(
+  '[UI] remove a signature',
+  (signatureModel: SignatureModel) => ({
+    signatureModel,
+  }),
+);
 
-export class UiStoreActionRemoveSignature implements Action {
-  readonly type = UiStoreActionTypes.RemoveSignature;
-  constructor(public payload: SignatureModel) {}
-}
-
-export class UiStoreActionSetSignatures implements Action {
-  readonly type = UiStoreActionTypes.SetSignatures;
-  constructor(public payload: Array<SignatureModel>) {}
-}
-
-export type UiStoreActions =
-  | UiStoreActionOpenMenu
-  | UiStoreActionCloseMenu
-  | UiStoreActionToggleMenu
-  | UiStoreActionSetDeviceWidth
-  | UiStoreActionSetMediaQuery
-  | UiStoreActionSetDeviceType
-  | UiStoreActionSetScrollTop
-  | UiStoreActionSetDocumentWidth
-  | UiStoreActionAddSignature
-  | UiStoreActionRemoveSignature
-  | UiStoreActionSetSignatures;
+export const uiStoreActionSetSignatures = createAction(
+  '[UI] set signature list',
+  (signatureModels: Array<SignatureModel>) => ({
+    signatureModels,
+  }),
+);

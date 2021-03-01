@@ -9,9 +9,9 @@ import { DeviceType } from 'src/app/models/device-type';
 import { SignatureModel } from 'src/app/models/signature-model';
 import { MenuItemModel } from '../../models/menu-item-model';
 import {
-  UiStoreActionCloseMenu,
-  UiStoreActionOpenMenu,
-  UiStoreActionSetScrollTop,
+  uiStoreActionCloseMenu,
+  uiStoreActionOpenMenu,
+  uiStoreActionSetScrollTop,
 } from '../../stores/ui/ui-store-actions';
 import {
   uiStoreSelectDeviceType,
@@ -79,20 +79,20 @@ export class ShellComponent implements OnInit, OnDestroy {
       });
 
     this.mainContent.nativeElement.addEventListener('scroll', () => {
-      this.uiStore$.dispatch(new UiStoreActionSetScrollTop(this.mainContent.nativeElement.scrollTop));
+      this.uiStore$.dispatch(uiStoreActionSetScrollTop(this.mainContent.nativeElement.scrollTop));
     });
   }
 
   onSidenavOpenedChange(value): void {
     if (value) {
-      this.uiStore$.dispatch(new UiStoreActionOpenMenu());
+      this.uiStore$.dispatch(uiStoreActionOpenMenu());
     } else {
-      this.uiStore$.dispatch(new UiStoreActionCloseMenu());
+      this.uiStore$.dispatch(uiStoreActionCloseMenu());
     }
   }
 
   linkClicked(): void {
-    this.uiStore$.dispatch(new UiStoreActionCloseMenu());
+    this.uiStore$.dispatch(uiStoreActionCloseMenu());
   }
 
   ngOnDestroy(): void {

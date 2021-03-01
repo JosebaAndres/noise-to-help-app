@@ -7,7 +7,7 @@ import {
   uiStoreSelectSubMenuDefaultItems,
   uiStoreSelectSubMenuPrimaryItems,
 } from '../../stores/ui/ui-store-selectors';
-import { UiStoreActionToggleMenu } from '../../stores/ui/ui-store-actions';
+import { uiStoreActionToggleMenu } from '../../stores/ui/ui-store-actions';
 import { UiStoreState } from '../../stores/ui/ui-store-state';
 import { Observable } from 'rxjs';
 import { MenuItemModel } from '../../models/menu-item-model';
@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
   primaryNavbarTop$: Observable<number>;
   secondaryIconsPosition$: Observable<string>;
   secondaryIconsTop$: Observable<number>;
-  secondaryIconsHiddenVisible$: Observable<boolean>;
+  isPhone$: Observable<boolean>;
 
   @ViewChild('secondaryHiddenIcons', { static: true }) secondaryHiddenIcons: ElementRef<HTMLDivElement>;
 
@@ -85,12 +85,12 @@ export class NavbarComponent implements OnInit {
         }
       }),
     );
-    this.secondaryIconsHiddenVisible$ = this.uiStore$
+    this.isPhone$ = this.uiStore$
       .select(uiStoreSelectDeviceType)
       .pipe(map((value) => (value === DeviceType.phone ? true : false)));
   }
 
   toggleMenu(): void {
-    this.uiStore$.dispatch(new UiStoreActionToggleMenu());
+    this.uiStore$.dispatch(uiStoreActionToggleMenu());
   }
 }
