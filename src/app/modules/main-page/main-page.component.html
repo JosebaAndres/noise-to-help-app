@@ -42,13 +42,36 @@
       <app-img [src]="'./assets/images/banner.jpg'"></app-img>
     </app-paragraph>
   </app-paragraph-group>
+  <app-paragraph-group>
+    <div>
+      <app-card
+        [title]="'Merchandising'"
+        [subtitle]="'Camiseta negra Noise To Help'"
+        [imagePath]="'./assets/images/main-t-shirt-noise-to-help.jpg'"
+      >
+        <app-paragraph-group>
+          <app-paragraph>
+            Una importante vía para colaborar con nosotros es mediante el merchandising solidario de la asociación. Este
+            merchandising será realizado en su totalidad por la gente de
+            <app-external-link-text link="https://camisetas-ahora.com/">Camisetas Ahora</app-external-link-text> y
+            <app-external-link-text link="https://chicxsdelacalle.com/">Chicxs de la Calle</app-external-link-text>
+            desde Logroño (La Rioja) los cuales, aparte de hacer un trabajo increíble, colaboran con nosotros y nos
+            echan un cable con la realización y venta final del merchan.
+          </app-paragraph>
+          <app-paragraph>
+            <app-internal-link-text link="/merchandising">+ Info</app-internal-link-text>
+          </app-paragraph>
+        </app-paragraph-group>
+      </app-card>
+    </div>
+  </app-paragraph-group>
   <div class="app-main-page__events">
     <app-paragraph-group>
       <div class="app-main-page__events-items-container">
         <div class="app-main-page__events-item">
           <app-card
             [title]="'Donación y recogida solidaria'"
-            [subtitle]="'Del 26 al 27 de Diciembre en la casa de cultura de Briones (La Rioja)'"
+            [subtitle]="'26-27/12/2020 - Casa de Cultura - Briones (La Rioja)'"
           >
             <app-paragraph>
               <app-img [src]="'./assets/images/donate-toys-2020.jpg'"></app-img>
@@ -58,41 +81,4 @@
       </div>
     </app-paragraph-group>
   </div>
-  <app-paragraph-group>
-    <div>
-      <div>
-        <app-card [title]="'Merchandising'">
-          <app-paragraph>
-            Una importante vía para colaborar con nosotros es mediante el
-            <app-important-text>merchandising solidario</app-important-text> de la asociación, en el que estamos
-            trabajando actualmente y esperamos tenerlo disponible en los proximos meses.
-          </app-paragraph>
-        </app-card>
-      </div>
-    </div>
-  </app-paragraph-group>
-  <!-- <app-paragraph-group>
-      <div>
-        <app-card
-          [title]="'Merchandising'"
-          [subtitle]="'Camiseta negra Noise To Help'"
-          [imagePath]="'./assets/images/t-shirt-noise-to-help-a.jpg'"
-          [avatarPath]="'./assets/images/t-shirt-noise-to-help-a.jpg'"
-        >
-          <app-paragraph-group>
-            <app-paragraph>
-              Una importante vía para colaborar con nosotros es mediante el
-              <app-important-text>merchandising solidario</app-important-text> de la asociación. Este merchandising será
-              realizado en su totalidad por la gente de
-              <app-external-link-text link="https://camisetas-ahora.com/">Camisetas Ahora</app-external-link-text>
-              desde Logroño (La Rioja) los cuales, aparte de hacer un trabajo increíble, colaboran con nosotros y nos
-              echan un cable con la realización y venta final del merchan.
-            </app-paragraph>
-            <app-paragraph>
-              <app-internal-link-text link="/merchandising">+ Info</app-internal-link-text>
-            </app-paragraph>
-          </app-paragraph-group>
-        </app-card>
-      </div>     
-  </app-paragraph-group> -->
 </app-view>
