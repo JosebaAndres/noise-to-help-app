@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, OnDestroy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { SignatureModel } from 'src/app/models/signature-model';
+import { FormGroup, FormControl } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
+import { ReplaySubject } from 'rxjs';
 
 const LOGO_CAMISETAS_AHORA: SignatureModel = {
   id: 'logo-noise-to-help',
@@ -14,13 +17,29 @@ const LOGO_CAMISETAS_AHORA: SignatureModel = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MerchandisingPageComponent implements OnInit, OnDestroy {
-  // constructor(private uiStore$: Store<UiStoreState>) {}
+  private destroy$ = new ReplaySubject<any>();
+
+  paypalFormValue = 'UZAHPQN88SEX4';
+
+  shippingForm = new FormGroup({
+    withShipping: new FormControl(true),
+  });
+
+  constructor() {}
 
   ngOnInit(): void {
+    this.shippingForm.controls.withShipping.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
+      if (value) {
+        this.paypalFormValue = 'UZAHPQN88SEX4';
+      } else {
+        this.paypalFormValue = '3WK6CF92GLL48';
+      }
+    });
     // this.uiStore$.dispatch(new UiStoreActionAddSignature(LOGO_CAMISETAS_AHORA));
   }
 
   ngOnDestroy(): void {
     // this.uiStore$.dispatch(new UiStoreActionRemoveSignature(LOGO_CAMISETAS_AHORA));
+    this.destroy$.next({});
   }
 }

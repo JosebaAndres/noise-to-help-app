@@ -73,21 +73,25 @@
       <app-important-text>ES09 0073 0100 5405 0608 6933</app-important-text> (Openbank)
     </app-list-item-paragraph>
     <app-list-item-paragraph>Concepto: Pedido (+ Nombre y Apellidos)</app-list-item-paragraph>
-    <app-paragraph> Si prefieres el pago vía PayPal hay que realizarlo con los siguientes datos: </app-paragraph>
-    <app-list-item-paragraph>
-      Email: <app-email-link-text email="noisetohelp@protonmail.com">noisetohelp@protonmail.com</app-email-link-text>
-    </app-list-item-paragraph>
-    <app-list-item-paragraph>Concepto: Pedido (+ Nombre y Apellidos)</app-list-item-paragraph>
     <app-paragraph>
-      <form action="https://www.paypal.com/donate" method="post" target="_blank">
-        <input type="hidden" name="hosted_button_id" value="243VPD3XC6B2C" />
+      Si prefieres el pago vía PayPal simplemente señala si lo quieres con gastos de envío y realiza todo el proceso
+      desde el siguiente enlace:
+    </app-paragraph>
+    <app-paragraph>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" [value]="paypalFormValue" />
         <input
           type="image"
           src="./assets/images/paypal-donate.png"
+          border="0"
           name="submit"
-          title="PayPal - The safer, easier way to pay online!"
-          alt="Donate with PayPal button"
+          alt="PayPal, la forma rápida y segura de pagar en Internet."
         />
+        <img alt="" border="0" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" height="1" />
+      </form>
+      <form [formGroup]="shippingForm">
+        <mat-checkbox formControlName="withShipping">Con gatos de envío</mat-checkbox>
       </form>
     </app-paragraph>
     <app-paragraph>
