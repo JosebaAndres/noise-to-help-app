@@ -7,6 +7,7 @@ import { TypographyModule } from '../typography/typography.module';
 import { ImgModule } from '../img/img.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MerchandisingStoreModule } from 'src/app/stores/merchandising/merchandising-store.module';
 
 @NgModule({
   declarations: [MerchandisingPageComponent],
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ImgModule,
     MatCheckboxModule,
     ReactiveFormsModule,
+    MerchandisingStoreModule,
   ],
   exports: [MerchandisingPageComponent],
 })

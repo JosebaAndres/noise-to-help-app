@@ -2,9 +2,10 @@ import { ChangeDetectionStrategy, OnDestroy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { SignatureModel } from 'src/app/models/signature-model';
 import { FormGroup, FormControl } from '@angular/forms';
-import { takeUntil } from 'rxjs/operators';
-import { ReplaySubject } from 'rxjs';
+import { take, takeUntil } from 'rxjs/operators';
+import { Observable, ReplaySubject } from 'rxjs';
 import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
+import { MerchandisingStoreFacade } from 'src/app/stores/merchandising/merchandising-store-facade';
 
 const LOGO_CAMISETAS_AHORA: SignatureModel = {
   id: 'logo-noise-to-help',
@@ -25,21 +26,25 @@ const LOGO_CHICXS: SignatureModel = {
 export class MerchandisingPageComponent implements OnInit, OnDestroy {
   private destroy$ = new ReplaySubject<any>();
 
-  paypalFormValue = 'UZAHPQN88SEX4';
+  paypalFormValue$: Observable<string>;
 
   shippingForm = new FormGroup({
     withShipping: new FormControl(true),
   });
 
-  constructor(private uiStoreFacade: UiStoreFacade) {}
+  constructor(private uiStoreFacade: UiStoreFacade, private merchandisingStoreFacade: MerchandisingStoreFacade) {}
 
   ngOnInit(): void {
+    this.merchandisingStoreFacade.initForm();
+    this.paypalFormValue$ = this.merchandisingStoreFacade.selectPaypalFormValue();
+    this.merchandisingStoreFacade
+      .selectWithShipping()
+      .pipe(take(1))
+      .subscribe((value) => {
+        this.shippingForm.controls.withShipping.setValue(value);
+      });
     this.shippingForm.controls.withShipping.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
-      if (value) {
-        this.paypalFormValue = 'UZAHPQN88SEX4';
-      } else {
-        this.paypalFormValue = '3WK6CF92GLL48';
-      }
+      this.merchandisingStoreFacade.setWithShipping(value);
     });
     this.uiStoreFacade.addSignature(LOGO_CAMISETAS_AHORA);
     this.uiStoreFacade.addSignature(LOGO_CHICXS);

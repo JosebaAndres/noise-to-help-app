@@ -33,7 +33,7 @@ const routes: Routes = [
   {
     path: 'merchandising',
     loadChildren: () =>
-      import('./modules/merchandIsing-page/merchandising-page.module').then((m) => m.MerchandisingUsPageModule),
+      import('./modules/merchandising-page/merchandising-page.module').then((m) => m.MerchandisingUsPageModule),
   },
   {
     path: 'questions',

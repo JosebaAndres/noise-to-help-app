@@ -5,7 +5,6 @@ import { map, switchMap, take } from 'rxjs/operators';
 import { DeviceType, PHONE_MAX_MEDIA_QUERY_ALIAS, TABLET_MAX_MEDIA_QUERY_ALIAS } from 'src/app/models/device-type';
 import { LG_MAX_SIZE, MD_MAX_SIZE, MediaQueryAlias, SM_MAX_SIZE, XS_MAX_SIZE } from 'src/app/models/media-query-alias';
 import { NumberFuctions } from 'src/app/models/number';
-import { SignatureModel } from 'src/app/models/signature-model';
 import {
   uiStoreActionAddSignature,
   uiStoreActionCloseMenu,
