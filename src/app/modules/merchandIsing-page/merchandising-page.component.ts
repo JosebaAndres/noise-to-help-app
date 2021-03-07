@@ -4,9 +4,7 @@ import { SignatureModel } from 'src/app/models/signature-model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
-import { uiStoreActionAddSignature, uiStoreActionRemoveSignature } from 'src/app/stores/ui/ui-store-actions';
-import { Store } from '@ngrx/store';
-import { UiStoreState } from 'src/app/stores/ui/ui-store-state';
+import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
 
 const LOGO_CAMISETAS_AHORA: SignatureModel = {
   id: 'logo-noise-to-help',
@@ -33,7 +31,7 @@ export class MerchandisingPageComponent implements OnInit, OnDestroy {
     withShipping: new FormControl(true),
   });
 
-  constructor(private uiStore$: Store<UiStoreState>) {}
+  constructor(private uiStoreFacade: UiStoreFacade) {}
 
   ngOnInit(): void {
     this.shippingForm.controls.withShipping.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
@@ -43,13 +41,13 @@ export class MerchandisingPageComponent implements OnInit, OnDestroy {
         this.paypalFormValue = '3WK6CF92GLL48';
       }
     });
-    this.uiStore$.dispatch(uiStoreActionAddSignature(LOGO_CAMISETAS_AHORA));
-    this.uiStore$.dispatch(uiStoreActionAddSignature(LOGO_CHICXS));
+    this.uiStoreFacade.addSignature(LOGO_CAMISETAS_AHORA);
+    this.uiStoreFacade.addSignature(LOGO_CHICXS);
   }
 
   ngOnDestroy(): void {
-    this.uiStore$.dispatch(uiStoreActionRemoveSignature(LOGO_CAMISETAS_AHORA));
-    this.uiStore$.dispatch(uiStoreActionRemoveSignature(LOGO_CHICXS));
+    this.uiStoreFacade.removeSignature(LOGO_CAMISETAS_AHORA);
+    this.uiStoreFacade.removeSignature(LOGO_CHICXS);
     this.destroy$.next({});
   }
 }

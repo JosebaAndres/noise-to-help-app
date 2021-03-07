@@ -5,7 +5,6 @@ import { MerchandisingPageComponent } from './merchandising-page.component';
 import { MerchandisingPageRoutingModule } from './merchandising-page-routing.module';
 import { TypographyModule } from '../typography/typography.module';
 import { ImgModule } from '../img/img.module';
-import { UiStoreModule } from 'src/app/stores/ui/ui-store.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -17,7 +16,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ViewModule,
     TypographyModule,
     ImgModule,
-    UiStoreModule,
     MatCheckboxModule,
     ReactiveFormsModule,
   ],

@@ -6,7 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { CustomIconsModule } from '../custom-icons/custom-icons.module';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { UiStoreModule } from '../../stores/ui/ui-store.module';
 import { CenteredLayoutModule } from '../centered-layout/centered-layout.module';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { CenteredLayoutModule } from '../centered-layout/centered-layout.module'
     CustomIconsModule,
     RouterModule,
     MatButtonModule,
-    UiStoreModule,
     CenteredLayoutModule,
   ],
   exports: [NavbarComponent],
