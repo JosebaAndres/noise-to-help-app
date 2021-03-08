@@ -1,5 +1,6 @@
 @import '../../../assets/scss/settings/sizes.scss';
 @import '../../../assets/scss/settings/margins.scss';
+@import '../../../assets/scss/settings/colors.scss';
 
 .app-centered-layout {
   display: flex;
@@ -14,7 +15,7 @@
   width: 100%;
   max-width: $content-max-size;
   &--with-background {
-    background: #303030;
+    background: $background-500-color;
   }
 }
 
