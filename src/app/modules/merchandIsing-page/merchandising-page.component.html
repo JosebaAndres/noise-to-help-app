@@ -34,7 +34,34 @@
       >
     </app-list-item-paragraph>
     <app-paragraph>
-      <app-img [src]="'./assets/images/t-shirt-sizes-women-noise-to-help.jpg'"></app-img>
+      <table mat-table [dataSource]="womanSizes$ | async" class="app-merchandising-page__table">
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let item">{{ item.description }}</td>
+        </ng-container>
+        <ng-container matColumnDef="s">
+          <th mat-header-cell *matHeaderCellDef>S</th>
+          <td mat-cell *matCellDef="let item">{{ item.s }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="m">
+          <th mat-header-cell *matHeaderCellDef>M</th>
+          <td mat-cell *matCellDef="let item">{{ item.m }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="l">
+          <th mat-header-cell *matHeaderCellDef>L</th>
+          <td mat-cell *matCellDef="let item">{{ item.l }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="xl">
+          <th mat-header-cell *matHeaderCellDef>XL</th>
+          <td mat-cell *matCellDef="let item">{{ item.xl }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="xxl">
+          <th mat-header-cell *matHeaderCellDef>XXL</th>
+          <td mat-cell *matCellDef="let item">{{ item.xxl }} cm</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="womanTableDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: womanTableDisplayedColumns"></tr>
+      </table>
     </app-paragraph>
     <app-list-item-paragraph>
       Hombres
@@ -45,7 +72,42 @@
       >
     </app-list-item-paragraph>
     <app-paragraph>
-      <app-img [src]="'./assets/images/t-shirt-sizes-men-noise-to-help.jpg'"></app-img>
+      <table mat-table [dataSource]="manSizes$ | async" class="app-merchandising-page__table">
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let item">{{ item.description }}</td>
+        </ng-container>
+        <ng-container matColumnDef="xs">
+          <th mat-header-cell *matHeaderCellDef>XS</th>
+          <td mat-cell *matCellDef="let item">{{ item.xs }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="s">
+          <th mat-header-cell *matHeaderCellDef>S</th>
+          <td mat-cell *matCellDef="let item">{{ item.s }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="m">
+          <th mat-header-cell *matHeaderCellDef>M</th>
+          <td mat-cell *matCellDef="let item">{{ item.m }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="l">
+          <th mat-header-cell *matHeaderCellDef>L</th>
+          <td mat-cell *matCellDef="let item">{{ item.l }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="xl">
+          <th mat-header-cell *matHeaderCellDef>XL</th>
+          <td mat-cell *matCellDef="let item">{{ item.xl }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="xxl">
+          <th mat-header-cell *matHeaderCellDef>XXL</th>
+          <td mat-cell *matCellDef="let item">{{ item.xxl }} cm</td>
+        </ng-container>
+        <ng-container matColumnDef="xxxl">
+          <th mat-header-cell *matHeaderCellDef>3XL</th>
+          <td mat-cell *matCellDef="let item">{{ item.xxxl }} cm</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="manTableDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: manTableDisplayedColumns"></tr>
+      </table>
     </app-paragraph>
     <app-paragraph>
       Con la cami original de la asociación los principales beneficios irán destinados íntegramente nuestra cuenta
