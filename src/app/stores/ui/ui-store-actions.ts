@@ -1,4 +1,4 @@
-import { createAction, props } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 import { DeviceType } from 'src/app/models/device-type';
 import { SignatureModel } from 'src/app/models/signature-model';
 import { MediaQueryAlias } from '../../models/media-query-alias';

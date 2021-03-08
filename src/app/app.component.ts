@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { uiStoreActionSetDeviceWidth, uiStoreActionSetDocumentWidth } from './stores/ui/ui-store-actions';
-import { UiStoreState } from './stores/ui/ui-store-state';
+import { UiStoreFacade } from './stores/ui/ui-store-facade';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +12,12 @@ import { UiStoreState } from './stores/ui/ui-store-state';
 export class AppComponent {
   @HostListener('window:resize', ['$event'])
   onResize(): void {
-    this.uiStore$.dispatch(uiStoreActionSetDeviceWidth(window.innerWidth));
-    this.uiStore$.dispatch(uiStoreActionSetDocumentWidth(window.innerWidth));
+    this.uiStoreFacade.setDeviceWidth(window.innerWidth);
+    this.uiStoreFacade.setDocumentWidth(window.innerWidth);
   }
 
-  constructor(private uiStore$: Store<UiStoreState>) {
-    this.uiStore$.dispatch(uiStoreActionSetDeviceWidth(window.innerWidth));
-    this.uiStore$.dispatch(uiStoreActionSetDocumentWidth(window.innerWidth));
+  constructor(private uiStoreFacade: UiStoreFacade) {
+    this.uiStoreFacade.setDeviceWidth(window.innerWidth);
+    this.uiStoreFacade.setDocumentWidth(window.innerWidth);
   }
 }

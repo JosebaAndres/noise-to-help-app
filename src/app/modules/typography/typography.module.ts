@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { EncourageTextComponent } from './encourage-text.component';
 import { ParagraphComponent } from './paragraph.component';
 import { ImportantTextComponent } from './important-text.component';
-import { UiStoreModule } from 'src/app/stores/ui/ui-store.module';
 import { InternalLinkTextComponent } from './internal-link-text.component';
 import { RouterModule } from '@angular/router';
 import { ExternalLinkTextComponent } from './external-link-text.component';
@@ -30,7 +29,7 @@ import { HorizontalDividerComponent } from './horizontal-divider.component';
     ParagraphGroupComponent,
     HorizontalDividerComponent,
   ],
-  imports: [CommonModule, UiStoreModule, RouterModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     EncourageTextComponent,
     ParagraphComponent,

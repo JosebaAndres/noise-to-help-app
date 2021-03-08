@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, OnDestroy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { SignatureModel } from 'src/app/models/signature-model';
 import { FormGroup, FormControl } from '@angular/forms';
-import { takeUntil } from 'rxjs/operators';
-import { ReplaySubject } from 'rxjs';
-import { uiStoreActionAddSignature, uiStoreActionRemoveSignature } from 'src/app/stores/ui/ui-store-actions';
-import { Store } from '@ngrx/store';
-import { UiStoreState } from 'src/app/stores/ui/ui-store-state';
+import { take, takeUntil } from 'rxjs/operators';
+import { Observable, ReplaySubject } from 'rxjs';
+import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
+import { MerchandisingStoreFacade } from 'src/app/stores/merchandising/merchandising-store-facade';
+import { WomanSizeModel } from 'src/app/models/woman-size-model';
+import { ManSizeModel } from 'src/app/models/man-size-model copy';
 
 const LOGO_CAMISETAS_AHORA: SignatureModel = {
   id: 'logo-noise-to-help',
@@ -27,29 +28,40 @@ const LOGO_CHICXS: SignatureModel = {
 export class MerchandisingPageComponent implements OnInit, OnDestroy {
   private destroy$ = new ReplaySubject<any>();
 
-  paypalFormValue = 'UZAHPQN88SEX4';
+  womanTableDisplayedColumns: string[] = ['description', 's', 'm', 'l', 'xl', 'xxl'];
+  manTableDisplayedColumns: string[] = ['description', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl'];
+
+  paypalFormValue$: Observable<string>;
+  womanSizes$: Observable<Array<WomanSizeModel>>;
+  manSizes$: Observable<Array<ManSizeModel>>;
 
   shippingForm = new FormGroup({
     withShipping: new FormControl(true),
   });
 
-  constructor(private uiStore$: Store<UiStoreState>) {}
+  constructor(private uiStoreFacade: UiStoreFacade, private merchandisingStoreFacade: MerchandisingStoreFacade) {}
 
   ngOnInit(): void {
+    this.merchandisingStoreFacade.initForm();
+    this.paypalFormValue$ = this.merchandisingStoreFacade.selectPaypalFormValue();
+    this.womanSizes$ = this.merchandisingStoreFacade.selectWomanSizes();
+    this.manSizes$ = this.merchandisingStoreFacade.selectManSizes();
+    this.merchandisingStoreFacade
+      .selectWithShipping()
+      .pipe(take(1))
+      .subscribe((value) => {
+        this.shippingForm.controls.withShipping.setValue(value);
+      });
     this.shippingForm.controls.withShipping.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
-      if (value) {
-        this.paypalFormValue = 'UZAHPQN88SEX4';
-      } else {
-        this.paypalFormValue = '3WK6CF92GLL48';
-      }
+      this.merchandisingStoreFacade.setWithShipping(value);
     });
-    this.uiStore$.dispatch(uiStoreActionAddSignature(LOGO_CAMISETAS_AHORA));
-    this.uiStore$.dispatch(uiStoreActionAddSignature(LOGO_CHICXS));
+    this.uiStoreFacade.addSignature(LOGO_CAMISETAS_AHORA);
+    this.uiStoreFacade.addSignature(LOGO_CHICXS);
   }
 
   ngOnDestroy(): void {
-    this.uiStore$.dispatch(uiStoreActionRemoveSignature(LOGO_CAMISETAS_AHORA));
-    this.uiStore$.dispatch(uiStoreActionRemoveSignature(LOGO_CHICXS));
+    this.uiStoreFacade.removeSignature(LOGO_CAMISETAS_AHORA);
+    this.uiStoreFacade.removeSignature(LOGO_CHICXS);
     this.destroy$.next({});
   }
 }

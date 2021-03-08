@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Input } from '@angular/core';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./centered-layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CenteredLayoutComponent {}
+export class CenteredLayoutComponent {
+  @Input()
+  withBackground = false;
+}

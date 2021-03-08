@@ -8,7 +8,7 @@ import {
   uiStoreActionSetScrollTop,
   uiStoreActionSetSignatures,
 } from './ui-store-actions';
-import { initialUiStoreState, UiStoreState } from './ui-store-state';
+import { initialUiStoreState } from './ui-store-state';
 
 export const uiReducer = createReducer(
   initialUiStoreState,

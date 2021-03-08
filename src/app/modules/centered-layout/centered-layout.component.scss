@@ -3,6 +3,7 @@
 
 .app-centered-layout {
   display: flex;
+  min-height: 100%;
 }
 
 .app-centered-layout-left {
@@ -12,6 +13,9 @@
 .app-centered-layout-center {
   width: 100%;
   max-width: $content-max-size;
+  &--with-background {
+    background: #303030;
+  }
 }
 
 .app-centered-layout-right {

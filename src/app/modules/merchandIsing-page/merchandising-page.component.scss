@@ -2,12 +2,44 @@
 @import '../../../assets/scss/settings/margins.scss';
 @import '../../../assets/scss/settings/colors.scss';
 
-.app-merchandising-page__t-shirt-container {
-  display: flex;
+.app-merchandising-page__table {
+  width: 100%;
 }
 
 @media (max-width: $sm-max-size) {
-  .app-merchandising-page__t-shirt-container {
-    flex-direction: column;
+  th.mat-header-cell,
+  td.mat-cell,
+  td.mat-footer-cell {
+    padding: $horizontal-margin-s;
+  }
+  th.mat-header-cell:last-of-type,
+  td.mat-cell:last-of-type,
+  td.mat-footer-cell:last-of-type {
+    padding-right: $horizontal-margin-s;
+  }
+
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type,
+  td.mat-footer-cell:first-of-type {
+    padding-left: $horizontal-margin-s;
+  }
+}
+
+@media (max-width: $xs-max-size) {
+  th.mat-header-cell,
+  td.mat-cell,
+  td.mat-footer-cell {
+    padding: $horizontal-margin-xs;
+  }
+  th.mat-header-cell:last-of-type,
+  td.mat-cell:last-of-type,
+  td.mat-footer-cell:last-of-type {
+    padding-right: $horizontal-margin-xs;
+  }
+
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type,
+  td.mat-footer-cell:first-of-type {
+    padding-left: $horizontal-margin-xs;
   }
 }

@@ -1,19 +1,11 @@
 import { ChangeDetectionStrategy, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import {
-  uiStoreSelectDeviceType,
-  uiStoreSelectScrollTop,
-  uiStoreSelectSubMenuDefaultItems,
-  uiStoreSelectSubMenuPrimaryItems,
-} from '../../stores/ui/ui-store-selectors';
-import { uiStoreActionToggleMenu } from '../../stores/ui/ui-store-actions';
-import { UiStoreState } from '../../stores/ui/ui-store-state';
 import { Observable } from 'rxjs';
 import { MenuItemModel } from '../../models/menu-item-model';
 import { DeviceType } from 'src/app/models/device-type';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
 
 @Component({
   selector: 'app-navbar',
@@ -32,15 +24,15 @@ export class NavbarComponent implements OnInit {
 
   @ViewChild('secondaryHiddenIcons', { static: true }) secondaryHiddenIcons: ElementRef<HTMLDivElement>;
 
-  constructor(private uiStore$: Store<UiStoreState>) {}
+  constructor(private uiStoreFacade: UiStoreFacade) {}
 
   ngOnInit(): void {
-    this.subMenuDefaultItems$ = this.uiStore$.select(uiStoreSelectSubMenuDefaultItems);
-    this.subMenuPrimaryItems$ = this.uiStore$.select(uiStoreSelectSubMenuPrimaryItems);
+    this.subMenuDefaultItems$ = this.uiStoreFacade.selectSubMenuDefaultItems();
+    this.subMenuPrimaryItems$ = this.uiStoreFacade.selectSubMenuPrimaryItems();
 
     this.secondaryNavbarTop$ = combineLatest([
-      this.uiStore$.select(uiStoreSelectDeviceType),
-      this.uiStore$.select(uiStoreSelectScrollTop),
+      this.uiStoreFacade.selectDeviceType(),
+      this.uiStoreFacade.selectScrollTop(),
     ]).pipe(
       map((values) => {
         if (values[0] === DeviceType.phone) {
@@ -51,8 +43,8 @@ export class NavbarComponent implements OnInit {
       }),
     );
     this.primaryNavbarTop$ = combineLatest([
-      this.uiStore$.select(uiStoreSelectDeviceType),
-      this.uiStore$.select(uiStoreSelectScrollTop),
+      this.uiStoreFacade.selectDeviceType(),
+      this.uiStoreFacade.selectScrollTop(),
     ]).pipe(
       map((values) => {
         if (values[0] === DeviceType.phone) {
@@ -62,12 +54,12 @@ export class NavbarComponent implements OnInit {
         }
       }),
     );
-    this.secondaryIconsPosition$ = this.uiStore$
-      .select(uiStoreSelectDeviceType)
+    this.secondaryIconsPosition$ = this.uiStoreFacade
+      .selectDeviceType()
       .pipe(map((value) => (value === DeviceType.phone ? 'absolute' : 'unset')));
     this.secondaryIconsTop$ = combineLatest([
-      this.uiStore$.select(uiStoreSelectDeviceType),
-      this.uiStore$.select(uiStoreSelectScrollTop),
+      this.uiStoreFacade.selectDeviceType(),
+      this.uiStoreFacade.selectScrollTop(),
     ]).pipe(
       map((values) => {
         if (values[0] === DeviceType.phone) {
@@ -85,12 +77,12 @@ export class NavbarComponent implements OnInit {
         }
       }),
     );
-    this.isPhone$ = this.uiStore$
-      .select(uiStoreSelectDeviceType)
+    this.isPhone$ = this.uiStoreFacade
+      .selectDeviceType()
       .pipe(map((value) => (value === DeviceType.phone ? true : false)));
   }
 
   toggleMenu(): void {
-    this.uiStore$.dispatch(uiStoreActionToggleMenu());
+    this.uiStoreFacade.toggleMenu();
   }
 }
