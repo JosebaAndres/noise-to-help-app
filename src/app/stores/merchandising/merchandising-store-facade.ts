@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { ManSizeModel } from 'src/app/models/man-size-model copy';
+import { WomanSizeModel } from 'src/app/models/woman-size-model';
 import {
   merchandisingStoreActionInitForm,
   merchandisingStoreActionSetWithShipping,
 } from './merchandising-store-actions';
 import {
+  merchandisingStoreSelectManSizes,
   merchandisingStoreSelectPaypalFormValue,
   merchandisingStoreSelectWithShipping,
+  merchandisingStoreSelectWomanSizes,
 } from './merchandising-store-selectors';
 import { MerchandisingStoreState } from './merchandising-store-state';
 
@@ -21,6 +25,14 @@ export class MerchandisingStoreFacade {
 
   selectPaypalFormValue(): Observable<string> {
     return this.merchandisingStore$.select(merchandisingStoreSelectPaypalFormValue);
+  }
+
+  selectWomanSizes(): Observable<Array<WomanSizeModel>> {
+    return this.merchandisingStore$.select(merchandisingStoreSelectWomanSizes);
+  }
+
+  selectManSizes(): Observable<Array<ManSizeModel>> {
+    return this.merchandisingStore$.select(merchandisingStoreSelectManSizes);
   }
 
   initForm(): void {

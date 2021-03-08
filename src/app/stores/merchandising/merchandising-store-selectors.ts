@@ -13,3 +13,10 @@ export const merchandisingStoreSelectPaypalFormValue = createSelector(
   getMerchandisingStoreState,
   (state) => state.paypalFormValue,
 );
+
+export const merchandisingStoreSelectWomanSizes = createSelector(
+  getMerchandisingStoreState,
+  (state) => state.womanSizes,
+);
+
+export const merchandisingStoreSelectManSizes = createSelector(getMerchandisingStoreState, (state) => state.manSizes);

@@ -8,6 +8,7 @@ import { ImgModule } from '../img/img.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MerchandisingStoreModule } from 'src/app/stores/merchandising/merchandising-store.module';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [MerchandisingPageComponent],
@@ -20,6 +21,7 @@ import { MerchandisingStoreModule } from 'src/app/stores/merchandising/merchandi
     MatCheckboxModule,
     ReactiveFormsModule,
     MerchandisingStoreModule,
+    MatTableModule,
   ],
   exports: [MerchandisingPageComponent],
 })

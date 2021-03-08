@@ -6,6 +6,8 @@ import { take, takeUntil } from 'rxjs/operators';
 import { Observable, ReplaySubject } from 'rxjs';
 import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
 import { MerchandisingStoreFacade } from 'src/app/stores/merchandising/merchandising-store-facade';
+import { WomanSizeModel } from 'src/app/models/woman-size-model';
+import { ManSizeModel } from 'src/app/models/man-size-model copy';
 
 const LOGO_CAMISETAS_AHORA: SignatureModel = {
   id: 'logo-noise-to-help',
@@ -26,7 +28,12 @@ const LOGO_CHICXS: SignatureModel = {
 export class MerchandisingPageComponent implements OnInit, OnDestroy {
   private destroy$ = new ReplaySubject<any>();
 
+  womanTableDisplayedColumns: string[] = ['description', 's', 'm', 'l', 'xl', 'xxl'];
+  manTableDisplayedColumns: string[] = ['description', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl'];
+
   paypalFormValue$: Observable<string>;
+  womanSizes$: Observable<Array<WomanSizeModel>>;
+  manSizes$: Observable<Array<ManSizeModel>>;
 
   shippingForm = new FormGroup({
     withShipping: new FormControl(true),
@@ -37,6 +44,8 @@ export class MerchandisingPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.merchandisingStoreFacade.initForm();
     this.paypalFormValue$ = this.merchandisingStoreFacade.selectPaypalFormValue();
+    this.womanSizes$ = this.merchandisingStoreFacade.selectWomanSizes();
+    this.manSizes$ = this.merchandisingStoreFacade.selectManSizes();
     this.merchandisingStoreFacade
       .selectWithShipping()
       .pipe(take(1))
