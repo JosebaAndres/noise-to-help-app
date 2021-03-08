@@ -1,5 +1,7 @@
 <div class="app-centered-layout">
   <div class="app-centered-layout-left"></div>
-  <div class="app-centered-layout-center"><ng-content></ng-content></div>
+  <div class="app-centered-layout-center" [class.app-centered-layout-center--with-background]="withBackground">
+    <ng-content></ng-content>
+  </div>
   <div class="app-centered-layout-right"></div>
 </div>
