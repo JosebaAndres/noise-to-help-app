@@ -12,7 +12,6 @@ const routes: Routes = [
   {
     path: 'about-us',
     loadChildren: () => import('./modules/about-us-page/about-us-page.module').then((m) => m.AboutUsPageModule),
-    canActivate: [FeaturesInDevelopmentGuard],
   },
   {
     path: 'partners',
@@ -34,7 +33,7 @@ const routes: Routes = [
   {
     path: 'merchandising',
     loadChildren: () =>
-      import('./modules/merchandIsing-page/merchandising-page.module').then((m) => m.MerchandisingUsPageModule),
+      import('./modules/merchandising-page/merchandising-page.module').then((m) => m.MerchandisingUsPageModule),
   },
   {
     path: 'questions',

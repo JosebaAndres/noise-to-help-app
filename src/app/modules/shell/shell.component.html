@@ -41,11 +41,11 @@
           <app-navbar></app-navbar>
         </div>
         <div class="app-shell__main-content-content">
-          <app-centered-layout>
+          <app-centered-layout [withBackground]="true">
             <ng-content></ng-content>
           </app-centered-layout>
         </div>
-        <app-centered-layout>
+        <app-centered-layout [withBackground]="true">
           <div class="app-shell__main-content-footer">
             <app-signature
               *ngFor="let signature of signatures$ | async"

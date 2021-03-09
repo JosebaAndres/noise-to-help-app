@@ -1,12 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { DeviceType } from 'src/app/models/device-type';
 import { SignatureModel } from 'src/app/models/signature-model';
+import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
 import { MenuItemModel } from '../../models/menu-item-model';
 import {
   uiStoreActionCloseMenu,
@@ -17,9 +17,7 @@ import {
   uiStoreSelectDeviceType,
   uiStoreSelectMenuOpened,
   uiStoreSelectSignatures,
-  uiStoreSelectSubMenuItems,
 } from '../../stores/ui/ui-store-selectors';
-import { UiStoreState } from '../../stores/ui/ui-store-state';
 
 @Component({
   selector: 'app-shell',
@@ -38,17 +36,17 @@ export class ShellComponent implements OnInit, OnDestroy {
   @ViewChild('mainContent', { static: true, read: ElementRef }) mainContent: ElementRef<HTMLElement>;
 
   constructor(
-    private uiStore$: Store<UiStoreState>,
+    private uiStoreFacade: UiStoreFacade,
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
   ) {}
 
   ngOnInit(): void {
-    this.subMenuItems$ = this.uiStore$.select(uiStoreSelectSubMenuItems);
-    this.signatures$ = this.uiStore$.select(uiStoreSelectSignatures);
+    this.subMenuItems$ = this.uiStoreFacade.selectSubMenuItems();
+    this.signatures$ = this.uiStoreFacade.selectSignatures();
 
-    this.uiStore$
-      .select(uiStoreSelectMenuOpened)
+    this.uiStoreFacade
+      .selectMenuOpened()
       .pipe(takeUntil(this.destroy$))
       .subscribe((value) => {
         if (this.sidenavOpened !== value) {
@@ -57,8 +55,8 @@ export class ShellComponent implements OnInit, OnDestroy {
         }
       });
 
-    this.uiStore$
-      .select(uiStoreSelectDeviceType)
+    this.uiStoreFacade
+      .selectDeviceType()
       .pipe(takeUntil(this.destroy$))
       .subscribe((value) => {
         this.deviceType = value;
@@ -79,20 +77,20 @@ export class ShellComponent implements OnInit, OnDestroy {
       });
 
     this.mainContent.nativeElement.addEventListener('scroll', () => {
-      this.uiStore$.dispatch(uiStoreActionSetScrollTop(this.mainContent.nativeElement.scrollTop));
+      this.uiStoreFacade.scrollTop(this.mainContent.nativeElement.scrollTop);
     });
   }
 
   onSidenavOpenedChange(value): void {
     if (value) {
-      this.uiStore$.dispatch(uiStoreActionOpenMenu());
+      this.uiStoreFacade.openMenu();
     } else {
-      this.uiStore$.dispatch(uiStoreActionCloseMenu());
+      this.uiStoreFacade.closeMenu();
     }
   }
 
   linkClicked(): void {
-    this.uiStore$.dispatch(uiStoreActionCloseMenu());
+    this.uiStoreFacade.closeMenu();
   }
 
   ngOnDestroy(): void {

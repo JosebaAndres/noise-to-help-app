@@ -16,6 +16,11 @@ export interface UiStoreState {
 
 export const SUB_MENU_ITEMS: Array<MenuItemModel> = [
   {
+    description: 'Quienes somos',
+    routerLink: '/about-us',
+    type: MenuItemModelType.default,
+  },
+  {
     description: 'Hazte socio',
     routerLink: '/partners',
     type: MenuItemModelType.default,
@@ -47,13 +52,7 @@ export const SUB_MENU_ITEMS: Array<MenuItemModel> = [
   },
 ];
 
-export const SUB_MENU_ITEMS_IN_DEVELOPMENT: Array<MenuItemModel> = [
-  {
-    description: 'Quienes somos',
-    routerLink: '/about-us',
-    type: MenuItemModelType.default,
-  },
-];
+export const SUB_MENU_ITEMS_IN_DEVELOPMENT: Array<MenuItemModel> = [];
 
 export const SUB_MENU_ITEMS_PLAYGROUND: Array<MenuItemModel> = [
   {
