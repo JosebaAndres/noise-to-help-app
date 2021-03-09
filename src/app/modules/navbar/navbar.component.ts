@@ -12,9 +12,8 @@ const SECONDARY_ICONS_POSITION_ANIMATION: AnimationTriggerMetadata = trigger('se
   state(
     'secondaryToolbar',
     style({
-      top: '{{top}}',
+      top: '0px',
     }),
-    { params: { top: '0px' } },
   ),
   state(
     'primaryToolbar',
@@ -42,8 +41,8 @@ export class NavbarComponent implements OnInit {
   secondaryNavbarTop$: Observable<number>;
   primaryNavbarTop$: Observable<number>;
   secondaryIconsPosition$: Observable<string>;
-  secondaryIconsPositionState$: Observable<'secondaryToolbar' | 'primaryToolbar'>;
   secondaryIconsTop$: Observable<string>;
+  secondaryIconsPositionState$: Observable<'secondaryToolbar' | 'primaryToolbar'>;
   isPhone$: Observable<boolean>;
 
   @ViewChild('secondaryHiddenIcons', { static: true }) secondaryHiddenIcons: ElementRef<HTMLDivElement>;
@@ -81,6 +80,22 @@ export class NavbarComponent implements OnInit {
     this.secondaryIconsPosition$ = this.uiStoreFacade
       .selectDeviceType()
       .pipe(map((value) => (value === DeviceType.phone ? 'absolute' : 'unset')));
+    this.secondaryIconsTop$ = combineLatest([
+      this.uiStoreFacade.selectDeviceType(),
+      this.uiStoreFacade.selectScrollTop(),
+    ]).pipe(
+      map((values) => {
+        if (values[0] === DeviceType.phone && values[1] > 1) {
+          if (values[1] > 32) {
+            return `${values[1] + 12}px`;
+          } else {
+            return `${values[1] + 12 + (32 - values[1])}px`;
+          }
+        } else {
+          return `${0}px`;
+        }
+      }),
+    );
     this.secondaryIconsPositionState$ = combineLatest([
       this.uiStoreFacade.selectDeviceType(),
       this.uiStoreFacade.selectScrollTop(),
@@ -93,26 +108,6 @@ export class NavbarComponent implements OnInit {
         }
       }),
       takeUntil(this.destroy$),
-    );
-    this.secondaryIconsTop$ = combineLatest([
-      this.uiStoreFacade.selectDeviceType(),
-      this.uiStoreFacade.selectScrollTop(),
-    ]).pipe(
-      map((values) => {
-        if (values[0] === DeviceType.phone) {
-          if (values[1] > 1) {
-            if (values[1] > 32) {
-              return `${values[1] + 12}px`;
-            } else {
-              return `${values[1] + 12 + (32 - values[1])}px`;
-            }
-          } else {
-            return `${values[1]}px`;
-          }
-        } else {
-          return `${0}px`;
-        }
-      }),
     );
     this.isPhone$ = this.uiStoreFacade
       .selectDeviceType()
