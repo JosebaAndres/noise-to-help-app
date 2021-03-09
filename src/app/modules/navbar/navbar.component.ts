@@ -1,25 +1,49 @@
 import { ChangeDetectionStrategy, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { MenuItemModel } from '../../models/menu-item-model';
 import { DeviceType } from 'src/app/models/device-type';
 import { combineLatest } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
 import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
+import { animate, AnimationTriggerMetadata, state, style, transition, trigger } from '@angular/animations';
+
+const SECONDARY_ICONS_POSITION_ANIMATION: AnimationTriggerMetadata = trigger('secondaryIconsPositionState', [
+  state(
+    'secondaryToolbar',
+    style({
+      top: '{{top}}',
+    }),
+    { params: { top: '0px' } },
+  ),
+  state(
+    'primaryToolbar',
+    style({
+      top: '{{top}}',
+    }),
+    { params: { top: '0px' } },
+  ),
+  transition('secondaryToolbar => primaryToolbar', animate('0.5s linear')),
+  transition('primaryToolbar => secondaryToolbar', animate('0.5s linear')),
+]);
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [SECONDARY_ICONS_POSITION_ANIMATION],
 })
 export class NavbarComponent implements OnInit {
+  private destroy$ = new ReplaySubject<any>();
+
   subMenuDefaultItems$: Observable<Array<MenuItemModel>>;
   subMenuPrimaryItems$: Observable<Array<MenuItemModel>>;
   secondaryNavbarTop$: Observable<number>;
   primaryNavbarTop$: Observable<number>;
   secondaryIconsPosition$: Observable<string>;
-  secondaryIconsTop$: Observable<number>;
+  secondaryIconsPositionState$: Observable<'secondaryToolbar' | 'primaryToolbar'>;
+  secondaryIconsTop$: Observable<string>;
   isPhone$: Observable<boolean>;
 
   @ViewChild('secondaryHiddenIcons', { static: true }) secondaryHiddenIcons: ElementRef<HTMLDivElement>;
@@ -57,23 +81,36 @@ export class NavbarComponent implements OnInit {
     this.secondaryIconsPosition$ = this.uiStoreFacade
       .selectDeviceType()
       .pipe(map((value) => (value === DeviceType.phone ? 'absolute' : 'unset')));
+    this.secondaryIconsPositionState$ = combineLatest([
+      this.uiStoreFacade.selectDeviceType(),
+      this.uiStoreFacade.selectScrollTop(),
+    ]).pipe(
+      map((values): 'primaryToolbar' | 'secondaryToolbar' => {
+        if (values[0] === DeviceType.phone && values[1] > 1) {
+          return 'primaryToolbar';
+        } else {
+          return 'secondaryToolbar';
+        }
+      }),
+      takeUntil(this.destroy$),
+    );
     this.secondaryIconsTop$ = combineLatest([
       this.uiStoreFacade.selectDeviceType(),
       this.uiStoreFacade.selectScrollTop(),
     ]).pipe(
       map((values) => {
         if (values[0] === DeviceType.phone) {
-          if (values[1] > 32) {
-            if (values[1] > 44) {
-              return values[1] + 12;
+          if (values[1] > 1) {
+            if (values[1] > 32) {
+              return `${values[1] + 12}px`;
             } else {
-              return values[1] + values[1] - 32;
+              return `${values[1] + 12 + (32 - values[1])}px`;
             }
           } else {
-            return values[1];
+            return `${values[1]}px`;
           }
         } else {
-          return 0;
+          return `${0}px`;
         }
       }),
     );

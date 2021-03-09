@@ -10,7 +10,12 @@
         <div
           class="app-navbar__secondary-icons"
           [style.position]="secondaryIconsPosition$ | async"
-          [style.top.px]="secondaryIconsTop$ | async"
+          [@secondaryIconsPositionState]="{
+            value: secondaryIconsPositionState$ | async,
+            params: {
+              top: secondaryIconsTop$ | async
+            }
+          }"
         >
           <a class="app-navbar__link-item" href="https://www.facebook.com/noisetohelp" target="_blank">
             <mat-icon class="app-navbar__icon app-navbar__icon--small" svgIcon="facebook" [inline]="true"></mat-icon>
