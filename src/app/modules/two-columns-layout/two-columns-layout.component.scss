@@ -1,0 +1,15 @@
+@import '../../../assets/scss/settings/sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+@import '../../../assets/scss/settings/colors.scss';
+
+.app-two-columns-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: $horizontal-margin-ms;
+}
+
+@media (max-width: $sm-max-size) {
+  .app-two-columns-layout {
+    display: block;
+  }
+}
