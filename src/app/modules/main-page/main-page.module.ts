@@ -6,10 +6,19 @@ import { ViewModule } from '../view/view.module';
 import { TypographyModule } from '../typography/typography.module';
 import { CardModule } from '../card/card.module';
 import { ImgModule } from '../img/img.module';
+import { TwoColumnsLayoutModule } from '../two-columns-layout/two-columns-layout.module';
 
 @NgModule({
   declarations: [MainPageComponent],
-  imports: [CommonModule, MainPageRoutingModule, ViewModule, TypographyModule, CardModule, ImgModule],
+  imports: [
+    CommonModule,
+    MainPageRoutingModule,
+    ViewModule,
+    TypographyModule,
+    CardModule,
+    ImgModule,
+    TwoColumnsLayoutModule,
+  ],
   exports: [MainPageComponent],
 })
 export class MainPageModule {}

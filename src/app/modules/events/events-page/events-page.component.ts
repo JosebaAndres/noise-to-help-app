@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-events-page',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./events-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventsPageComponent {}
+export class EventsPageComponent {
+  showFeaturesInDevelopment = environment.showFeaturesInDevelopment;
+}
