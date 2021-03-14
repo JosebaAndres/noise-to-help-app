@@ -5,8 +5,8 @@
         <app-title-text>Eventos</app-title-text>
       </app-paragraph>
     </app-paragraph-group>
-    <div class="app-events-page__items-container">
-      <div class="app-events-page__item">
+    <app-two-columns-layout>
+      <app-two-columns-layout-item>
         <app-card
           [title]="'Donación y recogida solidaria'"
           [subtitle]="'26-27/12/2020 - Casa de Cultura - Briones (La Rioja)'"
@@ -29,7 +29,7 @@
             <app-internal-link-text link="/events/donate-toys-2020">+ Info</app-internal-link-text>
           </app-paragraph>
         </app-card>
-      </div>
-    </div>
+      </app-two-columns-layout-item>
+    </app-two-columns-layout>
   </div>
 </app-view>
