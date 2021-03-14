@@ -5,6 +5,7 @@
 .app-two-columns-layout {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: $horizontal-margin-ms;
 }
 
 @media (max-width: $sm-max-size) {

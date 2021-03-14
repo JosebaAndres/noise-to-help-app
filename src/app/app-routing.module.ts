@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FeaturesInDevelopmentGuard } from 'src/environments/features-in-development-guard';
-import { PlaygroundGuard } from 'src/environments/playground-guard';
+import { PlaygroundGuard } from 'src/app/services/playground-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
