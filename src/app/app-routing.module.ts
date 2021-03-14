@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'events',
-    loadChildren: () => import('./modules/events-page/events-page.module').then((m) => m.EventsPageModule),
+    loadChildren: () => import('./modules/events/events.module').then((m) => m.EventsModule),
   },
   {
     path: 'contact',
