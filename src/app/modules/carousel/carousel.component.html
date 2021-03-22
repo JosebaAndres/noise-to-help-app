@@ -1,7 +1,7 @@
 <div class="app-carousel" #appCarousel>
   <carousel
-    *ngIf="carouselWidth"
-    class="app-carousel-container"
+    *ngIf="!loading"
+    class="app-carousel-carousel"
     [cellsToShow]="1"
     [width]="carouselWidth"
     [height]="carouselHeight"
