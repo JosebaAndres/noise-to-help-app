@@ -1,0 +1,13 @@
+<div class="app-carousel" #appCarousel>
+  <carousel
+    *ngIf="!loading"
+    class="app-carousel-carousel"
+    [cellsToShow]="1"
+    [width]="carouselWidth"
+    [height]="carouselHeight"
+    [dots]="true"
+    [arrowsTheme]="'dark'"
+  >
+    <ng-content></ng-content>
+  </carousel>
+</div>
