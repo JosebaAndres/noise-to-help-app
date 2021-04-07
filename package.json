@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port=3201 --host=0.0.0.0",
+    "start-qa": "ng serve --port=3201 --host=0.0.0.0 --c=qa",
+    "start-prod": "ng serve --port=3201 --host=0.0.0.0 --c=production",
     "start-docker-dev": "docker-compose --file docker-compose-dev.yml up",
     "start-docker-production": "docker-compose --file docker-compose-production.yml up",
     "build": "ng build",

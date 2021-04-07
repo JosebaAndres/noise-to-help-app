@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Component } from '@angular/core';
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-main-page',
@@ -8,6 +7,4 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./main-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainPageComponent {
-  showFeaturesInDevelopment = environment.showFeaturesInDevelopment;
-}
+export class MainPageComponent {}
