@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port=3201 --host=0.0.0.0",
+    "start-qa": "ng serve --port=3201 --host=0.0.0.0 --c=qa",
+    "start-prod": "ng serve --port=3201 --host=0.0.0.0 --c=production",
     "start-docker-dev": "docker-compose --file docker-compose-dev.yml up",
     "start-docker-production": "docker-compose --file docker-compose-production.yml up",
     "build": "ng build",
@@ -30,6 +32,7 @@
     "@ngrx/effects": "^11.0.1",
     "@ngrx/store": "^11.0.1",
     "@ngrx/store-devtools": "^11.0.1",
+    "angular-responsive-carousel": "^2.0.2",
     "bootstrap": "^4.5.3",
     "rxjs": "~6.6.6",
     "tslib": "^2.0.0",
