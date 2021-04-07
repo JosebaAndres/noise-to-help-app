@@ -6,6 +6,7 @@ import { DonateToys2020PageRoutingModule } from './donate-toys-2020-page-routing
 import { TypographyModule } from '../../typography/typography.module';
 import { ImgModule } from '../../img/img.module';
 import { TwoColumnsLayoutModule } from '../../two-columns-layout/two-columns-layout.module';
+import { CarouselModule } from '../../carousel/carousel.module';
 
 @NgModule({
   declarations: [DonateToys2020PageComponent],
@@ -16,6 +17,7 @@ import { TwoColumnsLayoutModule } from '../../two-columns-layout/two-columns-lay
     TypographyModule,
     TwoColumnsLayoutModule,
     ImgModule,
+    CarouselModule,
   ],
   exports: [DonateToys2020PageComponent],
 })
