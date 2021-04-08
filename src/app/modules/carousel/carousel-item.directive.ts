@@ -4,5 +4,5 @@ import { Directive, TemplateRef } from '@angular/core';
   selector: '[appCarouselItem]',
 })
 export class CarouselItemDirective {
-  constructor(public tpl: TemplateRef<any>) {}
+  constructor(public template: TemplateRef<any>) {}
 }

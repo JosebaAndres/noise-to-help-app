@@ -27,5 +27,13 @@ export class CustomIconsModule {
     );
     this.matIconRegistry.addSvgIcon('heart', this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}heart.svg`));
     this.matIconRegistry.addSvgIcon('mail', this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}mail.svg`));
+    this.matIconRegistry.addSvgIcon(
+      'arrow-left',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}arrow-left.svg`),
+    );
+    this.matIconRegistry.addSvgIcon(
+      'arrow-right',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`${svgsPath}arrow-right.svg`),
+    );
   }
 }
