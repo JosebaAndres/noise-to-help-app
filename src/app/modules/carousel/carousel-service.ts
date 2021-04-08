@@ -42,6 +42,19 @@ export class CarouselService implements OnDestroy {
     this.destroy$.next({});
   }
 
+  private refreshContentWidth(): void {
+    this.contentWidth = this.appCarousel.nativeElement.offsetWidth;
+    this.refreshCarouselSize();
+  }
+
+  private refreshLoading(): void {
+    if (this.carouselWidthSubject.value) {
+      this.loadingSubject.next(false);
+    } else {
+      this.loadingSubject.next(true);
+    }
+  }
+
   setAppCarousel(value: ElementRef<HTMLDivElement>): void {
     this.appCarousel = value;
     this.refreshContentWidth();
@@ -51,11 +64,6 @@ export class CarouselService implements OnDestroy {
   setItemsMaxValues(width: number, height: number): void {
     this.itemsMaxWidth = width;
     this.itemsMaxHeight = height;
-    this.refreshCarouselSize();
-  }
-
-  private refreshContentWidth(): void {
-    this.contentWidth = this.appCarousel.nativeElement.offsetWidth;
     this.refreshCarouselSize();
   }
 
@@ -70,14 +78,6 @@ export class CarouselService implements OnDestroy {
     } else {
       this.carouselWidthSubject.next(0);
       this.carouselHeightSubject.next(0);
-    }
-  }
-
-  private refreshLoading(): void {
-    if (this.carouselWidthSubject.value) {
-      this.loadingSubject.next(false);
-    } else {
-      this.loadingSubject.next(true);
     }
   }
 }

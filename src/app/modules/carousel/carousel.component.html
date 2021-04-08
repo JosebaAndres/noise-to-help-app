@@ -12,11 +12,7 @@
         [style.width.px]="carouselWidth$ | async"
         [style.height.px]="carouselHeight$ | async"
       >
-        <ng-container
-          [ngTemplateOutlet]="item.template"
-          [style.width.px]="carouselWidth$ | async"
-          [style.height.px]="carouselHeight$ | async"
-        ></ng-container>
+        <ng-container [ngTemplateOutlet]="item.template"></ng-container>
       </div>
     </div>
     <button class="app-carousel__previous-button" mat-mini-fab aria-label="Previous">
