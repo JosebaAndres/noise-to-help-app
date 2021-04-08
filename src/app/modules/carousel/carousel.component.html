@@ -1,12 +1,9 @@
-<div class="app-carousel" #appCarousel>
-  <carousel
-    *ngIf="!loading"
-    class="app-carousel-carousel"
-    [cellsToShow]="1"
-    [width]="carouselWidth"
-    [height]="carouselHeight"
-    [dots]="true"
-  >
-    <ng-content></ng-content>
-  </carousel>
+<div class="app-carousel">
+  <section class="app-carousel__wrapper">
+    <ul class="app-carousel__inner" #appCarouselCarousel>
+      <li *ngFor="let item of items" class="app-carousel__item">
+        <ng-container [ngTemplateOutlet]="item.tpl"></ng-container>
+      </li>
+    </ul>
+  </section>
 </div>

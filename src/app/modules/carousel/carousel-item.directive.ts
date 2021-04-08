@@ -1,10 +1,8 @@
-import { Directive, ElementRef, Renderer2 } from '@angular/core';
+import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
   selector: '[appCarouselItem]',
 })
 export class CarouselItemDirective {
-  constructor(renderer: Renderer2, hostElement: ElementRef) {
-    renderer.addClass(hostElement.nativeElement, 'carousel-cell');
-  }
+  constructor(public tpl: TemplateRef<any>) {}
 }

@@ -1,18 +1,26 @@
+import { animate, AnimationBuilder, AnimationFactory, AnimationPlayer, style } from '@angular/animations';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
+  ContentChildren,
+  Directive,
   ElementRef,
   Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { Component } from '@angular/core';
-import { ReplaySubject, Subject } from 'rxjs';
-import { debounceTime, skip, takeUntil } from 'rxjs/operators';
-import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
+import { CarouselItemDirective } from './carousel-item.directive';
+
+const TIMING = '250ms ease-in';
+
+@Directive({
+  // tslint:disable-next-line: directive-selector
+  selector: '.app-carousel__item',
+})
+// tslint:disable-next-line: directive-class-suffix
+export class CarouselItemElement {}
 
 @Component({
   selector: 'app-carousel',
@@ -20,78 +28,56 @@ import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
   styleUrls: ['./carousel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CarouselComponent implements OnInit, OnDestroy, OnChanges {
-  private destroy$ = new ReplaySubject<any>();
-  private refreshCarousel$ = new Subject<void>();
-  private contentWidth: number;
-
-  @ViewChild('appCarousel', { static: true }) appCarousel: ElementRef<HTMLDivElement>;
-
+export class CarouselComponent implements AfterViewInit {
   @Input()
   itemsMaxWidth: number;
 
   @Input()
   itemsMaxHeight: number;
 
-  loading = true;
-  carouselWidth: number = null;
-  carouselHeight: number = null;
+  @ContentChildren(CarouselItemDirective) items: QueryList<CarouselItemDirective>;
+  @ViewChildren(CarouselItemElement, { read: ElementRef }) private itemsElements: QueryList<ElementRef>;
+  @ViewChild('carousel') private carousel: ElementRef;
 
-  constructor(private uiStoreFacade: UiStoreFacade, private cdr: ChangeDetectorRef) {}
+  private player: AnimationPlayer;
+  private itemWidth: number;
+  private currentSlide = 0;
+  carouselWrapperStyle = {};
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.itemsMaxWidth && changes.itemsMaxHeight) {
-      this.refreshCarouselSize();
+  next(): void {
+    if (this.currentSlide + 1 !== this.items.length) {
+      this.currentSlide = (this.currentSlide + 1) % this.items.length;
+      const offset = this.currentSlide * this.itemWidth;
+      const myAnimation = this.buildAnimation(offset);
+      this.player = myAnimation.create(this.carousel.nativeElement);
+      this.player.play();
     }
   }
 
-  ngOnInit(): void {
-    this.refreshContentWidth();
-    this.refreshLoading();
+  private buildAnimation(offset): AnimationFactory {
+    return this.builder.build([animate(TIMING, style({ transform: `translateX(-${offset}px)` }))]);
+  }
 
-    this.refreshCarousel$.pipe(debounceTime(200)).subscribe(() => {
-      this.refreshContentWidth();
-      this.refreshLoading();
-      this.cdr.markForCheck();
+  prev(): void {
+    if (this.currentSlide !== 0) {
+      this.currentSlide = (this.currentSlide - 1 + this.items.length) % this.items.length;
+      const offset = this.currentSlide * this.itemWidth;
+
+      const myAnimation: AnimationFactory = this.buildAnimation(offset);
+      this.player = myAnimation.create(this.carousel.nativeElement);
+      this.player.play();
+    }
+  }
+
+  constructor(private builder: AnimationBuilder) {}
+
+  ngAfterViewInit(): void {
+    // For some reason only here I need to add setTimeout, in my local env it's working without this.
+    setTimeout(() => {
+      this.itemWidth = this.itemsElements.first.nativeElement.getBoundingClientRect().width;
+      this.carouselWrapperStyle = {
+        width: `${this.itemWidth}px`,
+      };
     });
-
-    this.uiStoreFacade
-      .selectDocumentWidth()
-      .pipe(skip(1), takeUntil(this.destroy$))
-      .subscribe(() => {
-        this.loading = true;
-        this.refreshCarousel$.next();
-      });
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next({});
-  }
-
-  private refreshContentWidth() {
-    this.contentWidth = this.appCarousel.nativeElement.offsetWidth;
-    this.refreshCarouselSize();
-  }
-
-  private refreshCarouselSize() {
-    if (this.contentWidth && this.itemsMaxWidth && this.itemsMaxHeight) {
-      if (this.contentWidth > this.itemsMaxWidth) {
-        this.carouselWidth = this.itemsMaxWidth;
-      } else {
-        this.carouselWidth = this.contentWidth;
-      }
-      this.carouselHeight = (this.carouselWidth * this.itemsMaxHeight) / this.itemsMaxWidth;
-    } else {
-      this.carouselWidth = 0;
-      this.carouselHeight = 0;
-    }
-  }
-
-  private refreshLoading() {
-    if (this.carouselWidth) {
-      this.loading = false;
-    } else {
-      this.loading = true;
-    }
   }
 }
