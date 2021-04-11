@@ -10,15 +10,7 @@ import { CarouselModule } from '../../carousel/carousel.module';
 
 @NgModule({
   declarations: [Meandros2021PageComponent],
-  imports: [
-    CommonModule,
-    Meandros2021RoutingModule,
-    ViewModule,
-    TypographyModule,
-    TwoColumnsLayoutModule,
-    ImgModule,
-    CarouselModule,
-  ],
+  imports: [CommonModule, Meandros2021RoutingModule, ViewModule, TypographyModule, TwoColumnsLayoutModule, ImgModule],
   exports: [Meandros2021PageComponent],
 })
 export class Meandros2021Module {}
