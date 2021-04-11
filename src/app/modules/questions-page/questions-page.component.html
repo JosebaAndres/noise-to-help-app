@@ -3,133 +3,135 @@
     <app-paragraph>
       <app-title-text>FAQ</app-title-text>
     </app-paragraph>
+    <mat-accordion [multi]="true">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title>¿Sois o pertenecéis a alguna ONG?</mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-paragraph>
+          No, ni somos una ONG ni pertenecemos o somos filial de ninguna ONG. Tampoco recibimos ningún tipo de
+          subvención pública o privada ni disponemos de una sede o local propio. Simplemente somos una pequeña
+          asociación de personas a las que les gusta el mundo de la música rock en sus mil variantes (metal, hardcore,
+          alternativo…) y que desean aprovechar su tiempo libre para intentar ayudar a las personas que lo necesiten
+          organizando diferentes actividades relacionadas con la música que nos apasiona.
+        </app-paragraph>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title>¿Realizáis actividades fuera del contexto de la música rock?</mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-paragraph>
+          Si. En la asociación hay hueco para otro tipo de actividades y ejercicios solidarios que no tengan
+          especificidad musical, aunque estas serán las realizadas con carácter complementario al fundamento original de
+          la asociación.
+        </app-paragraph>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title>¿Dónde va destinado el dinero que recaudáis?</mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-paragraph>
+          En cada una de las actividades o proyectos que realizamos quedará fijado claramente el objetivo que queremos
+          conseguir (bienes económicos o materiales) y la ONG a la que irá destinado. Esta ONG irá variando según el
+          objetivo que se ponga en cada caso, por ejemplo, si se quiere hacer una recolecta de alimentos seguramente se
+          elegirá una ONG diferente a si se quiere hacer un evento para recaudar fondos a favor de una causa solidaria
+          más específica (ayuda a enfermos, exclusión social, cooperación internacional, investigación…)
+        </app-paragraph>
+        <app-paragraph>
+          Es importante destacar que en el caso en que una actividad se realice sin una causa específica el dinero
+          generado se donará a favor de la
+          <app-external-link-text link="https://www.openarms.es/es">ONG Open Arms</app-external-link-text>, cuya
+          principal misión es proteger con su presencia en el mar a aquellas personas que intentan llegar a Europa
+          huyendo de conflictos bélicos, persecución o pobreza.
+        </app-paragraph>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title>¿Dónde va el dinero que dono en vuestro favor?</mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-paragraph>
+          La totalidad del dinero que recibimos en las donaciones se invierte en crear y llevar a cabo nuestros
+          diferentes proyectos y eventos solidarios. Con él conseguimos eventos de mayor calidad, mayor difusión y una
+          repercusión lo más amplia posible para intentar conseguir los mejores resultados (económicos o materiales)
+          posibles.
+        </app-paragraph>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title>¿De dónde obtenéis una base económica estable?</mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-paragraph>
+          La base económica que nos sustenta para sufragar los gastos mensuales fijos se basa en la cuota de los socios.
+          Por otra parte, las donaciones y la parte proporcional del merchandising son las encargadas de correr con los
+          gastos que el apoyo de los socios no pueda abarcar en la realización de las actividades. Todo ello irá
+          acompañado de eventos puntuales a realizar para colaborar exclusivamente con la propia asociación en caso de
+          que sea necesario.
+        </app-paragraph>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title>¿Puedo colaborar sin hacerme socio?</mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-paragraph>
+          Por supuesto, te lo explicamos todo por
+          <app-internal-link-text link="/collaborate">aquí</app-internal-link-text>.
+        </app-paragraph>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title>¿Qué ventajas puedo tener como socio?</mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-paragraph>- Presencia en la asamblea con voto y realización de propuestas propias.</app-paragraph>
+        <app-paragraph>- Participar, co-crear y asistir a los eventos que organicemos.</app-paragraph>
+        <app-paragraph>- Newsletter sobre las posibles propuestas y actividades.</app-paragraph>
+        <app-paragraph>- Posibles descuentos en entradas a eventos específicos.</app-paragraph>
+        <app-paragraph>- Formar parte de una comunidad solidaria centrada en el rock.</app-paragraph>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title>Quiero ser socio, ¿cómo se realiza el pago inicial y periódico?</mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-paragraph>
+          Si quieres ser socio te explicamos todo el proceso inicial por
+          <app-internal-link-text link="/partners">aquí</app-internal-link-text>.
+        </app-paragraph>
+        <app-paragraph>
+          Por otra parte, el primer pago que se realiza cuando te asocias es válido para todo ese mismo año.
+          Posteriormente se solicitará de forma anual la cuota de 15€ durante todo el mes de Marzo para, a lo largo de
+          ese mes, que los asociados realicen el ingreso de su cuota pertinente.
+        </app-paragraph>
+        <app-paragraph>
+          Nuestra recomendación personal es que lo dejes domiciliado y te olvidas del pago, no obstante con anterioridad
+          a ese mes se mandará un recordatorio a todos los asociados.
+        </app-paragraph>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title>¿Hay alguna forma de desgravar fiscalmente mi donación?</mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-paragraph>
+          No. Nosotros no somos una ONG, por lo que una donación directa con nosotros no tiene derecho a desgravarse
+          fiscalmente. No obstante, si decides colaborar con nosotros mediante la
+          <app-external-link-text link="https://www.teaming.net/noisetohelp">plataforma Teaming</app-external-link-text>
+          y donar 1€ al mes a la asociación sí que tendrás derecho a desgravación fiscal ya que todo se tramita por
+          medio de la Fundación Teaming.
+        </app-paragraph>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="app-questions-page__item-header">
+          <mat-panel-title
+            >Pertenezco a una banda o soy una persona con una idea interesante pero no tengo un respaldo suficiente para
+            poder llevarla a cabo, ¿me podríais ayudar?</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <app-paragraph>
+          Sin duda, todo es cuestión de que nos expongas tu idea y veremos si podemos colaborar o llegar a un punto en
+          común. Escríbenos a
+          <app-email-link-text email="info@noisetohelp.org">info@noisetohelp.org</app-email-link-text> y nos pondremos
+          en contacto contigo para estudiar la propuesta destacando, a su vez, que la prioridad de las propuestas y
+          proyectos es de los asociados.
+        </app-paragraph>
+      </mat-expansion-panel>
+    </mat-accordion>
   </app-paragraph-group>
-  <mat-accordion [multi]="true">
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title>¿Sois o pertenecéis a alguna ONG?</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-paragraph>
-        No, ni somos una ONG ni pertenecemos o somos filial de ninguna ONG. Tampoco recibimos ningún tipo de subvención
-        pública o privada ni disponemos de una sede o local propio. Simplemente somos una pequeña asociación de personas
-        a las que les gusta el mundo de la música rock en sus mil variantes (metal, hardcore, alternativo…) y que desean
-        aprovechar su tiempo libre para intentar ayudar a las personas que lo necesiten organizando diferentes
-        actividades relacionadas con la música que nos apasiona.
-      </app-paragraph>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title>¿Realizáis actividades fuera del contexto de la música rock?</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-paragraph>
-        Si. En la asociación hay hueco para otro tipo de actividades y ejercicios solidarios que no tengan especificidad
-        musical, aunque estas serán las realizadas con carácter complementario al fundamento original de la asociación.
-      </app-paragraph>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title>¿Dónde va destinado el dinero que recaudáis?</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-paragraph>
-        En cada una de las actividades o proyectos que realizamos quedará fijado claramente el objetivo que queremos
-        conseguir (bienes económicos o materiales) y la ONG a la que irá destinado. Esta ONG irá variando según el
-        objetivo que se ponga en cada caso, por ejemplo, si se quiere hacer una recolecta de alimentos seguramente se
-        elegirá una ONG diferente a si se quiere hacer un evento para recaudar fondos a favor de una causa solidaria más
-        específica (ayuda a enfermos, exclusión social, cooperación internacional, investigación…)
-      </app-paragraph>
-      <app-paragraph>
-        Es importante destacar que en el caso en que una actividad se realice sin una causa específica el dinero
-        generado se donará a favor de la
-        <app-external-link-text link="https://www.openarms.es/es">ONG Open Arms</app-external-link-text>, cuya principal
-        misión es proteger con su presencia en el mar a aquellas personas que intentan llegar a Europa huyendo de
-        conflictos bélicos, persecución o pobreza.
-      </app-paragraph>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title>¿Dónde va el dinero que dono en vuestro favor?</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-paragraph>
-        La totalidad del dinero que recibimos en las donaciones se invierte en crear y llevar a cabo nuestros diferentes
-        proyectos y eventos solidarios. Con él conseguimos eventos de mayor calidad, mayor difusión y una repercusión lo
-        más amplia posible para intentar conseguir los mejores resultados (económicos o materiales) posibles.
-      </app-paragraph>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title>¿De dónde obtenéis una base económica estable?</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-paragraph>
-        La base económica que nos sustenta para sufragar los gastos mensuales fijos se basa en la cuota de los socios.
-        Por otra parte, las donaciones y la parte proporcional del merchandising son las encargadas de correr con los
-        gastos que el apoyo de los socios no pueda abarcar en la realización de las actividades. Todo ello irá
-        acompañado de eventos puntuales a realizar para colaborar exclusivamente con la propia asociación en caso de que
-        sea necesario.
-      </app-paragraph>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title>¿Puedo colaborar sin hacerme socio?</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-paragraph>
-        Por supuesto, te lo explicamos todo por
-        <app-internal-link-text link="/collaborate">aquí</app-internal-link-text>.
-      </app-paragraph>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title>¿Qué ventajas puedo tener como socio?</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-paragraph>- Presencia en la asamblea con voto y realización de propuestas propias.</app-paragraph>
-      <app-paragraph>- Participar, co-crear y asistir a los eventos que organicemos.</app-paragraph>
-      <app-paragraph>- Newsletter sobre las posibles propuestas y actividades.</app-paragraph>
-      <app-paragraph>- Posibles descuentos en entradas a eventos específicos.</app-paragraph>
-      <app-paragraph>- Formar parte de una comunidad solidaria centrada en el rock.</app-paragraph>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title>Quiero ser socio, ¿cómo se realiza el pago inicial y periódico?</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-paragraph>
-        Si quieres ser socio te explicamos todo el proceso inicial por
-        <app-internal-link-text link="/partners">aquí</app-internal-link-text>.
-      </app-paragraph>
-      <app-paragraph>
-        Por otra parte, el primer pago que se realiza cuando te asocias es válido para todo ese mismo año.
-        Posteriormente se solicitará de forma anual la cuota de 15€ durante todo el mes de Marzo para, a lo largo de ese
-        mes, que los asociados realicen el ingreso de su cuota pertinente.
-      </app-paragraph>
-      <app-paragraph>
-        Nuestra recomendación personal es que lo dejes domiciliado y te olvidas del pago, no obstante con anterioridad a
-        ese mes se mandará un recordatorio a todos los asociados.
-      </app-paragraph>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title>¿Hay alguna forma de desgravar fiscalmente mi donación?</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-paragraph>
-        No. Nosotros no somos una ONG, por lo que una donación directa con nosotros no tiene derecho a desgravarse
-        fiscalmente. No obstante, si decides colaborar con nosotros mediante la
-        <app-external-link-text link="https://www.teaming.net/noisetohelp">plataforma Teaming</app-external-link-text> y
-        donar 1€ al mes a la asociación sí que tendrás derecho a desgravación fiscal ya que todo se tramita por medio de
-        la Fundación Teaming.
-      </app-paragraph>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header class="app-questions-page__item-header">
-        <mat-panel-title
-          >Pertenezco a una banda o soy una persona con una idea interesante pero no tengo un respaldo suficiente para
-          poder llevarla a cabo, ¿me podríais ayudar?</mat-panel-title
-        >
-      </mat-expansion-panel-header>
-      <app-paragraph>
-        Sin duda, todo es cuestión de que nos expongas tu idea y veremos si podemos colaborar o llegar a un punto en
-        común. Escríbenos a
-        <app-email-link-text email="info@noisetohelp.org">info@noisetohelp.org</app-email-link-text> y nos pondremos en
-        contacto contigo para estudiar la propuesta destacando, a su vez, que la prioridad de las propuestas y proyectos
-        es de los asociados.
-      </app-paragraph>
-    </mat-expansion-panel>
-  </mat-accordion>
 </app-view>
