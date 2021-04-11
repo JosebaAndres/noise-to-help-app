@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DonateToys2020PageRoutingModule {}
+export class DonateToys2020RoutingModule {}
