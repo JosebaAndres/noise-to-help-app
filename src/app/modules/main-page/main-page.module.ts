@@ -7,6 +7,8 @@ import { TypographyModule } from '../typography/typography.module';
 import { CardModule } from '../card/card.module';
 import { ImgModule } from '../img/img.module';
 import { TwoColumnsLayoutModule } from '../two-columns-layout/two-columns-layout.module';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -18,6 +20,8 @@ import { TwoColumnsLayoutModule } from '../two-columns-layout/two-columns-layout
     CardModule,
     ImgModule,
     TwoColumnsLayoutModule,
+    MatButtonModule,
+    RouterModule,
   ],
   exports: [MainPageComponent],
 })
