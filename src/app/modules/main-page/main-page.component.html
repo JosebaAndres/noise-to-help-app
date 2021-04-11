@@ -63,10 +63,10 @@
       </app-card>
     </div>
   </app-paragraph-group>
-  <div class="app-main-page__events">
-    <app-paragraph-group>
-      <app-two-columns-layout>
-        <app-two-columns-layout-item>
+  <app-paragraph-group>
+    <app-two-columns-layout>
+      <app-two-columns-layout-item>
+        <app-paragraph>
           <app-card
             [title]="'Donación y recogida de zapatillas deportivas &quot;Los Meandros de Briones&quot;'"
             [subtitle]="'04-05/2021 - Briones, Logroño, Haro y Arnedo (La Rioja)'"
@@ -85,9 +85,14 @@
                 >Fundacion Mozambique sur</app-external-link-text
               ></app-list-item-paragraph
             >
+            <app-paragraph>
+              <app-internal-link-text link="/events/meandros-2021">+ Info</app-internal-link-text>
+            </app-paragraph>
           </app-card>
-        </app-two-columns-layout-item>
-        <app-two-columns-layout-item>
+        </app-paragraph>
+      </app-two-columns-layout-item>
+      <app-two-columns-layout-item>
+        <app-paragraph>
           <app-card
             [title]="'Donación y recogida solidaria'"
             [subtitle]="'26-27/12/2020 - Casa de Cultura - Briones (La Rioja)'"
@@ -110,8 +115,8 @@
               <app-internal-link-text link="/events/donate-toys-2020">+ Info</app-internal-link-text>
             </app-paragraph>
           </app-card>
-        </app-two-columns-layout-item>
-      </app-two-columns-layout>
-    </app-paragraph-group>
-  </div>
+        </app-paragraph>
+      </app-two-columns-layout-item>
+    </app-two-columns-layout>
+  </app-paragraph-group>
 </app-view>
