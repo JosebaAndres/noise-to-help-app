@@ -1,0 +1,13 @@
+@import '../../../assets/scss/settings/sizes.scss';
+@import '../../../assets/scss/settings/margins.scss';
+@import '../../../assets/scss/settings/colors.scss';
+
+.app-alert {
+  font-weight: 500;
+  padding: 0 $horizontal-margin-m;
+  line-height: 36px;
+  border-radius: $border-radius-m;
+  &--info {
+    background-color: $info-200-color;
+  }
+}

@@ -9,6 +9,7 @@ import { ImgModule } from '../img/img.module';
 import { TwoColumnsLayoutModule } from '../two-columns-layout/two-columns-layout.module';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { AlertModule } from '../alert/alert.module';
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     TwoColumnsLayoutModule,
     MatButtonModule,
     RouterModule,
+    AlertModule,
   ],
   exports: [MainPageComponent],
 })
