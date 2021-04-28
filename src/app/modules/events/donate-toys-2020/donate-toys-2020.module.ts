@@ -7,6 +7,7 @@ import { TypographyModule } from '../../typography/typography.module';
 import { ImgModule } from '../../img/img.module';
 import { TwoColumnsLayoutModule } from '../../two-columns-layout/two-columns-layout.module';
 import { CarouselModule } from '../../carousel/carousel.module';
+import { AlertModule } from '../../alert/alert.module';
 
 @NgModule({
   declarations: [DonateToys2020PageComponent],
@@ -18,6 +19,7 @@ import { CarouselModule } from '../../carousel/carousel.module';
     TwoColumnsLayoutModule,
     ImgModule,
     CarouselModule,
+    AlertModule,
   ],
   exports: [DonateToys2020PageComponent],
 })
