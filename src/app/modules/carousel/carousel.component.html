@@ -1,11 +1,11 @@
-<div class="app-carousel" #appCarousel>
+<div class="app-carousel" #carousel>
   <div
     class="app-carousel__wrapper"
     *ngIf="!(loading$ | async)"
     [style.width.px]="carouselWidth$ | async"
     [style.height.px]="carouselHeight$ | async"
   >
-    <div class="app-carousel__content">
+    <div class="app-carousel__content" #carouselContent>
       <div
         *ngFor="let item of items"
         class="app-carousel__item"
@@ -15,10 +15,22 @@
         <ng-container [ngTemplateOutlet]="item.template"></ng-container>
       </div>
     </div>
-    <button class="app-carousel__previous-button" mat-mini-fab aria-label="Previous">
+    <button
+      class="app-carousel__previous-button"
+      mat-mini-fab
+      aria-label="Previous"
+      (click)="previous()"
+      [disabled]="currentSlideIsFirst"
+    >
       <mat-icon svgIcon="arrow-left"></mat-icon>
     </button>
-    <button class="app-carousel__next-button" mat-mini-fab aria-label="Next">
+    <button
+      class="app-carousel__next-button"
+      mat-mini-fab
+      aria-label="Next"
+      (click)="next()"
+      [disabled]="currentSlideIsLast"
+    >
       <mat-icon svgIcon="arrow-right"></mat-icon>
     </button>
   </div>
