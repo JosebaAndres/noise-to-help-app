@@ -1,7 +1,7 @@
-<div class="app-carousel" #carousel>
+<div class="app-carousel">
+  <div class="app-carousel__size-element" #carouselSizeElement></div>
   <div
     class="app-carousel__wrapper"
-    *ngIf="!(loading$ | async)"
     [style.width.px]="carouselWidth$ | async"
     [style.height.px]="carouselHeight$ | async"
   >
@@ -33,5 +33,6 @@
     >
       <mat-icon svgIcon="arrow-right"></mat-icon>
     </button>
+    <app-carousel-dots class="app-carousel__dots"> </app-carousel-dots>
   </div>
 </div>

@@ -27,7 +27,7 @@ import { CarouselService } from './carousel-service';
 export class CarouselComponent implements OnInit, OnChanges {
   private currentSlide = 0;
 
-  @ViewChild('carousel', { static: true }) carousel: ElementRef<HTMLDivElement>;
+  @ViewChild('carouselSizeElement', { static: true }) carouselSizeElement: ElementRef<HTMLElement>;
 
   @ViewChild('carouselContent', { static: false }) carouselContent: ElementRef<HTMLDivElement>;
 
@@ -39,7 +39,6 @@ export class CarouselComponent implements OnInit, OnChanges {
 
   @ContentChildren(CarouselItemDirective) items: QueryList<CarouselItemDirective>;
 
-  loading$: Observable<boolean>;
   carouselWidth$: Observable<number>;
   carouselHeight$: Observable<number>;
 
@@ -51,7 +50,6 @@ export class CarouselComponent implements OnInit, OnChanges {
     private builder: AnimationBuilder,
     private cdr: ChangeDetectorRef,
   ) {
-    this.loading$ = this.carouselService.loading$;
     this.carouselWidth$ = this.carouselService.carouselWidth$;
     this.carouselHeight$ = this.carouselService.carouselHeight$;
   }
@@ -60,7 +58,7 @@ export class CarouselComponent implements OnInit, OnChanges {
     return this.builder.build([animate('250ms ease-in', style({ transform: `translateX(-${offset}px)` }))]);
   }
 
-  private refreshCurrentSlideIsFirst() {
+  private refreshCurrentSlideIsFirst(): void {
     if (this.currentSlide === 0 && this.currentSlideIsFirst === false) {
       this.currentSlideIsFirst = true;
       this.cdr.markForCheck();
@@ -70,7 +68,7 @@ export class CarouselComponent implements OnInit, OnChanges {
     }
   }
 
-  private refreshCurrentSlideIsLast() {
+  private refreshCurrentSlideIsLast(): void {
     if (this.currentSlide + 1 === this.items.length && this.currentSlideIsLast === false) {
       this.currentSlideIsLast = true;
       this.cdr.markForCheck();
@@ -87,7 +85,7 @@ export class CarouselComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.carouselService.setAppCarousel(this.carousel);
+    this.carouselService.setAppCarousel(this.carouselSizeElement);
   }
 
   previous(): void {

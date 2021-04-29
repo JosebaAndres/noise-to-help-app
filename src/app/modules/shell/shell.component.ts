@@ -8,16 +8,6 @@ import { DeviceType } from 'src/app/models/device-type';
 import { SignatureModel } from 'src/app/models/signature-model';
 import { UiStoreFacade } from 'src/app/stores/ui/ui-store-facade';
 import { MenuItemModel } from '../../models/menu-item-model';
-import {
-  uiStoreActionCloseMenu,
-  uiStoreActionOpenMenu,
-  uiStoreActionSetScrollTop,
-} from '../../stores/ui/ui-store-actions';
-import {
-  uiStoreSelectDeviceType,
-  uiStoreSelectMenuOpened,
-  uiStoreSelectSignatures,
-} from '../../stores/ui/ui-store-selectors';
 
 @Component({
   selector: 'app-shell',

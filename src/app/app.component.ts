@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { Component } from '@angular/core';
-import { uiStoreActionSetDeviceWidth, uiStoreActionSetDocumentWidth } from './stores/ui/ui-store-actions';
 import { UiStoreFacade } from './stores/ui/ui-store-facade';
 
 @Component({

@@ -2,6 +2,10 @@
 @import '../../../assets/scss/settings/colors.scss';
 @import '../../../assets/scss/settings/margins.scss';
 
+.app-carousel {
+  position: relative;
+}
+
 .app-carousel__wrapper {
   overflow: hidden;
   position: relative;
@@ -24,4 +28,19 @@
   top: 50%;
   right: 8px;
   transform: translate(0%, -50%);
+}
+
+.app-carousel__dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.app-carousel__size-element {
+  height: 1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: red;
 }
