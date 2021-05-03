@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
@@ -24,6 +24,11 @@ export class ShellComponent implements OnInit, OnDestroy {
   signatures$: Observable<Array<SignatureModel>>;
 
   @ViewChild('mainContent', { static: true, read: ElementRef }) mainContent: ElementRef<HTMLElement>;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    this.refreshDocumentWidth();
+  }
 
   constructor(
     private uiStoreFacade: UiStoreFacade,
@@ -66,6 +71,10 @@ export class ShellComponent implements OnInit, OnDestroy {
         }
       });
 
+    this.refreshDocumentWidth();
+    this.uiStoreFacade.imgLoaded$.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      this.refreshDocumentWidth();
+    });
     this.mainContent.nativeElement.addEventListener('scroll', () => {
       this.uiStoreFacade.scrollTop(this.mainContent.nativeElement.scrollTop);
     });
@@ -85,5 +94,11 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.destroy$.next({});
+  }
+
+  private refreshDocumentWidth() {
+    if (this.mainContent) {
+      this.uiStoreFacade.setDocumentWidth(this.mainContent.nativeElement.scrollWidth);
+    }
   }
 }

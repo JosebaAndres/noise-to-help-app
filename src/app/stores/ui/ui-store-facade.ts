@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { DeviceType } from 'src/app/models/device-type';
 import { MediaQueryAlias } from 'src/app/models/media-query-alias';
 import { MenuItemModel } from 'src/app/models/menu-item-model';
@@ -30,7 +30,13 @@ import { UiStoreState } from './ui-store-state';
 
 @Injectable()
 export class UiStoreFacade {
-  constructor(private uiStore$: Store<UiStoreState>) {}
+  private imgLoadedSubject = new Subject<void>();
+
+  imgLoaded$: Observable<void>;
+
+  constructor(private uiStore$: Store<UiStoreState>) {
+    this.imgLoaded$ = this.imgLoadedSubject.asObservable();
+  }
 
   selectSubMenuItems(): Observable<Array<MenuItemModel>> {
     return this.uiStore$.select(uiStoreSelectSubMenuItems);
@@ -98,5 +104,9 @@ export class UiStoreFacade {
 
   setDocumentWidth(documentWidth: number): void {
     this.uiStore$.dispatch(uiStoreActionSetDocumentWidth(documentWidth));
+  }
+
+  imgLoaded() {
+    this.imgLoadedSubject.next();
   }
 }

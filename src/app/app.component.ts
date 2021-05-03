@@ -12,11 +12,9 @@ export class AppComponent {
   @HostListener('window:resize', ['$event'])
   onResize(): void {
     this.uiStoreFacade.setDeviceWidth(window.innerWidth);
-    this.uiStoreFacade.setDocumentWidth(window.innerWidth);
   }
 
   constructor(private uiStoreFacade: UiStoreFacade) {
     this.uiStoreFacade.setDeviceWidth(window.innerWidth);
-    this.uiStoreFacade.setDocumentWidth(window.innerWidth);
   }
 }
