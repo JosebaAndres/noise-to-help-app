@@ -6,11 +6,19 @@ import { Meandros2021RoutingModule } from './meandros-2021-routing.module';
 import { TypographyModule } from '../../typography/typography.module';
 import { ImgModule } from '../../img/img.module';
 import { TwoColumnsLayoutModule } from '../../two-columns-layout/two-columns-layout.module';
-import { CarouselModule } from '../../carousel/carousel.module';
+import { AlertModule } from '../../alert/alert.module';
 
 @NgModule({
   declarations: [Meandros2021PageComponent],
-  imports: [CommonModule, Meandros2021RoutingModule, ViewModule, TypographyModule, TwoColumnsLayoutModule, ImgModule],
+  imports: [
+    CommonModule,
+    Meandros2021RoutingModule,
+    ViewModule,
+    TypographyModule,
+    TwoColumnsLayoutModule,
+    ImgModule,
+    AlertModule,
+  ],
   exports: [Meandros2021PageComponent],
 })
 export class Meandros2021Module {}
