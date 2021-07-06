@@ -7,6 +7,7 @@ import { TypographyModule } from '../../typography/typography.module';
 import { ImgModule } from '../../img/img.module';
 import { TwoColumnsLayoutModule } from '../../two-columns-layout/two-columns-layout.module';
 import { AlertModule } from '../../alert/alert.module';
+import { CarouselModule } from '../../carousel/carousel.module';
 
 @NgModule({
   declarations: [Meandros2021PageComponent],
@@ -18,6 +19,7 @@ import { AlertModule } from '../../alert/alert.module';
     TwoColumnsLayoutModule,
     ImgModule,
     AlertModule,
+    CarouselModule,
   ],
   exports: [Meandros2021PageComponent],
 })
